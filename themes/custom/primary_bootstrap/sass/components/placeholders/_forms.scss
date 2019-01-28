@@ -1,0 +1,168 @@
+%form,
+form,
+.form {//Form Container
+  margin: $slug-height / 3 0;
+  @include clearfix;
+  fieldset {
+    @include clearfix;
+    padding: 1em;
+    border: none;
+    clear: both;
+  }
+  legend {//Legends
+    //background-color: #fff;
+    width: auto;
+    //padding: .5em 1em;
+    //margin: .5em;
+    margin: 1em 0;
+    border-bottom: none;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  label {//Labels
+    // padding: .25em .625em;
+    padding: .25em 0;
+    margin-top: .3125em;
+    margin-bottom: 0;
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    input[type="checkbox"],
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+  }
+  //Input Fields
+  input,
+    //input.box,
+  textarea,
+  select {
+    padding: $slug-height/9.230769230769231 $grid-gutter-width/2;
+    // border: none;
+    //border: $default-border;
+    //box-shadow: $global-color-gray-1 1px 1px 5px inset;
+    background-color: #fff;
+    //border-radius: 5px;
+    border: $gray-border-2;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: none;
+    height: auto;
+    font-size: $font-size-base/1.125;
+    line-height: 1;
+    vertical-align: middle;
+    display: block;
+    width: 100%;
+    margin: 0;
+    // &:focus {//Focus style defined in _html.scss
+    // }
+    @media only screen and (min-width: $screen-sm) {
+      display: inline-block;
+      width: auto;
+      max-width: 100%;
+    }
+    &[type="image"] {
+      padding: 0;
+      vertical-align: middle;
+      border: none;
+    }
+  }
+  textarea {
+    min-height: 12.5em;
+  }
+  keygen {
+  }
+  input {
+    &[type="checkbox"],
+    &[type="radio"],
+    &[type="range"] {
+      box-shadow: none;
+      min-height: .8125em;
+    }
+    &[type="color"] {
+      height: 2.1875em;
+      width: 2.1875em;
+      padding: 0 .25em;
+    }
+    &[type="checkbox"],
+    &[type="radio"] {
+      width: 1.25em;
+      height: 1.25em;
+      vertical-align: middle;
+    }
+    &[type="color"],
+    &[type="checkbox"],
+    &[type="radio"] {
+      border: none;
+      margin: 0;
+      @media screen and (max-width:  $screen-sm) {
+        display: inline-block;
+      }
+      &#rememberme {
+        border: 1px solid #ddd;
+        width: 21px;
+        height: 21px;
+        &:before {
+          margin: 0px 0 0 -1px;
+        }
+      }
+
+    }
+    //&[type="radio"] {
+    //  position: absolute;
+    //  visibility: hidden;
+    //  & + label {
+    //    position: relative;
+    //    &:hover {
+    //      cursor: pointer;
+    //    }
+    //    &:before {
+    //      content: "";
+    //      width: 20px;
+    //      height: 20px;
+    //      background-color: #fff;
+    //      border: 3px solid #fff;
+    //      border-radius: 50%;
+    //      position: absolute;
+    //      right: 100%;
+    //      margin-top: -5px;
+    //      margin-left: 15px;
+    //    }
+    //  }
+    //  &:checked {
+    //    & + label {
+    //      &:before {
+    //        background-color: $global-color-tertiary;
+    //      }
+    //    }
+    //  }
+    //}
+  }
+
+  //Override bootstrap styles
+  .radio input[type="radio"],
+  .radio-inline input[type="radio"],
+  .checkbox input[type="checkbox"],
+  .checkbox-inline input[type="checkbox"]  {
+    position: relative;
+    margin: 0;
+  }
+
+  //Buttons
+  button,
+  input[type="button"],
+  input[type="submit"] {
+    @extend %button;
+    display: block;
+    vertical-align: middle;
+    width: 100%;
+    @media only screen and (min-width: $screen-sm) {
+      display: inline-block;
+      width: auto;
+    }
+  }
+  //Placeholders
+  @include placeholder {
+    color: $global-color-gray-3;
+  }
+}

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the Domain Access module.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * Installs the domain admin field on users.
+ */
+function domain_install() {
+  _domain_configure_field();
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Installs the domain admin field on users.
+ */
+function domain_update_8001() {
+  _domain_configure_field();
+}
+
+/**
+ * Configures user form display to checkboxes widget for domain admin field.
+ */
+function _domain_configure_field() {
+  // @TODO: This function is deprecated, but using the OO syntax is causing
+  // test fails.
+  entity_get_form_display('user', 'user', 'default')
+    ->setComponent(DOMAIN_ADMIN_FIELD, array(
+      'type' => 'options_buttons',
+      'weight' => 50,
+    ))
+    ->save();
+}

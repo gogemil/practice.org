@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "styles.min.css",
+	"sources": [
+		"sass/bfred_bootstrap.scss"
+	],
+	"mappings": "",
+	"names": []
+}

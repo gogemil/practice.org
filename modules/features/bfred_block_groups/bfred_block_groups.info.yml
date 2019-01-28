@@ -1,0 +1,14 @@
+name: 'Block Groups'
+description: 'This will create some Block Reference and Block Reference Wrapper block types that allow setting up a series of nested blocks. This is useful for setting up columns in a region such as the footer. The nested blocks can be custom blocks or system blocks.'
+type: module
+core: 8.x
+dependencies:
+  - bfred_nested_blocks
+  - block
+  - block_content
+  - field
+  - inline_entity_form
+  - text
+  - workbench_moderation
+version: ' 8.x-1.0'
+package: Beaconfire-RED

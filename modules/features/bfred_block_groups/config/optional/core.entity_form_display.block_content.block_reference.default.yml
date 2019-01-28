@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_reference
+    - field.field.block_content.block_reference.field_block_ref
+    - field.field.block_content.block_reference.field_custom_block_ref
+  module:
+    - inline_entity_form
+    - workbench_moderation
+id: block_content.block_reference.default
+targetEntityType: block_content
+bundle: block_reference
+mode: default
+content:
+  field_block_ref:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+  field_custom_block_ref:
+    weight: 1
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

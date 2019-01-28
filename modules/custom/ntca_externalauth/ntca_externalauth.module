@@ -1,0 +1,45 @@
+<?php
+
+/**
+* @file
+* SimpleSAMLphp authentication module for Drupal.
+*
+* This authentication module is pretty simple - intercept the login, try to go to an external service to validate user first.
+* Then, typical SSO logic - if your local account exists, modify it, otherwise create it.
+*/
+
+use Drupal\Core\Url;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ntca_externalauth_form_user_login_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+    $form['#action'] = "/ntca_externalauth/login";
+}
+
+
+/**
+ * Just remove two external domain cookies
+ * @param $account
+ */
+function ntca_externalauth_user_logout($account) {
+  $sHostname = $_SERVER['HTTP_HOST'];
+  $aHostParts = explode('.', $sHostname);
+
+  $sDomain = '';
+  if (sizeof($aHostParts) >= 2) {
+    $sDomain = implode('.', array_slice($aHostParts, -2, 2));
+  }
+
+  // Logins from the ACGI AMS account create cookies with lowercase names.
+  setcookie('ssisid', '', 0, '/', $sDomain);
+  setcookie('p_cust_id', '', 0, '/', $sDomain);
+  setcookie('ssalogin', '', 0, '/', $sDomain);
+  setcookie('localextlogin', '', 0, '/', $sDomain);
+  // Preserve legacy capitalization (cookies can be read in diff. caps, but can't be destroyed in such a fashion)
+  setcookie('SSISID', '', 0, '/', $sDomain);
+  setcookie('P_CUST_ID', '', 0, '/', $sDomain);
+  setcookie('SSALOGIN', '', 0, '/', $sDomain);
+}

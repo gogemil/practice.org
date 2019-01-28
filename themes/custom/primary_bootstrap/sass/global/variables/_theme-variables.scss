@@ -1,0 +1,66 @@
+//Layout
+$site-width: 						$container-lg;//used as max-width throughout. Layout is fluid below this. "container-lg is a bootstrap var" ($screen-lg-min + gutters)
+$slug-height:                       $grid-gutter-width*3;//bootstrap var
+
+//Typography
+$body-font:							$font-family-sans-serif-secondary;//bootstrap var
+$header-font:						$font-family-sans-serif;//bootstrap var
+$alt-font:							$font-family-sans-serif-condensed;//bootstrap var
+$system-font:						$font-family-monospace;//bootstrap var
+
+//Colors
+$global-color-primary:				#0073ae;// blue
+$global-color-secondary:			#6cb33f;// green
+$global-color-tertiary:				#fdb913;// yellow
+$global-color-quaternary:			#dbf2fe;// light blue
+$global-color-quinary:				#f3f1ed;//light orange
+//$global-color-senary:				#ffcc00;//Default Yellow
+//$global-color-septenary:			#e5f3fc;//Default Light Blue
+//$global-color-octonary:				#51711c;//Default Darker Green
+//$global-color-nonary:				#c0ea78;//Default Lighter Green
+//$global-color-denary:				#055e9a; //Default
+//$global-color-undenary:				#eceef2; //Default
+//$global-color-duodenary:			#f4f4f4; //Default
+//$global-color-tredenary:			#768190; //Default
+$global-color-gray-1:				$gray-darker;//Bootstrap var #222
+$global-color-gray-2:				$gray-dark;//Bootstrap var #333
+$global-color-gray-3:               $gray;//Bootstrap var #555
+$global-color-gray-4:               $gray-light;//Bootstrap var #777
+$global-color-gray-5:               $gray-lighter;//Bootstrap var #eee
+$global-color-gray-6:               #f3f1ed;
+$global-color-gray-7:               #999;
+$global-color-gray-8:               #666;
+$global-color-gray-9:               #ccc;
+
+//Logo Colors
+$logo-color-facebook:		    #3b5998; //default
+$logo-color-twitter:			#4099ff; //default
+$logo-color-instagram:		    #3b5998; //default
+$logo-color-instagram:		    #adc41c; //default
+$logo-color-youtube:			#bb0000; //default
+$logo-color-linkedin:			#007bb6; //default
+$logo-color-adobe-pdf:          #bb0706; //default
+
+//Content Colors
+$body-text-color:					$global-color-gray-2;
+$h1-color:							$body-text-color;
+$h2-color:							$body-text-color;
+$h3-color:							$body-text-color;
+$h4-color:							$body-text-color;
+$h5-color:							$body-text-color;
+$h6-color:							$global-color-primary;
+$link-color:						$global-color-primary;
+$link-hover-color:					$link-color;
+$white-border:						1px solid #fff;
+$black-border:						1px solid #000;
+$gray-border-1:						1px solid $global-color-gray-1;
+$gray-border-2:						1px solid $global-color-gray-2;
+$gray-border-3:						1px solid $global-color-gray-3;
+$gray-border-4:						1px solid $global-color-gray-4;
+$gray-border-5:						1px solid $global-color-gray-5;
+$gray-border-6:						1px solid $global-color-gray-6;
+$gray-border-7:						1px solid $global-color-gray-7;
+$gray-border-8:						1px solid $global-color-gray-8;
+$gray-border-9:						1px solid $global-color-gray-9;
+$callout-box-bgcolor:				$global-color-quinary;
+$default-text-shadow:				2px 2px 2px #000;

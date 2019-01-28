@@ -1,0 +1,7 @@
+loginform_js:
+  version: 1.x
+  js:
+    js/loginformdestinationchange2.js: {}
+    js/js.cookie.js: {}
+  dependencies:
+    - core/jquery

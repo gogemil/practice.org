@@ -1,0 +1,68 @@
+uuid: a41b9421-1dcd-46cf-9601-9a45df8224a4
+langcode: en
+status: true
+dependencies: {  }
+id: federalfiling
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Import Federal Filing'
+source:
+  plugin: csv
+  path: sites/default/files/import/federalfiling.txt
+  delimiter: '	'
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - 'URL'
+  constants:
+    rich_text: rich_text
+process:
+  type:
+    plugin: default_value
+    default_value: federal_filing
+  field_imported_url: URL
+  field_access_control_ref:
+    -
+      plugin: default_value
+      default_value: 'Public'
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: 'access_control'
+      bundle_key: vid
+      value_key: name
+
+  title: Title
+  body/value:
+    -
+      plugin: ntca_linkparser
+      source: Content
+    -
+      plugin: ntca_resolveems
+  body/format: constants/rich_text
+  field_date:
+    plugin: ntca_simpledateconverter
+    source: 'Created Date'
+
+  field_filing_type:
+    plugin: default_value
+    default_value: federalfiling
+
+  sticky:
+    plugin: default_value
+    default_value: 0
+  status:
+    plugin: default_value
+    default_value: 1
+  promote:
+    plugin: default_value
+    default_value: 0
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

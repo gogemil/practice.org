@@ -1,0 +1,41 @@
+# Normal path, form submission
+ntca_externalauth.login:
+  path: '/ntca_externalauth/login'
+  defaults:
+    _form: '\Drupal\ntca_externalauth\Form\UserLoginForm'
+    _title: 'Log in'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+  options:
+    _maintenance_access: TRUE
+
+# JSON post path, unsure if used
+ntca_externalauth.login.http:
+  path: '/ntca_externalauth/login'
+  defaults:
+    _controller: '\Drupal\ntca_externalauth\Controller\UserAuthenticationController::login'
+  methods: [POST]
+  requirements:
+    _user_is_logged_in: 'FALSE'
+    _format: 'json'
+
+ntca_externalauth.loginwithtoken:
+  path: '/ntca_externalauth/loginwithtoken'
+  defaults:
+    _controller: '\Drupal\ntca_externalauth\Controller\UserAuthenticationController::loginWithToken'
+  requirements:
+    _user_is_logged_in: 'FALSE'
+
+#ntca_externalauth.test:
+#  path: '/miro'
+#  defaults:
+#    _controller: '\Drupal\ntca_externalauth\Controller\NTCAExternalAuthController::content'
+#  requirements:
+#    _permission: 'access content'
+
+ntca_externalauth.getrawcreds:
+  path: '/ntca_externalauth/getrawcreds'
+  defaults:
+    _controller: '\Drupal\ntca_externalauth\Controller\NTCAExternalAuthController::getRawCreds'
+  requirements:
+    _permission: 'access content'

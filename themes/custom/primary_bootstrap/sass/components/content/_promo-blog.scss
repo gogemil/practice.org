@@ -1,0 +1,87 @@
+.paragraph--type--promo-content-blog {
+  @include make-row();
+  background-color: #fff;
+  border: $gray-border-7;
+  padding: $slug-height/1.5 $grid-gutter-width*2;
+  .card-image-wrapper {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    @include aspect-ratio(5,4);
+    margin-bottom: $slug-height/2;
+    overflow: hidden;
+    @media only screen and (min-width: $screen-sm) {
+      margin-bottom: 0;
+    }
+    .item--paragraph--type--promo-content-blog.even & {
+      float: right;
+    }
+  }
+  .field--name-field-card-image {
+    @extend .content;
+    img {
+      width: 100%;
+    }
+  }
+  .promo-content {
+    @include make-xs-column(12);
+    @include make-sm-column(8);
+    margin-bottom: $slug-height/2;
+    @media only screen and (min-width: $screen-sm) {
+      margin-bottom: 0;
+      padding-left: $grid-gutter-width*2;
+    }
+    .item--paragraph--type--promo-content-blog.even & {
+      float: right;
+    }
+  }
+  .field--name-field-blog-name-text {
+    color: $global-color-gray-8;
+    font-size: $font-size-base;
+    font-family: $header-font;
+    font-weight: 400;
+    margin-bottom: $slug-height/3;
+    text-transform: uppercase;
+  }
+  .section-title {
+    @extend .h1;
+    //color: $global-color-primary;
+    font-size: $font-size-base*1.555555555555556;
+    margin-top: 0;
+  }
+  .field--name-field-body {
+    p {
+      font-size: $font-size-base*1.222222222222222;
+      font-weight: 400;
+      line-height: 1.272727272727273;
+      &:last-child {
+        display: inline;
+      }
+    }
+  }
+  .field--name-field-link {
+    margin-top: $slug-height/3;
+  }
+}
+
+.item--paragraph--type--blog-grid-3-up- {
+  margin-top: $slug-height;
+}
+.paragraph--type--blog-grid-3-up- {
+  border: $gray-border-7;
+  //padding: $slug-height 0;
+  padding: 0 $grid-gutter-width/2;
+  .section-title {
+    @extend .h1;
+    margin-bottom: $slug-height/2;
+    text-align: center;
+  }
+}
+.field--name-field-blog-items-3-up- {
+  @include make-row();
+  .item--paragraph--type--promo-content-blog {
+    @include make-xs-column(12);
+  }
+  .paragraph--type--promo-content-blog {
+    border: none;
+  }
+}

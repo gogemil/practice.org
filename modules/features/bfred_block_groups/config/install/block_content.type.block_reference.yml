@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: block_reference
+label: 'Block Reference'
+revision: 1
+description: 'Use this to nest a block inside of a Block Reference Wrapper.'

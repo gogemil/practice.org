@@ -1,0 +1,24 @@
+.paragraph--type--grid-type-5 {
+  padding: 0 $grid-gutter-width/2;
+}
+.field--name-field-grid-items-5 {
+  @include card-grid;
+  @extend .five-columns;
+  > .item--paragraph--type--grid-item-simple-card-5 {
+    @extend .card;
+    padding: 0;
+  }
+  .paragraph--type--grid-item-simple-card-5 {
+    @include card-layout-5up-blue;
+    .section--frs &,
+    .default-domain--frs-org & {
+      @include card-layout-5up-white;
+    }
+  }
+  .card-image-wrapper {}
+  .field--name-field-card-image {}
+  .content-area {}
+  .field--name-field-title {}
+  .field--name-field-short-description {}
+  .field--name-field-link {}
+}

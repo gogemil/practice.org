@@ -1,0 +1,27 @@
+.bfred-info-box {
+  display: block;
+  background-color: $global-color-gray-6;
+  //border: 1px solid $global-color-gray-2;
+  font-size: $font-size-base*1.333333333333333;
+  padding: $slug-height/1.5 $grid-gutter-width*2;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto $slug-height/3 ;
+  @media screen and (min-width: $screen-lg-min) {
+    &.right {
+      @media only screen and (min-width: $screen-sm) {
+        float: right;
+        margin-left: $grid-gutter-width;
+      }
+    }
+    &.left {
+      @media only screen and (min-width: $screen-sm) {
+        float: left;
+        margin-right: $grid-gutter-width;
+      }
+    }
+  }
+  @include headings() {
+    font-size: $font-size-base*1.5;
+  }
+}

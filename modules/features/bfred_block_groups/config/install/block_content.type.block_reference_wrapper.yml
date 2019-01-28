@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: block_reference_wrapper
+label: 'Block Reference Wrapper'
+revision: 1
+description: 'Use this to create a wrapper for nested blocks. Add Block Reference blocks inside of it.'

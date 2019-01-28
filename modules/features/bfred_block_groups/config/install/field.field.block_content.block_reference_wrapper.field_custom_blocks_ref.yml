@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_reference
+    - block_content.type.block_reference_wrapper
+    - field.storage.block_content.field_custom_blocks_ref
+id: block_content.block_reference_wrapper.field_custom_blocks_ref
+field_name: field_custom_blocks_ref
+entity_type: block_content
+bundle: block_reference_wrapper
+label: 'Block Reference Rows'
+description: 'Each nested block reference should contain a single block (because you cannot control the order of system versus custom content blocks).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      block_reference: block_reference
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: block_reference
+field_type: entity_reference

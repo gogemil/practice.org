@@ -1,0 +1,5 @@
+name: div
+type: module
+description: This module adds a DIV container button to CKEditor
+core: 8.x
+package: BFRED

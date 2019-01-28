@@ -1,0 +1,10 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      styles.min.css: {}
+  js:
+    js/libs/velocity.min.js: {}
+    js/libs/waypoints/jquery.waypoints.min.js: {}
+    js/libs/waypoints/shortcuts/sticky.min.js: {}
+    primary_bootstrap.min.js: {}

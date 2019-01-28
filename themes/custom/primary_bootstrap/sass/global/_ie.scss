@@ -1,0 +1,184 @@
+.lt-ie10 { // IE 9 and lower
+
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) { /* IE10+ */
+  //.hero-unit .fallback-image {
+  //  display: block !important;
+  //  visibility: visible !important;
+  //}
+  //.hero-unit .hero-image {
+  //  display: none !important;
+  //  visibility: hidden !important;
+  //}
+
+  .default-domain-1-ntca-org .hero-unit .fallback-image,
+  .section--default .hero-unit .fallback-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .default-domain-1-ntca-org .hero-unit .clipped-image,
+  .section--default .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  //.default-domain--frs-org,
+  //.section--frs {
+  //  .hero-unit .fallback-image {
+  //    display: none !important;
+  //    visibility: hidden!important;
+  //  }
+  //  .hero-unit .hero-image.full-image {
+  //    display: block !important;
+  //    visibility: visible !important;
+  //  }
+  //}
+
+  .default-domain--frs-org .hero-unit .fallback-image,
+  .section--frs .hero-unit .fallback-image,
+  .default-domain--frs-org .hero-unit .clipped-image,
+  .section--frs .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden!important;
+  }
+
+  .default-domain--frs-org .hero-unit .full-image,
+  .section--frs .hero-unit .full-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .hero-body {
+    width: 100%;
+  }
+  .hero-body-left:after {
+    content: none !important;
+  }
+
+}
+
+@media all and (-ms-high-contrast: none) and (min-width: $screen-sm),
+(-ms-high-contrast: active) and (min-width: $screen-sm) {
+
+  .menu .dropdown:nth-child(4) > .dropdown-menu .dropdown-menu {
+    @include css-columns(1, 600px);
+  }
+
+  .menu .dropdown-menu {
+    float: none;
+  }
+}
+
+@supports (-ms-ime-align:auto) { /* IE Edge 12+ */
+  //.hero-unit .fallback-image {
+  //  display: block !important;
+  //  visibility: visible !important;
+  //}
+  //.hero-unit .hero-image {
+  //  display: none !important;
+  //  visibility: hidden !important;
+  //}
+
+  .default-domain-1-ntca-org .hero-unit .fallback-image,
+  .section--default .hero-unit .fallback-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .default-domain-1-ntca-org .hero-unit .clipped-image,
+  .section--default .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  //.default-domain--frs-org,
+  //.section--frs {
+  //  .hero-unit .fallback-image {
+  //    display: none !important;
+  //    visibility: hidden!important;
+  //  }
+  //  .hero-unit .hero-image.full-image {
+  //    display: block !important;
+  //    visibility: visible !important;
+  //  }
+  //}
+
+  .default-domain--frs-org .hero-unit .fallback-image,
+  .section--frs .hero-unit .fallback-image,
+  .default-domain--frs-org .hero-unit .clipped-image,
+  .section--frs .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden!important;
+  }
+
+  .default-domain--frs-org .hero-unit .full-image,
+  .section--frs .hero-unit .full-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .hero-body {
+    width: 100%;
+  }
+  .hero-body-left:after {
+    content: none !important;
+  }
+}
+
+@supports (-ms-accelerator:true) {
+  //.hero-unit .fallback-image {
+  //  display: block !important;
+  //  visibility: visible !important;
+  //}
+  //.hero-unit .hero-image {
+  //  display: none !important;
+  //  visibility: hidden !important;
+  //}
+
+  .default-domain-1-ntca-org .hero-unit .fallback-image,
+  .section--default .hero-unit .fallback-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .default-domain-1-ntca-org .hero-unit .clipped-image,
+  .section--default .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  //.default-domain--frs-org,
+  //.section--frs {
+  //  .hero-unit .fallback-image {
+  //    display: none !important;
+  //    visibility: hidden!important;
+  //  }
+  //  .hero-unit .hero-image.full-image {
+  //    display: block !important;
+  //    visibility: visible !important;
+  //  }
+  //}
+
+  .default-domain--frs-org .hero-unit .fallback-image,
+  .section--frs .hero-unit .fallback-image,
+  .default-domain--frs-org .hero-unit .clipped-image,
+  .section--frs .hero-unit .clipped-image {
+    display: none !important;
+    visibility: hidden!important;
+  }
+
+  .default-domain--frs-org .hero-unit .full-image,
+  .section--frs .hero-unit .full-image {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .hero-body {
+    width: 100%;
+  }
+  .hero-body-left:after {
+    content: none !important;
+  }
+}

@@ -1,0 +1,118 @@
+//CSS Columns
+@mixin css-columns($column-count, $column-width: auto) {
+  -moz-columns: $column-count $column-width;
+  -webkit-columns: $column-count $column-width;
+  columns: $column-count $column-width;
+}
+
+//CSS Column Count
+@mixin css-column-count($column-count) {
+  -moz-column-count: $column-count;
+  -webkit-column-count: $column-count;
+  column-count: $column-count;
+}
+
+//CSS Column Width
+@mixin css-column-width($column-width: auto) {
+  -moz-column-width: $column-width;
+  -webkit-column-width: $column-width;
+  column-width: $column-width;
+}
+
+//CSS Column Gap
+@mixin css-column-gap($column-gap) {
+  -moz-column-gap: $column-gap;
+  -webkit-column-gap: $column-gap;
+  column-gap: $column-gap;
+}
+
+//CSS Column Rule
+@mixin css-column-rule($column-width: 1px, $column-rule-style: solid, $column-color: #000) {
+  -webkit-column-rule: $column-width $column-rule-style $column-color;
+  -moz-column-rule: $column-width $column-rule-style $column-color;
+  column-rule: $column-width $column-rule-style $column-color;
+}
+
+//CSS Column Rule Width
+@mixin css-column-rule-width($column-width: 1px) {
+  -webkit-column-rule-width: $column-width;
+  -moz-column-rule-width: $column-width;
+  column-rule-width: $column-width;
+}
+
+//CSS Column Rule Style
+@mixin css-column-rule-style($column-rule-style: solid) {
+  -webkit-column-rule-style: $column-rule-style;
+  -moz-column-rule-style: $column-rule-style;
+  column-rule-style: $column-rule-style;
+}
+
+//CSS Column Rule Color
+@mixin css-column-rule-color($column-color: #000) {
+  -webkit-column-rule-color: $column-color;
+  -moz-column-rule-color: $column-color;
+  column-rule-color: $column-color;
+}
+
+//CSS Column Span
+@mixin css-column-rule-color($column-span: 1) {
+  -webkit-column-span: $column-span;
+  column-span: $column-span;
+}
+
+//CSS Column Fill
+@mixin css-column-fill($column-fill: balance) {
+  -moz-column-fill: $column-fill;
+  column-fill: $column-fill;
+}
+
+//CSS Break Inside
+@mixin css-break-inside($break: null) {
+  @if not $break {
+    -webkit-column-break-inside: auto;
+    page-break-inside: auto;
+    break-inside: auto;
+  } @else if $break == avoid-column or avoid-page or avoid-region {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: $break;
+  } @else {
+    -webkit-column-break-inside: $break;
+    page-break-inside: $break;
+    break-inside: $break;
+  }
+}
+
+//CSS Break Before
+@mixin css-break-before($break: false) {
+  @if not $break {
+    -webkit-column-break-before: auto;
+    page-break-before: auto;
+    break-before: auto;
+  } @else if $break == avoid-column or avoid-page or avoid-region {
+    -webkit-column-break-before: avoid;
+    page-break-before: avoid;
+    break-before: $break;
+  } @else {
+    -webkit-column-break-before: $break;
+    page-break-before: $break;
+    break-before: $break;
+  }
+}
+
+//CSS Break After
+@mixin css-break-after($break: null) {
+  @if not $break {
+    -webkit-column-break-after: auto;
+    page-break-after: auto;
+    break-after: auto;
+  } @else if $break == avoid-column or avoid-page or avoid-region {
+    -webkit-column-break-after: avoid;
+    page-break-after: avoid;
+    break-after: $break;
+  } @else {
+    -webkit-column-break-after: $break;
+    page-break-after: $break;
+    break-after: $break;
+  }
+}

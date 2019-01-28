@@ -1,0 +1,6 @@
+name: 'Features Bundle'
+description: 'This is the configuration bundle for the BFRED Features modules. This should not be included as a required module. This, like all Features, should not be installed on prod sites.'
+type: module
+core: 8.x
+version: 8.x-1.0
+package: Beaconfire-RED

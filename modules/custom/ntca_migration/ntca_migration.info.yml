@@ -1,0 +1,5 @@
+name: NTCA import
+type: module
+description: Generic Module to keep import operators, etc
+core: 8.x
+project: 'ntca'

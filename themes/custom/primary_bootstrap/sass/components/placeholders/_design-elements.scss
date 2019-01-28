@@ -1,0 +1,12 @@
+%before-bar-yellow {
+    position: relative;
+    &:before {
+        background-color: $global-color-tertiary;
+        content: "";
+        height: 60%;
+        position: absolute;
+        right: 100%;
+        width: 15px;
+        top: 0;
+    }
+}

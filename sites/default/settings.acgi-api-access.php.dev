@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * @file
+ * ACGI API Credentials and Login info
+ *
+ * To use, rename this file to /sites/default/settings.acgi-api-access.php
+ *
+ * Note: to access these, please use Drupal\ACGIRequest\Service\
+ * see Crypt-o for ACGICreds folder
+ *
+ * These will be loaded into
+ * - modules\custom\ntca_acgi_api\src\ACGICredManager.php
+ * - modules\custom\ntca\src\Controller\UserStatusController.php
+ *
+ */
+
+$aAcgiCreds = [
+  'default' => [
+    // the next four should be overridden in frs/ntca site override
+    'coreURL' => '',
+    'integratorEnvURI' => '',
+    'integratorUsername' => '',
+    'integratorPassword' => '',
+    // URLs (environment specific)
+    'forgotPasswordUrl' => 'https://online.ntca.org/ntcadevssa/ssaauthmain.forget_password?p_referrer=&p_context=CEN',
+    'registerAccountUrl' => 'https://online.ntca.org/ntcadevssa/censsacustmast.insert_page?p_return_page=Login_Page&p_varname=p_val_arr[0]&p_colname=p_last_nm&p_varname=p_val_arr[1]&p_colname=p_alias&p_varname=p_val_arr[2]&p_colname=p_login_id&p_varname=p_val_arr[3]&p_colname=p_passwd&p_context=CEN&p_success_url=ssaauthmenu.show_top_menu',
+    'loginJumpUrl' => 'https://online.ntca.org/ntcadevssa/ssaauthmenu.show_top_menu'
+  ],
+  'siteoverrides' => [
+    'frs' => [
+      'coreURL' => 'https://online.ntca.org/',
+      'integratorEnvURI' => 'ntcabfiredev',
+      'integratorUsername' => 'beaconfirentca',
+      'integratorPassword' => 'beec0nf1r2NTCA'
+    ],
+    'ntca' => [
+      'coreURL' => 'https://online.ntca.org/',
+      'integratorEnvURI' => 'ntcabfiredev',
+      'integratorUsername' => 'beaconfirentca',
+      'integratorPassword' => 'beec0nf1r2NTCA'
+    ]
+  ]
+];
+

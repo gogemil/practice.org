@@ -1,0 +1,68 @@
+<?php
+
+/**
+ * @file
+ * Contains recreate_block_content.module.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\block\Entity\Block;
+use Drupal\block_content\Entity\BlockContentType;
+
+/**
+ * Implements hook_help().
+ */
+function recreate_block_content_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the recreate_block_content module.
+    case 'help.page.recreate_block_content':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Recreates the block content for a exported block.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_rebuild().
+ *
+ * The block_content module has a derivative that creates a block when there is
+ * a block_content but when exporting the configurations only the block is
+ * exported. Here we recreate the missing block_content for blocks.
+ */
+function recreate_block_content_rebuild() {
+  $block_bundles = BlockContentType::loadMultiple();
+  foreach (Block::loadMultiple() as $block) {
+    // The plugin id is module:uuid.
+    $plugin_id = explode(':', $block->getPluginId());
+    if ($plugin_id[0] == 'block_content') {
+      $dependencies = $block->getDependencies();
+      if (!empty($dependencies['content'])) {
+        list(, $type, $uuid) = explode(':', $dependencies['content'][0]);
+        if (isset($block_bundles[$type])) {
+          // Check if block exists.
+          $block_by_uuid = \Drupal::service('entity.repository')
+            ->loadEntityByUuid('block_content', $uuid);
+          if (!$block_by_uuid) {
+            $block_content = BlockContent::create([
+              'type' => $type,
+              'info' => $block->id(),
+              'uuid' => $uuid,
+            ]);
+            $block_content->save();
+          }
+        }
+        else {
+          \Drupal::logger('recreate_block_content')
+            ->error("An attempt to recreate the block @block_id failed, the block type @block_type doesn't exists.", [
+              '@block_id' => $block->id(),
+              '@block_type' => $type,
+            ]);
+        }
+      }
+    }
+  }
+}

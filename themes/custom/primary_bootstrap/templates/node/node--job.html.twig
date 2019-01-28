@@ -1,0 +1,44 @@
+<article class="job">
+
+    <div class="job_info">
+
+        {{content.group_job_info.field_job_logo_upload}}
+        {{ content.group_job_info.field_job_category }}
+        {{ content.group_job_info.body }}
+        {{ content.group_job_info.field_job_location }}
+        {{ content.group_job_info.field_job_additional_comments }}
+
+    </div>
+
+    {% set sShowEmail = content.field_job_submit_email[0]['#markup'] %}
+    {% set sShowPhone = content.field_job_submit_phone[0]['#markup'] %}
+    {% set sShowNames = content.field_job_submit_name_company[0]['#markup'] %}
+
+    <div class="company_info">
+
+        {% if sShowNames == "Yes" %}
+            {{ content.group_company_info.field_job_company_name }}
+            {{ content.group_company_info.field_job_company_website_url }}
+        {% endif %}
+
+        {% if sShowEmail == "Yes" and node.field_job_company_email_address.value is not empty %}
+            <div class="field field--name-field-job-company-email-address field--type-string field--label-inline">
+                <div class="field--label"> {{ content.group_company_info.field_job_company_email_address['#title'] }}</div>
+                <a href="mailto:{{ node.field_job_company_email_address.value|raw|render|striptags|trim }}">{{ node.field_job_company_email_address.value }}</a>
+            </div>
+        {% endif %}
+
+        {% if sShowPhone == "Yes" %}
+            {{ content.group_company_info.field_job_company_phone_number }}
+        {% endif %}
+
+        {% if sShowNames == "Yes" %}
+            <div class="field field--name field--type-string field--label-above">
+                <div class="field--label">Contact Name</div>
+                <div class="field--item">{{ content.group_company_info.field_first_name[0] }} {{ content.group_company_info.field_last_name[0] }}</div>
+            </div>
+        {% endif %}
+
+    </div>
+
+</article>

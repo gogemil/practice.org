@@ -1,0 +1,90 @@
+<?php
+
+/**
+ * @file
+ * Module file for menu_admin_per_menu.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\menu_ui\Form\MenuLinkEditForm;
+use Drupal\menu_ui\MenuForm;
+use Drupal\menu_link_content\Form\MenuLinkContentForm;
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function menu_admin_per_menu_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form_object = $form_state->getFormObject();
+  if ($form_object instanceof MenuLinkEditForm
+    || $form_object instanceof MenuLinkContentForm) {
+    $account = \Drupal::currentUser();
+    if (!$account->hasPermission('administer menu')) {
+      menu_admin_per_menu_filter_parent_options($form['menu_parent']['#options']);
+    }
+  }
+  if ($form_object instanceof MenuForm) {
+    $account = \Drupal::currentUser();
+    if (!$account->hasPermission('administer menu')) {
+      $form['id']['#access'] = FALSE;
+      $form['label']['#access'] = FALSE;
+      $form['description']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for node_form.
+ */
+function menu_admin_per_menu_form_node_form_alter(&$form, FormStateInterface $form_state) {
+  $account = \Drupal::currentUser();
+  if (!$account->hasPermission('administer menu')) {
+    $menu_options = &$form['menu']['link']['menu_parent']['#options'];
+    $menu_exist = menu_admin_per_menu_filter_parent_options($menu_options);
+    if ($menu_exist){
+      $form['menu']['link']['menu_parent']['#default_value'] = reset($menu_options);
+    }
+    else {
+      $form['menu']['#access'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Deletes not allowed menu items from select element for current user.
+ *
+ * @param array &$element
+ *   Reference to form select element with menu items.
+ *
+ * @return bool
+ *   FALSE if there is no allowed menu items,
+ *   TRUE if we have some allowed menu items.
+ */
+function menu_admin_per_menu_filter_parent_options(&$element) {
+  $allowed_menus = menu_admin_per_menu_get_allowed_menus();
+  if (count($allowed_menus) && is_array($element)) {
+    $option_keys = array_keys($element);
+    foreach ($option_keys as $option_key) {
+      list($menu, $item) = explode(':', $option_key);
+      $permission = 'administer ' . $menu . ' menu items';
+      if (!isset($allowed_menus[$permission])) {
+        unset($element[$option_key]);
+      }
+    }
+    return count($element);
+  }
+  return FALSE;
+}
+
+/**
+ * Returns an array of the allowed menus for current user.
+ *
+ * @return array
+ *   An array with the menus machine-readable names as values.
+ */
+function menu_admin_per_menu_get_allowed_menus() {
+  $account = \Drupal::currentUser();
+  $allowedMenusService = \Drupal::service('menu_admin_per_menu.allowed_menus');
+  $allowed_menus = $allowedMenusService->getPerMenuPermissions($account);
+  return $allowed_menus;
+}

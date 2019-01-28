@@ -1,0 +1,16 @@
+name: 'Lightning Preview'
+# core: 8.x
+type: module
+description: 'Preview everything before you publish.'
+# version: '8.x-2.05'
+package: 'Lightning (Experimental)'
+experimental: true
+dependencies:
+  - lightning_workflow
+  - workspace
+
+# Information added by Drupal.org packaging script on 2017-03-15
+version: '8.x-2.05'
+core: '8.x'
+project: 'lightning'
+datestamp: 1489618389

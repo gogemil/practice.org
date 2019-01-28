@@ -1,0 +1,8 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      styles.min.css: {}
+  js:
+    js/libs/bootstrap.js: {}
+    bfred_bootstrap.min.js: {}

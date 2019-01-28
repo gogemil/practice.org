@@ -1,0 +1,78 @@
+.item--paragraph--type--newsroom-video-promo {
+  background-color: $global-color-primary;
+  color: #fff;
+  //margin: 0 $grid-gutter-width/-2;
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-3.5;
+  }
+}
+.paragraph--type--newsroom-video-promo {
+  @include make-row();
+  @include flexbox;
+  @include flex-flow(row wrap);
+  width: 100%;
+  margin: 0;
+  .promo-content {
+    @include make-xs-column(12);
+    @include make-sm-column(5);
+    @include flex(0 1 100%);
+    padding-left: $grid-gutter-width/2;
+    @media only screen and (min-width: $screen-lg) {
+      padding-left: $grid-gutter-width*4;
+    }
+    @media only screen and (min-width: $screen-md) {
+      @include flex(0 1 40%);
+    }
+  }
+  .field--name-field-section-title {
+    @extend .h1;
+    color: #fff;
+    font-size: $font-size-base*3.555555555555556;
+    margin-top: $slug-height;
+    padding: 0 $grid-gutter-width 0 $grid-gutter-width/2;
+  }
+  .field--name-field-body {
+    padding: $grid-gutter-width/2;
+    @media only screen and (min-width: $screen-md) {
+      padding: 0 $grid-gutter-width*2 0 $grid-gutter-width/2;
+    }
+    p {
+      font-size: $font-size-base*1.111111111111111;
+      margin-bottom: $slug-height/1.5;
+    }
+  }
+  .card-image-wrapper {
+    @include make-xs-column(12);
+    @include make-sm-column(7);
+    @include flex(0 1 100%);
+    @include flexbox;
+    @include flex-flow(row nowrap);
+    padding: 0;
+    @media only screen and (min-width: $screen-md) {
+      @include flex(0 1 60%);
+    }
+  }
+  .field--name-field-media-video-ref {
+    @include flex(1 1 100%);
+    @include flexbox;
+    @include flex-flow(row nowrap);
+  }
+  .media-video {
+    @include flex(1 1 100%);
+    @include flexbox;
+    @include flex-flow(row nowrap);
+  }
+  .field--name-field-media-video-embed-field {
+    @include flex(1 1 100%);
+    @include flexbox;
+    @include flex-flow(row nowrap);
+  }
+  .video-embed-field-responsive-video {
+    @include flex(1 1 100%);
+    @include flexbox;
+    @include flex-flow(row nowrap);
+    margin: 0;
+    iframe {}
+  }
+}

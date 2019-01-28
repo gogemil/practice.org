@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains div.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function div_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the div module.
+    case 'help.page.div':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module adds a DIV container button to CKEditor') . '</p>';
+      return $output;
+
+    default:
+  }
+}

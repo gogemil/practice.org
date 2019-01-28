@@ -1,0 +1,37 @@
+.newsroom-sub-herospace-area {
+  //background-color: #fff;
+  //padding: $slug-height $grid-gutter-width*4;
+  //margin: 0 $grid-gutter-width*-3.5;
+  padding: $slug-height $grid-gutter-width/2;
+  @include headings() {
+    font-size: $font-size-base*2.222222222222222;
+    font-family: $header-font;
+    font-weight: 500;
+    margin-top: 0 !important;
+    margin-bottom: $slug-height/1.5;
+    max-width: 330px;
+  }
+  p {
+    font-size: $font-size-base*1.666666666666667;
+    font-family: $header-font;
+    font-weight: 300;
+    margin-bottom: $slug-height/1.5;
+    line-height: 1.25;
+  }
+  .button {
+    @extend %button;
+    @extend %button-white;
+    @extend %button-bordered;
+    @extend %button-big;
+    //margin-bottom: $slug-height/1.5;
+  }
+  .embedded-entity {
+    &.align-right {}
+    &.align-left {}
+    .media {
+      .field--name-image {
+        img {}
+      }
+    }
+  }
+}

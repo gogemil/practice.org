@@ -1,0 +1,30 @@
+name: Primary Bootstrap
+type: theme
+description: A custom sub-theme of BFRED Bootstrap
+package: BFRED
+core: 8.x
+libraries:
+  - primary_bootstrap/global-styling
+  - ntca_externalauth/loginform_js
+regions:
+  navigation: 'Navigation'
+  header: 'Top Bar'
+  highlighted: 'Highlighted'
+  breadcrumb: 'Breadcrumb'
+  help: 'Help'
+  content_top: 'Content Top'
+  content: 'Content'
+  content_bottom: 'Content Bottom'
+  sidebar_first: 'Primary'
+  sidebar_second: 'Secondary'
+  footercol1: 'Footer Column 1'
+  footercol2: 'Footer Column 2'
+  footercol3: 'Footer Column 3'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+
+base theme: bfred_bootstrap
+
+ckeditor_stylesheets:
+  - styles.min.css

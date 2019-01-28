@@ -1,0 +1,52 @@
+@mixin make-column-five(){
+  position: relative;
+  min-height: 1px;
+  padding-right: $grid-gutter-width/2;
+  padding-left: $grid-gutter-width/2;
+}
+
+@mixin make-xs-column-five() {
+  @include make-column-five;
+  width: 20%;
+  float: left;
+}
+
+@mixin make-sm-column-five() {
+  @include make-column-five;
+  @media screen and (min-width: $screen-md-min) {
+    width: 20%;
+    float: left;
+  }
+}
+
+@mixin make-md-column-five() {
+  @include make-column-five;
+  @media screen and (min-width: $screen-lg-min) {
+    width: 20%;
+    float: left;
+  }
+}
+
+@mixin make-lg-column-five() {
+  @include make-column-five;
+  @media screen and (min-width: $screen-lg-min) {
+    width: 20%;
+    float: left;
+  }
+}
+
+.col-xs-five {
+  @include make-xs-column-five;
+}
+.col-sm-five {
+  @include make-sm-column-five;
+}
+.col-md-five {
+  @include make-md-column-five;
+}
+.col-md-five {
+  @include make-xs-column-five;
+}
+.col-lg-five {
+  @include make-xs-column-five;
+}

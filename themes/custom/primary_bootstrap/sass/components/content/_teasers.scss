@@ -1,0 +1,40 @@
+.teaser {
+  background-color: #fff;
+  margin-bottom: $slug-height/2;
+  @include headings() {
+    @extend .h1;
+    font-size: $font-size-base*1.555555555555556;
+    margin-top: 0;
+    margin-bottom: $slug-height/6;
+    a{
+      color: $global-color-primary;
+    }
+  }
+  > .content {
+    @include make-row();
+    margin: 0;
+  }
+  .field--name-body {
+    //@include make-xs-column(12);
+    //@include make-sm-column(8);
+  }
+  .teaser-content {
+    @include make-xs-column(12);
+    @include make-sm-column(8);
+    padding-left: 0;
+    font-family: $font-family-sans-serif;
+    line-height: 1.4;
+  }
+  .links{
+    display: none;
+  }
+  .teaser-image {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+  }
+  .field--name-field-image {
+    img {
+      width: 100%;
+    }
+  }
+}

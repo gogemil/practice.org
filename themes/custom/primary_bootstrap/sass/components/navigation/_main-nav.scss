@@ -1,0 +1,774 @@
+.navbar-toggle {
+  border: none;
+  position: absolute;
+  right: $grid-gutter-width/2;
+  margin: 0;
+  top: $slug-height/2;
+  z-index: 3;
+  .icon-bar {
+    background-color: $global-color-secondary;
+    height: 4px;
+    width: 26px;
+    + .icon-bar {}
+  }
+}
+.main-nav {
+  @include make-xs-column(12);
+  @include make-md-column(9);
+  @include make-sw-column(8);
+  background-color: transparent;
+  height: 100%;
+  opacity: 0;
+  padding: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  will-change: opacity;
+  z-index: 3;
+  @media only screen and (min-width: $screen-sm) {
+    display: block;
+    position: static;
+    background-color: transparent;
+    height: auto !important;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    top: auto;
+    opacity: 1;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    padding-right: $grid-gutter-width*3;
+  }
+  &.in {
+    opacity: 1;
+  }
+}
+
+.site-navigation {
+  background-color: #fff;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  float: right;
+  width: 70%;
+  max-width: 0;
+  will-change: width, max-width;
+  @media only screen and (min-width: $screen-sm) {
+    background-color: transparent;
+    float: none;
+    max-width: none;
+    position: static;
+    width: 100%;
+  }
+  .in & {
+    @media only screen and (max-width: $screen-xs-max) {
+      max-width: 525px;
+    }
+  }
+  .navbar-toggle {
+    background-color: $global-color-primary;
+    right: 0;
+    top: 0;
+    left: 0;
+    float: none;
+    margin-top: 0;
+    border-radius: 0;
+    width: 100%;
+    text-align: right;
+    z-index: 2;
+    .user-logged-in & {
+      top: $slug-height/1.578947368421053;
+    }
+    &:hover {
+      cursor: default;
+    }
+    .label {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .icon {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .social-media-nav{
+    .nav-item{
+
+    }
+  }
+}
+.region-navigation {
+  @include make-row();
+  @include flexbox;
+  @include flex-direction(row);
+  @include flex-wrap(wrap);
+  margin: 0;
+  padding-top: $slug-height*1.6;
+  padding-bottom: $slug-height/3;
+  padding-left:  $grid-gutter-width;
+  padding-right:  $grid-gutter-width;
+  max-height: 100%;
+  overflow: auto;
+  transition-property: padding;
+  transition-timing-function: ease-out;
+  @media only screen and (min-width: $screen-sm) {
+    padding-left: $grid-gutter-width/2;
+    padding-right: $grid-gutter-width/2;
+    padding-bottom: 0;
+    position: static;
+    overflow: visible;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding-top: 0;
+  }
+  @media only screen and (min-width: $screen-md) {
+    padding-top: $slug-height/1.42433234421365;
+  }
+  .user-logged-in & {
+    padding-top: $slug-height*3.085416666666667;
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      padding-top: 0;
+    }
+    @media only screen and (min-width: $screen-md) {
+      padding-top: $slug-height/1.42433234421365;
+    }
+  }
+  .path-frontpage & {
+    @media only screen and (min-width: $screen-md) and (max-width: $screen-lg-min) {
+      padding-top: $slug-height/2.388059701492537;
+    }
+    @media only screen and (min-width: $site-width) {
+      padding-top: $slug-height/1.246753246753247;
+    }
+  }
+  .stuck &  {
+    .path-frontpage & {
+      @media only screen and (min-width: $screen-md) {
+        padding-top: $slug-height/1.42433234421365;
+      }
+    }
+  }
+  .section--frs &,
+  .path-frontpage.section--frs & {
+    padding-top: $slug-height/3;
+  }
+}
+
+.navbar-nav {
+  margin: 0;
+}
+
+
+.nav > li > a:hover,
+.nav > li > a:focus,
+.nav .open > a,
+.nav .open > a:hover,
+.nav .open > a:focus {
+  background-color: transparent;
+}
+@media (max-width: 767px) {
+  .navbar-nav .open .dropdown-menu .dropdown-header, .navbar-nav .open .dropdown-menu > li > a {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+}
+
+#block-primary-bootstrap-account-menu {}
+
+.path-frontpage #block-primary-bootstrap-main-menu {
+  &:before {
+    @media only screen and (min-width: $site-width) {
+      content: "";
+      display: block;
+      width: 35px;
+      height: 0;
+      border-top: 52px solid #fff;
+      border-left: 25px solid transparent;
+      position: absolute;
+      top: 100%;
+      left: calc( 445px + ( (100% - 1400px) / 2));
+      transition-property: top, bottom;
+      transition-duration: 227ms;
+      transition-timing-function: linear;
+    }
+  }
+  > .menu {
+    @media only screen and (min-width: $site-width) {
+      background: #fff;
+      display: block;
+      height: 70px;
+      margin-bottom: $slug-height/-1.153846153846154;
+      margin-left: $grid-gutter-width/-1.428571428571429;
+      padding-right: $grid-gutter-width*6.75;
+      padding-top: $slug-height/3;
+      transition: none;
+    }
+    @media only screen and (min-width: $site-width) {
+      margin-right: -80px;
+    }
+    > li {
+      @media only screen and (min-width: $site-width) {
+        float: none;
+        display: inline-block;
+      }
+    }
+  }
+}
+
+#block-primary-bootstrap-main-menu {
+  @include make-xs-column(12);
+  @include flex(1, 1, 100%);
+  @media only screen and (min-width: $screen-sm) {
+    @include order(4);
+    position: static;
+    text-align: right;
+  }
+  .stuck & {
+    &:before {
+      top: 20%;
+      bottom: 0;
+    }
+  }
+  > .menu {
+    float: none;
+    transition-property: height, padding;
+    transition-timing-function: ease-out;
+    @media only screen and (min-width: $screen-sm) {
+      margin-right: 50px;
+    }
+    @media only screen and (min-width: $screen-sm) {
+      display: inline-block;
+      height: 100%;
+    }
+    .stuck & {
+      padding-top: 0;
+      margin-bottom: $slug-height/-30;
+      @media only screen and (min-width: $screen-sm) {
+        height: $slug-height/1.304347826086957;
+      }
+      @media only screen and (min-width: $site-width) {
+        margin-bottom: 0;
+      }
+    }
+    > li {
+      float: none;
+      @media only screen and (min-width: $screen-sm) {
+        float: left;
+        height: 100%;
+        position: static;
+      }
+      &.open {
+        > .dropdown-menu {
+          @media only screen and (min-width: $screen-sm) {
+            @include remove;
+          }
+        }
+        &:hover {
+          > .dropdown-menu {
+            @media only screen and (min-width: $screen-sm) {
+              display: block;
+              visibility: visible;
+            }
+          }
+        }
+        a > .caret {
+          @media only screen and (max-width: $screen-xs-max) {
+            color: $global-color-tertiary;
+          }
+          &:before {
+            @media only screen and (max-width: $screen-xs-max) {
+              content: '\e806';
+            }
+          }
+        }
+      }
+      &.dropdown {
+        &:hover,
+        &.active,
+        &.open {
+          a {
+            border-color: $global-color-tertiary;
+          }
+        }
+        &:hover {
+          > .dropdown-menu {
+            @media only screen and (min-width: $screen-sm) {
+              display: block;
+            }
+          }
+        }
+      }
+      > a {
+        border-bottom: 2px solid transparent;
+        color: $body-text-color;
+        display: block;
+        font-family: $header-font;
+        font-size: $font-size-base;
+        padding: 0 $grid-gutter-width/4;
+        z-index: 2;
+        @media only screen and (min-width: $screen-sm) {
+          border-bottom-width: 6px;
+          height: 100%;
+          padding-bottom: $slug-height/7.384615384615385;
+        }
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-max) {
+          font-size: $font-size-base/1.285714285714286;
+        }
+        @media only screen and (min-width: $screen-lg) and (max-width: $site-width) {
+          font-size: $font-size-base/1.125;
+        }
+        @media only screen and (min-width: $screen-sm) and (max-width: $site-width) {
+          padding-bottom: $slug-height/9.795918367346939;
+        }
+        > .caret {
+          @extend .down-dir;
+          border: none;
+          display: inline-block;
+          width: auto;
+          height: auto;
+          vertical-align: middle;
+          margin: 0;
+          position: relative;
+          z-index: 1;
+          @media only screen and (min-width: $screen-sm) {
+            @include remove;
+          }
+          &:before {
+            font-size: $font-size-base*1.111111111111111;
+            margin: 0;
+            @media only screen and (min-width: $screen-sm) {
+              font-size: $font-size-base/1.285714285714286;
+            }
+          }
+          &:hover {
+            @media only screen and (max-width: $screen-xs-max) {
+              color: $global-color-tertiary;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#block-frsmainnavigation-2 {
+  @extend #block-primary-bootstrap-main-menu;
+  > .menu {
+    @media only screen and (max-width: $screen-xs-max) {
+      margin-top: 125px;
+    }
+    > li {
+      &:last-child {
+        margin-top: $slug-height/-8.571428571428571;
+        > a {
+          @extend %button;
+          @extend %button-green;
+          @extend %button-bordered;
+          @extend %button-big;
+          height: auto;
+        }
+        &:hover {
+          > a {
+            @extend %button-green;
+          }
+        }
+      }
+      > a {
+        font-size: $font-size-base + 2;
+        padding: 0 $grid-gutter-width;
+      }
+    }
+  }
+}
+
+#block-utility {
+  @include make-xs-column(12);
+  @include make-sm-column(3);
+  @include make-sm-column(9);
+  @include make-lg-column(5);
+  @include flex(1, 1, 100%);
+  margin-top: $slug-height/1.5;
+  @media only screen and (min-width: $screen-sm) {
+    @include order(2);
+    text-align: right;
+    margin-bottom: $slug-height/6;
+    margin-top: 0;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-max) {
+    @include flex(1, 1, 80%);
+  }
+  .section--frs &,
+  .default-domain--frs-org & {
+    @media only screen and (min-width: $screen-lg) {
+      //@include flex(1 1 43%);
+    }
+  }
+  > .menu {
+    @media only screen and (min-width: $screen-sm) {
+      display: inline-block;
+    }
+    > li {
+      float: none;
+      @media only screen and (min-width: $screen-sm) {
+        float: left;
+      }
+      > a {
+        color: $body-text-color;
+        font-family: $body-font;
+        font-size: $font-size-small;
+        padding: 0 $grid-gutter-width/2.857142857142857;
+        text-transform: uppercase;
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-max) {
+          font-size: $font-size-base/1.5;
+        }
+        &:hover {
+          text-decoration: underline;
+        }
+        .glyphicon {
+          @include remove;
+        }
+      }
+    }
+  }
+}
+
+#block-utility {
+  @media only screen and (min-width: $screen-lg) {
+    @include flex(1, 1, 43%);
+  }
+  @media only screen and (min-width: $site-width) {
+    @include flex(1, 1, 41%);
+  }
+}
+
+#block-frsutility {
+  @extend #block-utility;
+  @media only screen and (min-width: $screen-lg) {
+    @include flex(1, 1, 83%);
+  }
+  @media only screen and (min-width: $site-width) {
+    @include flex(1, 1, 84%);
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    margin-top: $slug-height/-1.363636363636364;
+  }
+  > .menu {
+    > li {
+      > a{
+        font-size: $font-size-small + 1;
+      }
+    }
+  }
+}
+
+.dropdown-menu {
+  margin-bottom: $slug-height/3;
+  width: 100%;
+  z-index: 1;
+  transition-property: margin;
+  @media only screen and (min-width: $screen-sm) {
+    @include transparent($global-color-primary, .85);
+    padding-top: $slug-height/1.5;
+    padding-bottom: $slug-height/2;
+    min-height: 265px;
+    .site-navigation & {
+      @include css-columns(3, 150px);
+    }
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding-right: 280px;
+  }
+  @media only screen and (min-width: $screen-md) {
+    padding-left: 20%;
+    padding-right: 340px;
+  }
+  .menu-parent-item {
+    font-weight: 600;
+    ul li a {
+      font-weight: normal;
+    }
+  }
+  .dropdown-menu {//third level navigation
+    display: block;
+    background: transparent;
+    box-shadow: none;
+    position: relative;
+    padding: 0;
+    height: auto;
+    margin: 0;
+    min-height: 0;
+    border: none;
+    a {
+      //padding-left: 40px;
+    }
+  }
+  .navbar-nav > li > & {
+    @media only screen and (min-width: $screen-sm) {
+      margin-top: $slug-height/-20;
+    }
+    .path-frontpage.default-domain--frs-org &,
+    .path-frontpage.section--frs & {
+      @media only screen and (min-width: $site-width) {
+        margin-top: 0;
+      }
+    }
+    .path-frontpage & {
+      @media only screen and (min-width: $site-width) {
+        margin-top: $slug-height/1.224489795918367;
+      }
+    }
+    .stuck & {
+      .path-frontpage & {
+        @media only screen and (min-width: $site-width) {
+          margin-top: $slug-height/-20;
+        }
+      }
+    }
+    .stuck & {
+      .path-frontpage.default-domain--frs-org &,
+      .path-frontpage.section--frs & {
+        @media only screen and (min-width: $site-width) {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+  > .active {
+    > a,
+    > a:hover,
+    > a:focus  {
+      background-color: transparent;
+      border: none;
+      color: $body-text-color;
+      @media only screen and (min-width: $screen-sm) {
+        color: #fff;
+      }
+    }
+  }
+  > li {
+    &:last-child {
+      @include css-columns(1, 100%);
+      display: block;
+    }
+    .featured-main-menu-content {
+      @media only screen and (min-width: $screen-sm) {
+        position: absolute;
+      }
+      @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        top: $slug-height/1.5;
+        right: $grid-gutter-width;
+      }
+      @media only screen and (min-width: $screen-md) {
+        top: $slug-height/1.2;
+        right: $grid-gutter-width*4;
+      }
+      img {
+        max-width: 240px;
+        width: 100%;
+      }
+      a {
+        display: block;
+        color: #fff;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      span {
+        display: block;
+      }
+    }
+    > a {
+      font-size: $font-size-base/1.125;
+      //padding-bottom: 0;
+      white-space: normal;
+      padding: 0;
+      @media only screen and (min-width: $screen-sm) {
+        color: #fff;
+      }
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        text-decoration: underline;
+        @media only screen and (min-width: $screen-sm) {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.menu .dropdown{
+  > .dropdown-menu{
+    > li.dropdown.menu-parent-item { // overridden by class in menu attribute
+      -webkit-column-break-inside: avoid; /* Chrome, Safari */
+      page-break-inside: avoid;           /* Theoretically FF 20+ */
+      break-inside: avoid-column;         /* IE 11 */
+      display:table;                      /* Actually FF 20+ */
+      > a{
+        font-weight: 600 !important;
+        text-transform: uppercase;
+      }
+      .dropdown-menu {
+        -webkit-column-break-inside: avoid; /* Chrome, Safari */
+        page-break-inside: avoid;           /* Theoretically FF 20+ */
+        break-inside: avoid-column;         /* IE 11 */
+        display:table;                      /* Actually FF 20+ */
+      }
+      .dropdown {
+        -webkit-column-break-inside: avoid; /* Chrome, Safari */
+        page-break-inside: avoid;           /* Theoretically FF 20+ */
+        break-inside: avoid-column;         /* IE 11 */
+        display:table;                      /* Actually FF 20+ */
+      }
+    }
+  }
+}
+.menu .dropdown:nth-child(4){
+  > .dropdown-menu{
+    @include css-columns(1, 600px);
+    .section--frs &,
+    .default-domain--frs-org & {
+      @include css-columns(2, 150px);
+    }
+    > .dropdown:nth-child(1),//education
+    > .dropdown:nth-child(2){//events
+      > a{
+        font-weight: 600;
+        .section--frs &,
+        .default-domain--frs-org & {
+          font-weight: 400;
+        }
+      }
+    }
+    >.dropdown{
+      //-webkit-column-break-inside: avoid; /* Chrome, Safari */
+      //page-break-inside: avoid;           /* Theoretically FF 20+ */
+      //break-inside: avoid-column;         /* IE 11 */
+      //display:table;                      /* Actually FF 20+ */
+      //@media only screen and (min-width: $screen-md) {
+      //  width: 50%;//TODO: Patrick, I couldn't get css columns to work here so just did 50% left.
+      //  float: left;
+      //}
+      .default-domain-1-ntca-org &,
+      .section--default & {
+        @media only screen and (min-width: $screen-sm) {
+          width: 50%;//TODO: Patrick, I couldn't get css columns to work here so just did 50% left.
+          float: left;
+        }
+      }
+    }
+    .dropdown-menu{
+      @include css-columns(2, 150px);
+      display:block;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      -webkit-column-break-inside: avoid; /* Chrome, Safari */
+      page-break-inside: avoid;           /* Theoretically FF 20+ */
+      break-inside: avoid-column;         /* IE 11 */
+      display:table;                      /* Actually FF 20+ */
+    }
+
+  }
+}
+
+#block-topnavsociallinks,
+#block-frstopnavsociallinks {
+  @include make-xs-column(12);
+  @include make-sm-column(3);
+  @include make-lg-column(2);
+  @include flex(1, 1, 100%);
+  margin-top: $slug-height/1.5;
+  @media only screen and (min-width: $screen-sm) {
+    @include order(3);
+    text-align: right;
+    margin-bottom: $slug-height/6;
+    margin-top: 0;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-max) {
+    @include flex(1, 1, 20%);
+  }
+  @media only screen and (min-width: $screen-lg) {
+    @include flex(1, 1, 17%);
+  }
+  @media only screen and (min-width: $site-width) {
+    @include flex(1, 1, 16%);
+  }
+  .contextual {
+    left: 100%;
+    right: auto;
+  }
+}
+
+.social-media-nav {
+  @include no-bullets;
+  @include clearfix;
+  display: inline-block;
+  margin: 0;
+  .nav-item {
+    float: left;
+    font-size: $font-size-base/1.2;
+    .site-navigation &{
+      @media only screen and (max-width: $screen-sm) {
+        font-size: $font-size-base*1.2;
+      }
+    }
+    margin-right: $grid-gutter-width/2;
+    &:last-child {
+      margin-right: 0;
+    }
+    a {
+      color: $global-color-gray-8;
+      &:hover {
+        color: $global-color-primary;
+      }
+    }
+    &.facebook {}
+    &.twitter {}
+    &.youtube {}
+    &.linkedin {}
+  }
+}
+.userinfo {
+  color: $body-text-color;
+  font-family: $body-font;
+  font-size: $font-size-small;
+  font-weight: 600;
+  padding: 0 $grid-gutter-width/2.857142857142857;
+  @include make-xs-column(12);
+  @include make-sm-column(3);
+  @include make-lg-column(5);
+  @include flex(1, 1, 100%);
+  margin: 0 0 $slug-height/1.5;
+  @media only screen and (min-width: $screen-sm) {
+    @include order(1);
+    text-align: right;
+    margin: 0 0 $slug-height/6;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    margin-top: $slug-height/-1.363636363636364;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-max) {
+    font-size: $font-size-base/1.5;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    @include flex(1, 1, 40%);
+    margin-top: 0;
+  }
+  @media only screen and (min-width: $site-width) {
+    @include flex(1, 1, 43%);
+  }
+  a {
+    @extend %button;
+    @extend %button-yellow;
+    border-radius: 4px;
+    margin: 0 5px;
+  }
+}

@@ -1,0 +1,36 @@
+.paragraph--type--promo-full-page-width{
+  padding: $grid-gutter-width*2 0 $grid-gutter-width*4;
+  color: #fff;
+  text-align: center;
+  @include transparent-color-overlay($global-color-primary, .6);
+  .content-area{
+    position: relative;
+    z-index: 1;//:before overlay is 0
+  }
+  &:before{//additions to the ":before" contained in the previous mixin
+    left: -$grid-gutter-width/2;
+    right: -$grid-gutter-width/2;
+    @media only screen and (min-width: $screen-sm) {
+      left: -$grid-gutter-width*4.5;
+      right: -$grid-gutter-width*4.5;
+    }
+  }
+  .section-title{
+    font-size: $font-size-base*2.222222222222222;
+    text-align: center;
+    color: #fff;
+  }
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+  .field--name-field-link{
+    a{
+      @extend %button;
+      @extend %button-white;
+      @extend %button-bordered;
+      @extend %button-big;
+      margin-top: $grid-gutter-width;
+    }
+  }
+}

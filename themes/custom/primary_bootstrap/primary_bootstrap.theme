@@ -1,0 +1,456 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the primary_bootstrap theme.
+ */
+
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function primary_bootstrap_preprocess_html(array &$variables) {
+  /* Add class to html tag */
+  //$variables['html_attributes']->addClass('no-js');
+
+  // Don't display the site name twice on the front page (and potentially others)
+  /*if (isset($variables['head_title_array']['title']) && isset($variables['head_title_array']['name']) && ($variables['head_title_array']['title'] == $variables['head_title_array']['name'])) {
+    $variables['head_title'] = $variables['head_title_array']['name'];
+  }*/
+
+  // Add section taxonomy term as body class
+  // see: http://drupal.stackexchange.com/a/220751
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    // For revisions, $node is a string
+    if (is_string($node)) {
+      $node = node_load($node);
+    }
+    /**
+     * Get the term id from the 'field_section' taxonomy field.
+     * If greater than zero, load the term and acquire the name value
+     * as a css safe value.
+    */
+    if (method_exists( $node , 'hasField' )) {
+      if ($node->hasField('field_section_ref')) {
+        $tid = $node->get('field_section_ref')->target_id;
+        if($tid > 0) {
+          $term_object = Term::load($tid);
+          $variables['attributes']['class'][] = 'section--' . Html::getClass($term_object->get('name')->value);
+          $variables['attributes']['class'][] = 'taxonomy-term-' . $tid;
+        }
+      }
+    };
+  }
+
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function primary_bootstrap_page_attachments_alter(array &$page) {
+  // Tell IE to use latest rendering engine (not to use compatibility mode).
+  /*$ie_edge = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+    'http-equiv' => 'X-UA-Compatible',
+    'content' => 'IE=edge',
+    ],
+  ];
+  $page['#attached']['html_head'][] = [$ie_edge, 'ie_edge'];*/
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function primary_bootstrap_preprocess_page(array &$variables) {
+
+}
+
+/**
+* Implements hook_preprocess_panels_landingpage for panels-landingpage.html.twig
+**/
+
+function primary_bootstrap_preprocess_panels_landingpage(array &$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  // NTCAON-80 / NTCAON-81 - Add node check, otherwise $node is not an object during a revert
+  if (isset($node) && !empty($node) && is_object($node) && isset($node->type) && $node->bundle() == 'landing_page') {
+    // Store title for use here
+    $variables['title'] = $node->getTitle();
+    if (isset($node->field_hero_space_design_type) && !empty($node->field_hero_space_design_type->value)) {
+      $variables['hero_design_type'] = filter_var ( $node->field_hero_space_design_type->value, FILTER_SANITIZE_STRING);
+    }
+    if (isset($node->field_hero_space_image_text) && !empty($node->field_hero_space_image_text->value)) {
+      $variables['hero_space_text'] = $node->field_hero_space_image_text->value;
+      $variables['hero_space_subtext'] = $node->field_subtitle->value; // only used on one design variant
+    }
+    if (isset($node->field_link) && !empty($node->field_link[0]->uri)) {
+      //$url = $node->field_link->first()->getUrl();
+      $url = Url::fromUri($node->field_link[0]->uri);
+      $url = $url->toString();
+      $variables['hero_space_link'] = $url;
+      $variables['hero_space_link_open'] = '<a href="' . $url . '">';
+      $variables['hero_space_link_close'] = '</a>';
+    }
+
+    if (isset($node->field_hero_space_overlay_logo) && !empty($node->field_hero_space_overlay_logo[0])) {
+      $image = file_create_url($node->field_hero_space_overlay_logo->entity->getFileUri());
+      $variables['hero_space_logo'] = $image;
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_page_alter().
+ */
+function primary_bootstrap_theme_suggestions_page_alter(array &$suggestions, array $variables) {
+
+
+
+}
+
+/**
+ * Implements hook_theme_suggestions_node_alter().
+ */
+function primary_bootstrap_theme_suggestions_node_alter(array &$suggestions, array $variables) {
+
+  /*$node = $variables['elements']['#node']; kint($node);
+
+  if ($variables['elements']['#view_mode'] == "full") {
+
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for Block document templates.
+ */
+function primary_bootstrap_preprocess_block(array &$variables) {
+  switch ($variables['base_plugin_id']) {
+    case 'system_branding_block':
+      $variables['site_logo'] = '';
+      if ($variables['content']['site_logo']['#access'] && $variables['content']['site_logo']['#uri']) {
+        $variables['site_logo'] = str_replace('logo.svg', 'img/logo.png', $variables['content']['site_logo']['#uri']);
+      }
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ * See: https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21theme.api.php/function/hook_theme_suggestions_HOOK_alter/8.1.x
+ */
+function primary_bootstrap_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+
+  $element = $variables['element'];
+
+  /*
+  $suggestions[] = 'field__' . $element['#view_mode'];
+  $suggestions[] = 'field__' . $element['#view_mode'] . '__' . $element['#field_name'];
+  // */
+
+  switch ($element['#field_type']) {
+    case 'entity_reference_revisions':
+      // Paragraph fields
+      if (isset($element[0]['#paragraph'])) {
+
+        $suggestions[] = 'field__paragraphs_entity_reference_revisions';
+        $suggestions[] = 'field__paragraphs_entity_reference_revisions__' . $element['#field_name'];
+        //$suggestions[] = 'field__paragraphs_entity_reference_revisions__' . $element['#view_mode'];
+        //$suggestions[] = 'field__paragraphs_entity_reference_revisions__' . $element['#view_mode'] . '__' . $element['#field_name'];
+
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_field_alter().
+ */
+function primary_bootstrap_theme_suggestions_fieldset_alter(array &$suggestions, array $variables) {
+  /*$element = $variables['element'];
+  if (isset($element['#attributes']['class']) && in_array('form-composite', $element['#attributes']['class'])) {
+    $suggestions[] = 'fieldset__form_composite';
+  }*/
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function primary_bootstrap_preprocess_node(array &$variables) {
+  // Default to turning off byline/submitted.
+  //$variables['display_submitted'] = FALSE;
+}
+
+/**
+ * Implements hook_theme_suggestions_views_view_alter().
+ */
+function primary_bootstrap_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_form().
+ */
+function primary_bootstrap_preprocess_form(array &$variables) {
+  //$variables['attributes']['novalidate'] = 'novalidate';
+}
+
+/**
+ * Implements hook_preprocess_select().
+ */
+function primary_bootstrap_preprocess_select(array &$variables) {
+  //$variables['attributes']['class'][] = 'select-chosen';
+}
+
+/**
+ * Implements hook_preprocess_field().
+ * See: https://api.drupal.org/api/drupal/core%21includes%21theme.inc/function/template_preprocess_field/8.1.x
+ */
+function primary_bootstrap_preprocess_field(array &$variables, $hook) {
+  /*switch ($variables['element']['#field_name']) {
+  }*/
+
+  switch ($variables['element']['#field_type']) {
+    case 'entity_reference_revisions':
+      // Paragraph fields
+      // We need to add a class to fields and field items that use the paragraphs module.
+      if (isset($variables['element'][0]['#paragraph'])) {
+        $variables['attributes']['class'][] = 'field--type-paragraph';
+
+        $delta = 0;
+        while (!empty($variables['element'][$delta])) {
+
+          // See core\lib\Drupal\Core\Template\Attribute
+          $paragraphs_type_css = 'item--paragraph--type--'.str_replace('_', '-', $variables['element'][$delta]['#paragraph']->getType());
+          $variables['items'][$delta]['attributes']->addClass($paragraphs_type_css);
+          $paragraphs_id_css = 'item--paragraph--id--'.str_replace('_', '-', $variables['element'][$delta]['#paragraph']->id());
+          $variables['items'][$delta]['attributes']->addClass($paragraphs_id_css);
+
+          $delta++;
+        }
+      }
+      break;
+  }
+
+}
+
+/**
+ * Implements hook_preprocess_details().
+ */
+function primary_bootstrap_preprocess_details(array &$variables) {
+  /*$variables['attributes']['class'][] = 'details';
+  $variables['summary_attributes']['class'] = 'summary';*/
+}
+
+/**
+ * Implements hook_theme_suggestions_details_alter().
+ */
+function primary_bootstrap_theme_suggestions_details_alter(array &$suggestions, array $variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function primary_bootstrap_preprocess_menu_local_task(array &$variables) {
+  //$variables['element']['#link']['url']->setOption('attributes', ['class'=>'rounded']);
+}
+
+
+// Used in primary_bootstrap_preprocess_menu!
+// both main and frs_main navs will use this, so let's just create a local function
+function __addExtraMenuInformation($sMenublockIdentifier, &$variables) {
+  // load the Menu blocks for the right domain, append to the menu information to be passed to the template
+  // names get transformed, since they are the key for how these items need to be modified
+  $menuBlockIds = \Drupal::entityQuery('block_content')
+    ->condition('type', $sMenublockIdentifier)
+    ->execute();
+  if($menuBlockIds) {
+    $menuBlocks = \Drupal\block_content\Entity\BlockContent::loadMultiple($menuBlockIds);
+    foreach ($menuBlocks as $menuBlock) {
+      if($menuBlock) {
+        $blockName = str_replace(' ', '_',  strtolower($menuBlock->label()));
+        $_block = \Drupal::entityTypeManager()
+          ->getViewBuilder('block_content')
+          ->view($menuBlock);
+        $variables['menu_blocks'][$blockName] = $_block;
+      }
+    }
+  }
+}
+
+// use in showVariables(), see below - taken from PHP's help page on print_r
+function print_r_level($data, $level = 5)
+{
+  static $innerLevel = 1;
+
+  static $tabLevel = 1;
+
+  static $cache = array();
+
+  $self = __FUNCTION__;
+
+  $type       = gettype($data);
+  $tabs       = str_repeat('    ', $tabLevel);
+  $quoteTabes = str_repeat('    ', $tabLevel - 1);
+
+  $recrusiveType = array('object', 'array');
+
+  // Recrusive
+  if (in_array($type, $recrusiveType))
+  {
+    // If type is object, try to get properties by Reflection.
+    if ($type == 'object')
+    {
+      if (in_array($data, $cache))
+      {
+        return "\n{$quoteTabes}*RECURSION*\n";
+      }
+
+      // Cache the data
+      $cache[] = $data;
+
+      $output     = get_class($data) . ' ' . ucfirst($type);
+      $ref        = new \ReflectionObject($data);
+      $properties = $ref->getProperties();
+
+      $elements = array();
+
+      foreach ($properties as $property)
+      {
+        $property->setAccessible(true);
+
+        $pType = $property->getName();
+
+        if ($property->isProtected())
+        {
+          $pType .= ":protected";
+        }
+        elseif ($property->isPrivate())
+        {
+          $pType .= ":" . $property->class . ":private";
+        }
+
+        if ($property->isStatic())
+        {
+          $pType .= ":static";
+        }
+
+        $elements[$pType] = $property->getValue($data);
+      }
+    }
+    // If type is array, just retun it's value.
+    elseif ($type == 'array')
+    {
+      $output = ucfirst($type);
+      $elements = $data;
+    }
+
+    // Start dumping datas
+    if ($level == 0 || $innerLevel < $level)
+    {
+      // Start recrusive print
+      $output .= "\n{$quoteTabes}(";
+
+      foreach ($elements as $key => $element)
+      {
+        $output .= "\n{$tabs}[{$key}] => ";
+
+        // Increment level
+        $tabLevel = $tabLevel + 2;
+        $innerLevel++;
+
+        $output  .= in_array(gettype($element), $recrusiveType) ? $self($element, $level) : $element;
+
+        // Decrement level
+        $tabLevel = $tabLevel - 2;
+        $innerLevel--;
+      }
+
+      $output .= "\n{$quoteTabes})\n";
+    }
+    else
+    {
+      $output .= "\n{$quoteTabes}*MAX LEVEL*\n";
+    }
+  }
+
+  // Clean cache
+  if($innerLevel == 1)
+  {
+    $cache = array();
+  }
+
+  return $output;
+}// End function
+
+
+// used to inspect menus (use in primary_bootstrap_preprocess_menu if needed)
+function showVariables(&$variables) {
+  return(false);
+  print print_r_level($variables['items']);
+  foreach ($variables as $key => $value) {
+    print "KEY $key\n";
+    if (is_array($value)) {
+      print "VALUE (array):\n";
+      print_r(array_keys($variables[$key]));
+    } else if (gettype($value) != "object") {
+      print "VALUE = ".$value."\n";
+    } else {
+      print "TYPE: ".get_class($value)."\n";
+    }
+    print "\n=============================================\n";
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu().
+ * This will attach some extra information into the main menu, so we can have the extra image/link in there, next to child links
+ * This information will come from Custom Blocks, of type 'FRS Featured Main Menu Content' and 'Featured Main Menu Content' (for main site)
+ * Items in there need to be named the Main Item in the Menu followed by #, e.g: Member Services 1
+ * The rest is done in the menu--main.html.twig
+ *
+ * @param $variables
+ */
+function primary_bootstrap_preprocess_menu(&$variables) {
+
+  if(isset($variables['menu_name'])) {
+    switch ($variables['menu_name']) {
+      case 'main':
+        __addExtraMenuInformation('featured_main_menu_content', $variables);
+//        showVariables($variables);
+        break;
+      case 'frs-main':
+        __addExtraMenuInformation('frs_featured_main_menu_content', $variables);
+//        showVariables($variables);
+        break;
+    }
+  }
+
+  /* NO LONGER NEEDED, MENUS ARE DISTINCT
+    // Based on what domain we're in, we'll pull different extended menu blocks for the top nav (NTCA vs. FRS)
+    // figure out which domain we're on, pick the right custom block source
+    $sNTCAMenublockIdentifier = "featured_main_menu_content";
+    $sFRSMenublockIdentifier = "frs_featured_main_menu_content";
+    // pick a default one
+    $sMenublockIdentifier = $sNTCAMenublockIdentifier;
+
+    $oDomainAliasLoader = \Drupal::service('domain_alias.loader');
+    if ($oDomainAliasLoader instanceof Drupal\domain_alias\DomainAliasLoader) {
+      $sHostname = $_SERVER['HTTP_HOST'];
+      $oDomainAlias = $oDomainAliasLoader->loadByHostname($sHostname);
+      if ($oDomainAlias instanceof Drupal\domain_alias\Entity\DomainAlias) {
+        $sDomain = $oDomainAlias->getDomainId();
+        if ($sDomain == "frs_org") {
+          $sMenublockIdentifier = $sFRSMenublockIdentifier;
+        }
+      }
+    }
+  */
+}

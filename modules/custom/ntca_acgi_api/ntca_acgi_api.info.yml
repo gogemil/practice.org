@@ -1,0 +1,5 @@
+name: NTCA ACGI API
+type: module
+description: This is used to provide ACGI user authentication
+core: 8.x
+version: '8.x-0.1-alpha'

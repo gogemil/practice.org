@@ -1,0 +1,45 @@
+.event {
+  > .content {}
+  .field--name-body {}
+  .field--name-field-link {
+    a {
+      @extend %button;
+    }
+  }
+}
+.block-views-blockevents-support-submenu-event-support-submenu-block,
+.block-views-blockevents-support-submenu-events-submenu-block {
+  padding: $slug-height/3 $grid-gutter-width/2;
+  .view-content {}
+  .views-row {
+    margin-bottom: $slug-height/4;
+  }
+  .views-field-field-event-parent-ref {
+    .field-content {}
+    ul {
+      margin-bottom: 0;
+    }
+    li {}
+    a {}
+  }
+  .views-field-field-event-child-pages-ref {}
+}
+
+.view-events-list{
+  .table{
+    caption{
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    > tbody{
+      > tr{
+        > td{
+          width: 40%;
+          + td{
+            width: 60%;
+          }
+        }
+      }
+    }
+  }
+}

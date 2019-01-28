@@ -1,0 +1,16 @@
+.adminimal .toolbar .toolbar-tray,
+.adminimal .toolbar .toolbar-toggle-orientation {
+  background-color: #f5f5f2;
+}
+
+.toolbar-tray .toolbar-menu .menu-item {
+  background-color: #f5f5f2;
+}
+
+.toolbar-tray .toolbar-menu .menu-item:hover {
+  background-color: #fff;
+}
+
+.toolbar-tray .toolbar-menu .menu-item a {
+  color: #2D2D2D !important;
+}

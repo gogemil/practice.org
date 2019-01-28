@@ -1,0 +1,16 @@
+services:
+  ntca_externalauth.remoteusermanagerservice:
+    class: Drupal\ntca_externalauth\Service\RemoteUserManagerService
+    arguments: ['@user.auth', '@externalauth.externalauth']
+
+  ntca_externalauth.routesubscriber:
+    class: Drupal\ntca_externalauth\Service\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  # The following service is used to protect a user's profile (edit/view/etc)
+  ntca_externalauth.accesschecker:
+    class: Drupal\ntca_externalauth\Access\AccessChecker
+    arguments: ['@current_user']
+    tags:
+      - { name: access_check, applies_to: _entity_access }

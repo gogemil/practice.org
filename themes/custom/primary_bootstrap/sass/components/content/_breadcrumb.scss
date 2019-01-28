@@ -1,0 +1,41 @@
+.breadcrumb-wrapper {
+  .container,
+  .container-fluid {
+    @media only screen and (min-width: $screen-lg) {
+      padding: 0 $grid-gutter-width*4;
+    }
+  }
+}
+.breadcrumb {
+  clear: both;
+  background-color: transparent;
+  margin-top: $slug-height/3;
+  margin-left: -$grid-gutter-width/2;
+  margin-right: -$grid-gutter-width/2;
+  margin-bottom: $slug-height/2;
+  border-radius: 0;
+  .node--type-landing_page &,
+  .panel-landing-page &{
+    background-color: $global-color-primary;
+    @media only screen and (min-width: $screen-md) {
+      margin-left: -$grid-gutter-width*4;
+      margin-right: -$grid-gutter-width*4;
+      padding-left: $grid-gutter-width*4;
+      padding-right: $grid-gutter-width*4;
+    }
+    + .block-entity-fieldnodefield-subhero-space-para-ref{
+      margin-top: -$slug-height/2;//pull the blue subhero up flush with the breadcrumb
+    }
+  }
+  li {
+    color: $body-text-color;
+    font-weight: bold;
+    font-size: $font-size-base/1.285714285714286;
+    .page-node-type-landing-page &{
+      color: #fff;
+      a{
+        color: #fff;
+      }
+    }
+  }
+}

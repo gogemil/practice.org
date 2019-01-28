@@ -1,0 +1,5 @@
+name: NTCA (generic module)
+type: module
+description: Generic Module to keep common code/libs, etc
+core: 8.x
+project: 'ntca'

@@ -1,0 +1,54 @@
+{#
+  /**
+  * @file
+  * Template for the Home page panel layout.
+  *
+  * This template provides a very simple "one column" "brick" panel display layout with a herospace.
+  *
+  * Variables:
+  * - $id: An optional CSS id to use for the layout.
+  * - $content: An array of content, each item in the array is keyed to one
+  *   panel of the layout. This layout supports the following sections:
+  *   - content.herospace_image: Used for the herospace content
+  *   - content.herospace_info: Used for the herospace content
+  *   - content.top: An intro panel in the layout.
+  *   - content.middle: The main panel in the layout.
+  *   - content.bottom: Optionally put content at the bottom.
+  */
+  #}
+  <div class="panel-home-page {% if content.herospace_image|length > 2 %}has-hero-image{% endif %}" {% if css_id %}{{ css_id }}{% endif %}>
+
+    <div class="panel-panel panel-full-width panel-herospace">
+      <div class="hero-caption hidden-xs">
+        <div class="container-fluid">
+          {{ content.herospace_info }}
+        </div>
+      </div>
+      {% if content.herospace_image|length > 2 %}
+      <div class="hero-image">
+        {{ content.herospace_image }}
+      </div>
+      {% endif %}
+      <div class="hero-caption mobile hidden-sm hidden-md hidden-lg">
+        <div class="container-fluid">
+         {{ content.herospace_info }}
+       </div>
+     </div>
+   </div>
+   <div class="panel-panel panel-full-width panel-top">
+    <div class="container-fluid">
+      {{ content.top }}
+    </div>
+  </div>
+   <div class="panel-panel panel-full-width panel-middle">
+    <div class="container-fluid">
+      {{ content.middle }}
+    </div>
+  </div>
+  <div class="panel-panel panel-full-width panel-bottom">
+    <div class="container-fluid">
+      {{ content.bottom }}
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,100 @@
+.item--paragraph--type--bubble-promo {
+  background-color: $global-color-tertiary;
+  background-image: url('/themes/custom/primary_bootstrap/img/vector-bg-white.png');
+  clear: both;
+  margin: 0 $grid-gutter-width*-2 $slug-height;
+  padding: $slug-height 0;
+  @media only screen and (min-width: $screen-lg) {
+    //margin: 0 $grid-gutter-width*-4.5;
+    margin: 0 $grid-gutter-width*-4;
+    padding: $slug-height 0;
+  }
+  .default-domain--frs-org &,
+  .section--frs & {
+    @media only screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+      margin: 0 $grid-gutter-width/-2 $slug-height;
+    }
+  }
+  .default-domain-1-ntca-org &,
+  .section--default {
+    background-color: #fff;
+    background-image: url('/themes/custom/primary_bootstrap/img/vector-bg.png');
+  }
+}
+.paragraph--type--bubble-promo {
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    padding: 0 $grid-gutter-width*4.5;
+  }
+}
+.field--name-field-bubble-item-ref {
+  @include make-row();
+}
+.item--paragraph--type--bubble-item {
+  @include make-xs-column(12);
+  @include make-md-column(7);
+  margin-bottom: $slug-height/2;
+  @media only screen and (min-width: $screen-md) {
+    margin-bottom: $slug-height;
+  }
+  &.even {
+    @include make-md-column-offset(5);
+    @media only screen and (min-width: $screen-md) {
+      margin-bottom: 0;
+    }
+  }
+  &.odd {}
+}
+.paragraph--type--bubble-item {
+  padding-left: 100px;
+}
+.group-bubble-amount {
+  background-color: $global-color-secondary;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 180px;
+  margin-bottom: -100px;
+  margin-left: -100px;
+  position: relative;
+  text-align: center;
+  width: 180px;
+  .default-domain-1-ntca-org &,
+  .section--default {
+    background-color: $global-color-tertiary;
+  }
+}
+.amount-wrapper {
+  @include absolute-center;
+}
+.field--name-field-bubble-amount {
+  font-size: $font-size-base*2.666666666666667;
+  font-weight: bold;
+}
+.field--name-field-bubble-amount-type {
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.field--name-field-bubble-text {
+  background-color: #fff;
+  border-radius: 30px;
+  padding: $slug-height*1.5 $grid-gutter-width*1.5 $slug-height/2;
+  @media only screen and (min-width: $screen-sm) {
+    padding: $slug-height/2 $grid-gutter-width*1.5;
+  }
+  .default-domain-1-ntca-org &,
+  .section--default {
+    background-color: $global-color-primary;
+    color: #fff;
+  }
+  p {
+    &:last-child {
+      margin-bottom: 0;
+      padding-left: $grid-gutter-width/2;
+      @media only screen and (min-width: $screen-sm) {
+        padding-left: $grid-gutter-width*3;
+      }
+    }
+  }
+}

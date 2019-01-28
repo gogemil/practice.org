@@ -1,0 +1,264 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+*:focus {
+	outline: #fff 1px solid;
+}
+* { // Universal transitions 
+	transition-property: box-shadow, text-shadow, position, display, color, background-color, border-color, font-size, min-height, max-height, max-width, opacity;
+    transition-duration: .3s;
+}
+html,
+body {
+	min-height: 100%;
+	min-height: 100vh;
+	height: 100%;
+}
+body {
+	//background-color: $global-color-gray-7;
+	background-color: $global-color-quaternary;
+	font-size: $font-size-base;
+	line-height: 1;
+	font-family: $body-font;
+	color: $body-text-color;
+	&.cke_editable {
+		background-color: #fff;
+	}
+}
+
+
+//Headings
+@include headings() {
+	line-height: $headings-line-height; //bootstrap variable
+	//span {
+	//	text-transform: uppercase;
+	//	font-weight: normal;
+	//}
+}
+h1,
+.h1 {
+	font-size: $font-size-h1;
+	color: $h1-color;
+	font-family: $header-font;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h1-color;
+		&:hover {
+			color: $h1-color;
+		}
+	}
+}
+h2,
+.h2 {
+	font-size: $font-size-h2;
+	color: $h2-color;
+	font-family: $header-font;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h2-color;
+		&:hover {
+			color: $h2-color;
+		}
+	}
+}
+h3,
+.h3 {
+	font-size: $font-size-h3;
+	color: $h3-color;
+	font-family: $body-font;
+	font-weight: bold;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h3-color;
+		&:hover {
+			color: $h3-color;
+		}
+	}
+}
+h4,
+.h4 {
+	font-size: $font-size-h4;
+	color: $h4-color;
+	font-family: $header-font;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h4-color;
+		&:hover {
+			color: $h4-color;
+		}
+	}
+}
+h5,
+.h5 {
+	font-size: $font-size-h5;
+	color: $h5-color;
+	font-family: $body-font;
+	text-transform: uppercase;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h5-color;
+		&:hover {
+			color: $h5-color;
+		}
+	}
+}
+h6,
+.h6 {
+	color: $h6-color;
+	font-size: $font-size-h6;
+	font-family: $body-font;
+	text-transform: uppercase;
+	margin-bottom: $slug-height/3;
+	a {
+		color: $h6-color;
+		&:hover {
+			color: $h6-color;
+		}
+	}
+}
+
+//Content Elements
+a {
+	color: $link-color;
+	cursor: pointer;
+	text-decoration: none;
+	&:hover {
+		color: $link-hover-color;
+	}
+}
+button {
+	// Don't style button elements, since they're often styled as links for
+	// accessible widgets. Use the .button class in components/buttons.
+	cursor: pointer;
+}
+p,
+li,
+dt,
+dd,
+code,
+address {
+	line-height: $line-height-computed;
+}
+blockquote {
+	@extend %before-bar-yellow;
+	font-size: $font-size-base * 1.666666666666667;
+	border: none;
+	font-weight: 400;
+	margin: $slug-height/2 0;
+	padding: 0 $grid-gutter-width*2;
+}
+article {}
+aside {}
+section {
+
+}
+cite {}
+del {}
+code {}
+address {
+  font-style: normal;
+}
+details {}
+dfn {}
+hr {
+	border: none;
+	border-top: $gray-border-1;
+	clear: both;
+}
+strong,
+b {
+	font-weight: 600;
+}
+small {
+	font-size: .9444444444444444em;
+}
+em,
+i {}
+header {}
+footer {}
+
+//Tables
+table {
+  font-size: $font-size-base/1.125;
+	margin-bottom: $slug-height/3;
+	line-height: 1.325;
+}
+thead {}
+th {
+  background-color: #fff;
+  color: $global-color-gray-7;
+  text-transform: uppercase;
+}
+tbody {}
+tr {
+  background-color: $global-color-quaternary;
+  &:nth-child(2n+2) {
+    background-color: #fff;
+  }
+}
+td {
+	padding: $slug-height/6 $grid-gutter-width/2;
+}
+tfoot {}
+col {}
+colgroup {}
+
+.table-responsive {
+	clear: both;
+}
+.table-responsive > .table > thead > tr > th,
+.table-responsive > .table > thead > tr > td,
+.table-responsive > .table > tbody > tr > th,
+.table-responsive > .table > tbody > tr > td,
+.table-responsive > .table > tfoot > tr > th,
+.table-responsive > .table > tfoot > tr > td {
+	@media only screen and (max-width: $screen-xs-max) {
+		white-space: normal;
+	}
+}
+
+//Lists
+ol {}
+ul {}
+li {}
+datalist {}
+dl {}
+dt {}
+dd {}
+
+//Media
+img{
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	display: block;
+	margin: 0 auto;
+}
+svg {}
+figure {
+	margin: 0;
+}
+figcaption {
+	font-size: $font-size-base/1.285714285714286;
+	color: $global-color-gray-7;
+	margin-top: 0;
+	text-transform: uppercase;
+}
+caption {}
+embed {}
+object {}
+iframe {
+	max-width: 100%;
+}
+audio {}
+canvas {}
+
+//Forms
+//Most form styles included in components/forms
+form {}
+fieldset {}
+legend {}
+input {}
+select {}

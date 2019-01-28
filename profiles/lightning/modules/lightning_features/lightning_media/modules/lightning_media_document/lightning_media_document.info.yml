@@ -1,0 +1,16 @@
+name: 'Media Document'
+# core: 8.x
+type: module
+description: 'Locally hosted document support for Lightning Media.'
+# version: '8.x-2.05'
+package: Lightning
+dependencies:
+  - file
+  - lightning_media
+  - media_entity_document
+
+# Information added by Drupal.org packaging script on 2017-03-15
+version: '8.x-2.05'
+core: '8.x'
+project: 'lightning'
+datestamp: 1489618389

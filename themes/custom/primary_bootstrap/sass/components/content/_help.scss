@@ -1,0 +1,8 @@
+.help-wrapper {
+  .container,
+  .container-fluid {
+    @media only screen and (min-width: $screen-lg) {
+      padding: 0 $grid-gutter-width*4;
+    }
+  }
+}

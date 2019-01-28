@@ -1,0 +1,5 @@
+services:
+  ntca.twig_operators:
+    class: Drupal\ntca\Twig\TwigOperators
+    tags:
+      - { name: twig.extension }

@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * The install file for the ntca_externalauth module.
+ */
+
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_install().
+ */
+function ntca_externalauth_install() {
+
+  user_role_revoke_permissions(AccountInterface::AUTHENTICATED_ROLE, ['change own password']);
+
+  // Disable the open registration to the site and store the original setting.
+  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+  $config = \Drupal::configFactory()->getEditable('ntca_externalauth.settings');
+  $config->set('user_register_original', $user_settings->get('register'));
+  $user_settings->set('register', 'admin_only');
+  $user_settings->save();
+  $config->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ntca_externalauth_uninstall() {
+
+  // Restore the original user registration directive.
+  $user_settings = \Drupal::configFactory()->getEditable('user.settings');
+  $config = \Drupal::config('ntca_externalauth.settings');
+  $user_settings->set('register', $config->get('user_register_original'));
+  $user_settings->save();
+}

@@ -1,0 +1,97 @@
+.block-views-blocknewsroom-search-newsroom-block {
+  .block-title {
+    @extend .h1;
+    text-align: center;
+  }
+  > .form-group {}
+}
+.view-newsroom-search {
+  .view-filters {}
+  .views-exposed-form {}
+  .form--inline {}
+  .form-item {}
+  .control-label {
+    @include remove;
+  }
+  .form-control {
+    height: 37px;
+  }
+  .form-actions {}
+  .button {
+    .icon {
+      transition: none;
+    }
+    .label {}
+  }
+}
+.masonry-layout {
+  .grid-sizer,
+  .grid-item,
+  .masonry-item {
+    background-color: #fff;
+    border: 2px solid $global-color-gray-9;
+    padding: 0;
+    margin: 0 1% $slug-height/3;
+    @media only screen and (max-width: $screen-xs-max) {
+      width: 98%;
+    }
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      width: 30.33333333333333%;
+    }
+    @media only screen and (min-width: $screen-md) {
+      width: 30.33333333333333%;
+    }
+  }
+  .teaser {
+    border: none;
+    padding: $slug-height/1.2 $grid-gutter-width $slug-height/3;
+    margin: 0;
+    .views-field-type {
+      background-color: $global-color-gray-9;
+      color: #fff;
+      font-weight: bold;
+      font-size: $font-size-base/1.285714285714286;
+      min-width: 125px;
+      padding: $slug-height/12 $grid-gutter-width/2;
+      position: absolute;
+      top: 0;
+      text-transform: uppercase;
+      left: 0;
+    }
+    .views-field-field-image {
+      img {}
+    }
+    .views-field-title {}
+    @include headings() {
+      font-size: $font-size-base*1.333333333333333;
+      font-family: $body-font;
+      font-weight: 600;
+      margin-top: $slug-height/4;
+      margin-bottom: $slug-height/4;
+      color: $global-color-primary;
+      a {
+        color: $global-color-primary;
+      }
+    }
+    .views-field-field-date {
+      margin-bottom: $slug-height/4;
+      time {
+        color: $global-color-gray-8;
+        text-transform: uppercase;
+      }
+    }
+    .views-field-body {}
+  }
+}
+
+.newsroom-search-more-buttons {
+  margin: $slug-height 0;
+  text-align: center;
+  a {
+    @extend %button;
+    @extend %button-white;
+    @extend %button-bordered;
+    @extend %button-big;
+    margin: 0 $grid-gutter-width/2;
+  }
+}

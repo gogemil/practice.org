@@ -1,0 +1,101 @@
+.interest-area-icons {
+  background-color: $global-color-tertiary;
+  margin: 0 $grid-gutter-width*-1 $slug-height/1.5;
+  padding: $slug-height/2 $grid-gutter-width/2;
+  text-align: center;
+  @media only screen and (max-width: $screen-xs-max) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4.5 $slug-height/1.5;
+    padding: $slug-height $grid-gutter-width/2;
+  }
+  @include headings(){
+    @extend .h1;
+    font-weight: bold;
+    margin: $slug-height/2 0 $slug-height;
+    color: #000;
+    @media only screen and (max-width: $screen-xs-max) {
+      margin: 0 0 $slug-height/2;
+      font-size: 20px;
+    }
+  }
+}
+.interest-area-icon-list {
+  @include no-bullets;
+}
+.interest-area {
+  display: inline-block;
+  margin: 0 $grid-gutter-width/2 $slug-height/3;
+  vertical-align: top;
+  @media only screen and (min-width: $screen-sm) {
+    margin: 0 $grid-gutter-width*2 $slug-height/3;
+  }
+  &.insurance-benefits {
+    .icon {
+      @extend .icon-insurance-benefits;
+    }
+  }
+  &.advocacy {
+    .icon {
+      @extend .icon-advocacy;
+    }
+  }
+  &.events {
+    .icon {
+      @extend .icon-events;
+    }
+  }
+  &.membership {
+    .icon {
+      @extend .icon-membership;
+    }
+  }
+  &.education {
+    .icon {
+      @extend .icon-education;
+    }
+  }
+  &.ib{
+    .icon{
+      @extend .icon-flex;
+    }
+  }
+}
+.interest-area-link {
+  display: block;
+  max-width: 120px;
+  .icon {
+    background-color: $global-color-secondary;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    height: 72px;
+    width: 72px;
+    @media only screen and (min-width: $screen-sm) {
+      height: 120px;
+      width: 120px;
+    }
+    &:before {
+      @include absolute-center;
+      color: #fff;
+      font-size: $font-size-base*1.777777778;
+      margin: 0 !important;
+      width: auto !important;
+      @media only screen and (min-width: $screen-sm) {
+        font-size: $font-size-base*2.777777777777778;
+      }
+    }
+  }
+  .label {
+    color: #000;
+    display: block;
+    font-size: $font-size-base*1.111111111111111;
+    white-space: normal;
+    @media only screen and (max-width: $screen-xs-max) {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+}

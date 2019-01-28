@@ -1,0 +1,95 @@
+.container-fluid{
+  max-width: $container-lg;//bootstrap var
+  background-color: #fff;
+  .container-fluid,
+  .container {
+    background-color: transparent;
+  }
+}
+
+.container {
+  background-color: #fff;
+  .container-fluid,
+  .container {
+    background-color: transparent;
+  }
+}
+
+.layout-main {}
+
+//.main-container{
+//  background: #fff;
+//}
+
+.main-content {
+  > .container,
+  > .container-fluid {
+    background-repeat: no-repeat;
+    background-size: 140%;
+    background-position: center 340px;
+    //padding-bottom: $slug-height;
+    @media only screen and (min-width: $screen-lg) {
+      //padding: 0 $grid-gutter-width*4 $slug-height;
+      padding: 0 $grid-gutter-width*4 $slug-height;
+      overflow: hidden;
+    }
+    .default-domain--frs-org &,
+    .section--frs & {
+      background-position: center 1600px;
+    }
+    .path-frontpage & {
+      background-image: url('/themes/custom/primary_bootstrap/img/vector-bg.png');
+    }
+    .section--newsroom &,
+    .path-ruraliscool & {
+      background-image: none;
+    }
+  }
+}
+
+.page-content{
+  @include make-md-column(6);
+}
+.sidebar-first{
+  @include make-md-column(3);
+}
+.sidebar-second{
+  @include make-md-column(3);
+  margin-top: $grid-gutter-width;
+  @media only screen and (min-width: $screen-md) {
+    margin-top: 0;
+  }
+}
+.layout-first-main{
+  .page-content{
+    @include make-md-column(9);
+  }
+}
+.layout-main-second{
+  .page-content{
+    @include make-md-column(9);
+  }
+}
+.layout-main{
+  position: relative;
+  z-index: 1;//NTCARDSN-231 need this so that certain content blocks stay under sticky nav (z-index 1)
+  .page-content{
+    @include make-md-column(12);
+  }
+}
+
+.page-content-bottom {
+  clear: both;
+}
+
+//////////////////////
+// PROMO SECTIONS
+//////////////////////
+
+.paragraph--type--promo-section  {
+  margin-top: $slug-height;
+  margin-bottom: $slug-height*1.666666666666667;
+  .field--name-field-promo-type {
+    padding: 0 $grid-gutter-width/2;
+  }
+}

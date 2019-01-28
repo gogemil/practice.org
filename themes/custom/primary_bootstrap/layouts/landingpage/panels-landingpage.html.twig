@@ -1,0 +1,151 @@
+{#
+  /**
+  * @file
+  * Template for a Landing page panel layout.
+  *
+  * This template provides a very simple "one column" "brick" panel display layout with a herospace.
+  *
+  * Variables:
+  * - $id: An optional CSS id to use for the layout.
+  * - $content: An array of content, each item in the array is keyed to one
+  *   panel of the layout. This layout supports the following sections:
+  *   - content.herospace_image: Used for the herospace content
+  *   - content.herospace_info: Used for the herospace content
+  *   - content.top: An intro panel in the layout.
+  *   - content.middle: The main panel in the layout.
+  *   - content.bottom: Optionally put content at the bottom.
+  *
+  *
+  * NTCA / FRS Customizations
+  * - Needs to support different image styles based on type
+  * - Support for empty text with only an image
+  * - Display the landing page title
+  *
+  */
+  #}
+
+{#
+  /**
+   * Herospace should always contain text or a logo. Without this, there is no title on the page
+   * at desktop resolution. Mobile shows the title below the herospace.
+   * However, editors want to be able to have a hero image with nothing covering it. So this has
+   * been modified as part of several tickets, NTCARDSN-224, NTCAON-51, NTCAON-44, and others.
+   *
+   * There is no way to override this from the node edit page. The hero space design type field
+   * does not have a specific option for a version with no text. So the template needs the logic.
+   *
+   * This version can be adjusted to show the title if the herospace is set to "none". It would try to show the
+   * herospace text if it exists, otherwise it would default to the node title. However, that breaks the design
+   * when there is no subhero content, it just shows the breadcrumb in a blue bar below the title.
+   */
+#}
+{%
+    set hero_space_body_test = hero_space_link|trim ~ hero_space_logo|trim ~ hero_space_text|trim ~ hero_space_subtext|trim
+%}
+
+
+  <div class="panel-landing-page {% if content.herospace_image|length > 2 %}has-hero-image{% endif %}" {% if css_id %}{{ css_id }}{% endif %}>
+    {% if hero_design_type matches '/.*none.*/' %}
+      {# Show Landing Page Title if no herospace #}
+      {#
+      <div class="panel-panel panel-full-width">
+        <div class="panel-container">
+            {% if hero_space_text is not null and hero_space_text is not empty %}
+                <h1>{{hero_space_text}}</h1>
+            {% else %}
+               <h1>{{ title }}</h1>
+            {% endif %}
+        </div><!-- panel-container -->
+      </div>
+      #}
+    {% else %}
+
+      <div class="panel-panel panel-full-width panel-herospace hero-unit {{hero_design_type}}">
+        <div class="hero">
+            {% if content.herospace_image|length > 2 %}
+                {# do nothing #}
+            {% else %}
+                {% if hero_space_text is not null and hero_space_text is not empty %}
+                    {# do nothing #}
+                {% else %}
+                    <div class="hero-caption hidden-xs">
+                        <div class="container-fluid">
+                            {{ content.herospace_info }}
+                        </div><!-- container-fluid -->
+                    </div><!-- hero-caption -->
+                {% endif %}
+            {% endif %}
+            {% if content.herospace_image|length > 2 or content.herospace_image_tall|length > 2 %}
+            <div class="hero-image">
+              {# If this is the tall herospace, replace the image style #}
+              {% if hero_design_type matches '/.*text-overlay-bottom.*/' and content.herospace_image_tall|length > 2 %}
+                {{ content.herospace_image_tall }}
+              {% else %}
+                {{ content.herospace_image }}
+              {% endif %}
+            </div><!-- end hero-image -->
+            {% endif %}
+              <div class="hero-body">
+                {#
+                  /**
+                   * Setup the herospace info contents
+                   * - Background overlay: Flat, Gradient, None - this comes from the design type class
+                   * - Logo Image or Text, not both
+                   * - Link around logo or text
+                   * - Mobile display should always show the page title if the herospace doesn't have any text or a logo
+                   */
+                #}
+                {% if hero_space_body_test is not null and hero_space_body_test is not empty %}
+
+                    {% if hero_space_link is not null and hero_space_link is not empty %}
+                      {# Use the values from the preprocess hook #}
+                      {% set hero_space_link_open_tag = hero_space_link_open %}
+                      {% set hero_space_link_close_tag = hero_space_link_close %}
+                    {% else %}
+                      {% set hero_space_link_open_tag = '' %}
+                      {% set hero_space_link_close_tag = '' %}
+                    {% endif %}
+                    {% if hero_space_logo is not null and hero_space_logo is not empty %}
+                      {{ hero_space_link_open_tag|raw }}<img class="hero-overlay-logo" src="{{hero_space_logo}}">{{ hero_space_link_close_tag|raw }}
+                    {% else %}
+                      {% if hero_space_text is not null and hero_space_text is not empty %}
+                        <h1>{{ hero_space_link_open_tag|raw }}{{hero_space_text}}{{ hero_space_link_close_tag|raw }} <span class="icon right-dir"></span></h1>
+                      {% endif %}
+
+                      {% if hero_space_subtext is not null and hero_space_subtext is not empty %}
+                        <div class="field--name-field-subtitle">{{ hero_space_subtext }}</div><!-- end field--name-field-subtitle -->
+                      {% endif %}
+                    {% endif %}
+
+                {% else %}
+                    <div class="hero-caption mobile hidden-sm hidden-md hidden-lg">
+                        <div class="panel-container">
+                            {{ content.herospace_info }}
+                        </div><!-- panel-container -->
+                    </div><!-- hero-caption -->
+                 {% endif %}
+
+              </div><!-- end hero-body -->
+
+        </div><!-- hero -->
+      </div><!-- panel-herospace -->
+    {% endif %}
+  </div><!-- panel-landing-page -->
+
+  <div class="panel-panel panel-full-width panel-top">
+    <div class="panel-container">
+      {{ content.top }}
+    </div>
+  </div>
+  <div class="panel-panel panel-full-width panel-middle">
+    <div class="panel-container">
+      {{ content.middle }}
+    </div>
+  </div>
+  <div class="panel-panel panel-full-width panel-bottom">
+    <div class="panel-container">
+      {{ content.bottom }}
+    </div>
+  </div>
+
+</div>

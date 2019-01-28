@@ -1,0 +1,68 @@
+.sticky-wrapper {
+  //height: auto !important;
+}
+.site-header {
+  //background-color: #fff;
+  position: relative;
+  z-index: 2;
+  &.stuck {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    .container-fluid {
+      .section--frs &,
+      .default-domain--frs-org & {
+        background-color: #fff !important;
+      }
+    }
+  }
+}
+.container-fluid {
+  position: relative; //comment out for full viewport width dropdown menu
+  .section--frs &,
+  .default-domain--frs-org & {
+    background-color: rgba(255,255,255,.8) !important;
+  }
+}
+.header-branding {
+  @include make-xs-column(12);
+  @include make-md-column(3);
+  @include make-sw-column(4);
+  border: none;
+  margin: 0;
+  padding-top: $slug-height/6;
+  padding-bottom: $slug-height/6;
+  @media only screen and (min-width: $screen-sm) {
+    //padding-top: $slug-height/2.485501242750621;
+    //padding-bottom: $slug-height/2.485501242750621;
+    padding-top: $slug-height/3.134796238244514;
+    padding-bottom: $slug-height/11.67315175097276;
+  }
+  @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+    padding-bottom: 0;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    padding-left: $grid-gutter-width*4;
+  }
+}
+.region-header {
+  overflow: hidden;
+  .logo {
+    display: block;
+    @media only screen and (max-width: $screen-xs-max) {
+      padding-right: $grid-gutter-width*2;
+    }
+    img {
+      margin: 0;
+      .section--frs &,
+      .default-domain--frs-org & {
+        width: 240px;
+      }
+    }
+  }
+  .name {
+    position: absolute;
+    left: -9999999px;
+  }
+}

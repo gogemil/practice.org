@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "styles.min.css",
+	"sources": [
+		"sass/bfred_admin.scss",
+		"sass/components/_toolbar.scss"
+	],
+	"mappings": "ACAA,AAEE,UAFQ,CACT,QAAQ,CACP,aAAa;AAFf,AAGE,UAHQ,CACT,QAAQ,CAEP,2BAA2B,CAAC;EAC3B,gBAAgB,EAAE,OAAQ;CAC1B;;AAIH,AAEE,aAFW,CACZ,aAAa,CACZ,UAAU,CAAC;EACV,gBAAgB,EAAE,OAAQ;CAO1B;;AAVH,AAEE,aAFW,CACZ,aAAa,CACZ,UAAU,AAER,MAAM,CAAC;EACP,gBAAgB,EAAE,IAAK;CACvB;;AANJ,AAOG,aAPU,CACZ,aAAa,CACZ,UAAU,CAKT,CAAC,CAAC;EACD,KAAK,EAAE,kBAAmB;CAC1B",
+	"names": []
+}

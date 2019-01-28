@@ -1,0 +1,91 @@
+#cboxOverlay {}
+#colorbox {
+  max-width: 500px;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%);
+  height: 320px !important;
+  @media only screen and (min-width: $screen-sm) {
+    height: 300px !important;
+  }
+}
+#cboxWrapper {
+  background-color: $global-color-quinary;
+  border-radius: 0;
+  max-width: 100%;
+  padding: $slug-height/3 $grid-gutter-width;
+}
+#cboxContent {
+  background: transparent;
+  max-width: 100%;
+}
+#cboxLoadedContent {
+  max-width: 100%;
+}
+#cboxTopLeft,
+#cboxTopCenter,
+#cboxTopRight,
+#cboxMiddleLeft,
+#cboxMiddleRight {
+  @include remove;
+}
+
+.user-login-form {
+  .form-item {
+    @media only screen and (min-width: $screen-sm) {
+      float: left;
+      margin-right: $grid-gutter-width;
+      width: calc(40% - 15px);
+    }
+    .control-label {
+      font-size: $font-size-base/1.285714285714286;
+      text-transform: uppercase;
+    }
+    .form-control {
+      border: $global-color-tertiary 1px solid;
+      border-radius: 0;
+    }
+  }
+  .form-item-name {}
+  .form-item-pass {}
+  .form-actions {
+    background: white;
+    border: $global-color-tertiary 1px solid;
+    height: 44px;
+    padding: 5px;
+    @media only screen and (min-width: $screen-sm) {
+      float: left;
+      margin-top: $slug-height/2.4;
+      width: calc(20% - 10px);
+    }
+    .button {
+      @extend %button-yellow;
+      border-radius: 0;
+      height: 100%;
+      width: 100%;
+      .icon {
+        @include remove;
+      }
+    }
+  }
+  .link-wrapper {
+    clear: both;
+    .forgot-link {
+      &:after {
+        content: "|";
+        margin: 0 5px;
+      }
+    }
+    .forgot-link,
+    .register-link {
+      display: inline-block;
+      font-size: $font-size-base/1.125;
+      a {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

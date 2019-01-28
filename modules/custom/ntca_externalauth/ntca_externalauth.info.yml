@@ -1,0 +1,10 @@
+name: NTCA ExternalAuth
+type: module
+description: Allows users to authenticate to a NTCA's external authentication service
+core: 8.x
+#configure: simplesamlphp_auth.admin_settings
+dependencies:
+ - user
+ - externalauth
+#version: '8.x-3.0-rc2'
+project: 'ntca_externalauth'

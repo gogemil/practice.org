@@ -1,0 +1,87 @@
+uuid: a41b9421-1dcd-46cf-9601-9a45df8224a3
+langcode: en
+status: true
+dependencies: {  }
+id: ruraltelecom
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags: null
+migration_group: null
+label: 'Import Rural Telecom'
+source:
+  plugin: csv
+  path: sites/default/files/import/ruraltelecom.txt
+  delimiter: '	'
+  enclosure: '"'
+  header_row_count: 1
+  keys:
+    - 'URL'
+  constants:
+    rich_text: rich_text
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  field_imported_url: URL
+  field_access_control_ref:
+    -
+      plugin: default_value
+      default_value: 'Public'
+    -
+      plugin: entity_generate
+      entity_type: taxonomy_term
+      bundle: 'access_control'
+      bundle_key: vid
+      value_key: name
+
+  path/pathauto:
+    plugin: default_value
+    default_value: 0 # Disable pathauto.
+  path/alias:
+    plugin: ntca_ruraltelecom_alias
+    source: Title
+
+  title: Title
+  body/value:
+    -
+      plugin: ntca_ruraltelecom_removeH2
+      source: Content
+    -
+      plugin: ntca_htmlimageimporter
+  body/format: constants/rich_text
+  body/summary:
+    plugin: ntca_ruraltelecom_introextrator
+    source: Content
+  field_date:
+    plugin: ntca_simpledateconverter
+    source: 'Created Date'
+
+  field_topics_ref:
+    plugin: entity_generate
+    source: Category
+    entity_type: taxonomy_term
+    bundle: topics
+    bundle_key: vid
+    value_key: name
+
+  field_section_ref:
+    plugin: default_value
+    # 93 is Rural Telecom
+    default_value: 93
+
+  sticky:
+    plugin: default_value
+    default_value: 0
+  status:
+    plugin: default_value
+    default_value: 1
+  promote:
+    plugin: default_value
+    default_value: 0
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

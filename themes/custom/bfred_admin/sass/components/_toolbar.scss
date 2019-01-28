@@ -1,0 +1,29 @@
+.adminimal {
+	.toolbar {
+		.toolbar-tray,
+		.toolbar-toggle-orientation {
+			background-color: #f5f5f2;
+		}
+	}
+}
+
+.toolbar-tray {
+	.toolbar-menu {
+		.menu-item {
+			background-color: #f5f5f2;
+			&:hover {
+				background-color: #fff;
+			}
+			a {
+				color: #2D2D2D !important;
+			}
+		}
+	}
+}
+
+#toolbar-administration {
+	//font-size: 12px !important;
+}
+#toolbar-item-administration-tray {
+	//font-size: 10px !important;
+}

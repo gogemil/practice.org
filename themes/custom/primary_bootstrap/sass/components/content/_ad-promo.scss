@@ -1,0 +1,26 @@
+.ad-promo {
+  @include headings() {}
+  > .content {}
+  .field--name-field-image-promo-mobile-banner { //Mobile
+    @media only screen and (min-width: $screen-sm) {
+      @include remove;
+    }
+  }
+  .field--name-field-image-promo-banner { //Tablet
+    @include remove;
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      display: block;
+      visibility: visible;
+    }
+  }
+  .field--name-field-image { //Desktop
+    @include remove;
+    @media only screen and (min-width: $screen-md) {
+      display: block;
+      visibility: visible;
+    }
+  }
+  .field--name-field-link {
+    @include remove;
+  }
+}

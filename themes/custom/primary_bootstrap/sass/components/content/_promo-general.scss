@@ -1,0 +1,38 @@
+.paragraph--type--promo-content {
+  @include make-row();
+  .card-image-wrapper {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    @include aspect-ratio(5,4);
+    margin-bottom: $slug-height/2;
+    overflow: hidden;
+    @media only screen and (min-width: $screen-sm) {
+      margin-bottom: 0;
+    }
+  }
+  .field--name-field-card-image {
+    @extend .content;
+    img {
+      width: 100%;
+    }
+  }
+  .promo-content {
+    @include make-xs-column(12);
+    @include make-sm-column(8);
+    margin-bottom: $slug-height/2;
+    @media only screen and (min-width: $screen-sm) {
+      margin-bottom: 0;
+      padding-left: $grid-gutter-width*2;
+    }
+  }
+  .section-title {
+    @extend .h1;
+    margin-top: 0;
+  }
+  .field--name-field-body {
+    p {
+      font-size: $font-size-base*1.222222222222222;
+      line-height: 1.272727272727273;
+    }
+  }
+}

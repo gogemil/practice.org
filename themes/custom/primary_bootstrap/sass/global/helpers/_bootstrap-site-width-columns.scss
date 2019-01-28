@@ -1,0 +1,27 @@
+// Generate the medium columns
+@mixin make-sw-column($columns, $gutter: $grid-gutter-width) {
+  position: relative;
+  min-height: 1px;
+  padding-left:  ($gutter / 2);
+  padding-right: ($gutter / 2);
+
+  @media (min-width: $site-width) {
+    float: left;
+    width: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-sw-column-offset($columns) {
+  @media (min-width: $site-width) {
+    margin-left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-sw-column-push($columns) {
+  @media (min-width: $site-width) {
+    left: percentage(($columns / $grid-columns));
+  }
+}
+@mixin make-sw-column-pull($columns) {
+  @media (min-width: $site-width) {
+    right: percentage(($columns / $grid-columns));
+  }
+}

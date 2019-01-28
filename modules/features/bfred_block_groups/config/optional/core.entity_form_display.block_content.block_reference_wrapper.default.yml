@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.block_reference_wrapper
+    - field.field.block_content.block_reference_wrapper.field_custom_blocks_ref
+  module:
+    - inline_entity_form
+    - workbench_moderation
+id: block_content.block_reference_wrapper.default
+targetEntityType: block_content
+bundle: block_reference_wrapper
+mode: default
+content:
+  field_custom_blocks_ref:
+    weight: 1
+    settings:
+      form_mode: default
+      override_labels: true
+      label_singular: Row
+      label_plural: Rows
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+    third_party_settings: {  }
+    type: inline_entity_form_complex
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden: {  }

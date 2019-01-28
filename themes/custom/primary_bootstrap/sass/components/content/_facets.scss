@@ -1,0 +1,13 @@
+.js-facets-checkbox-links {
+  @include no-bullets;
+  .facet-item {
+    .facets-checkbox {
+      margin-right: 5px;
+      margin-top: 0;
+      vertical-align: middle;
+    }
+    label {
+      font-weight: normal;
+    }
+  }
+}

@@ -1,0 +1,271 @@
+@mixin card-grid {
+  @include make-row();
+  > .card,
+  > .grid-sizer {
+    @include make-xs-column(12);
+    a:hover{
+      .content-area {
+        @include headings(){
+          text-decoration: underline;
+        }
+      }
+    }
+    .field--name-field-link.field--label-hidden{
+      //@include remove;
+    }
+  }
+
+  &.mobile-columns {
+    > .card,
+    > .grid-sizer {
+      @include make-xs-column(6);
+      &:not(.slide):nth-of-type(2n+3) {
+        @media only screen and (max-width: $screen-xs-max) {
+          clear: both;
+        }
+      }
+    }
+  }
+
+  &.two-columns{
+    > .card,
+    > .grid-sizer {
+      @include make-sm-column(6);
+      &:not(.slide):nth-of-type(2n+3) {
+        @media only screen and (min-width: $screen-sm) {
+          clear: both;
+        }
+      }
+      &.featured {
+        @include make-sm-column(12);
+      }
+    }
+    &.single-row {
+      > .card {
+        &:nth-of-type(2n+3) {
+          @include remove;
+        }
+      }
+    }
+  }
+
+  &.three-columns{
+    > .card,
+    > .grid-sizer {
+      @include make-sm-column(6);
+      @include make-md-column(4);
+      &:not(.slide):nth-of-type(2n+3) {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+          clear: both;
+        }
+      }
+      &:not(.slide):nth-of-type(3n+4) {
+        @media only screen and (min-width: $screen-md) {
+          clear: both;
+        }
+      }
+      &.featured {
+        @include make-sm-column(12);
+        @include make-md-column(6);
+      }
+    }
+    &.single-row {
+      > .card {
+        @include make-md-column(4);
+        &:not(.slide):nth-of-type(2n+3) {
+          @include make-sm-column(12);
+        }
+        &:nth-of-type(3n+4) {
+          @include remove;
+        }
+      }
+    }
+  }
+
+  &.four-columns{
+    > .card,
+    > .grid-sizer {
+      @include make-sm-column(6);
+      @include make-md-column(3);
+      &:not(.slide):nth-of-type(2n+3) {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+          clear: both;
+        }
+      }
+      &:not(.slide):nth-of-type(4n+5) {
+        @media only screen and (min-width: $screen-md) {
+          clear: both;
+        }
+      }
+      &.featured {
+        @include make-sm-column(12);
+        @include make-md-column(6);
+      }
+    }
+    &.single-row {
+      > .card {
+        &:nth-of-type(4n+5) {
+          @include remove;
+        }
+      }
+    }
+  }
+
+  &.five-columns{
+    > .card,
+    > .grid-sizer {
+      @include make-sm-column(6);
+      @include make-lg-column-five();
+      &:not(.slide):nth-of-type(2n+3) {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-lg-min) {
+          clear: both;
+        }
+      }
+      &:not(.slide):nth-of-type(5n+6) {
+        @media only screen and (min-width: $screen-lg) {
+          clear: both;
+        }
+      }
+      &.featured {
+        @include make-sm-column(12);
+        @include make-lg-column(6);
+      }
+    }
+    &.single-row {
+      > .card {
+        &:last-child {
+          @include make-sm-column(12);
+          @include make-lg-column-five();
+        }
+        &:nth-of-type(5n+6) {
+          @include remove;
+        }
+      }
+    }
+  }
+
+}
+
+@mixin flex-grid {
+  @include flexbox;
+  @include flex-flow(row wrap);
+  &.slick {
+    .slick-track {
+      height: 100%;
+    }
+  }
+  > .card,
+  > .grid-sizer {
+    @include flex(0 1 100%);
+    @include flexbox;
+    @include flex-flow(row wrap);
+    > .content {
+      @include flex(0 1 100%);
+    }
+  }
+
+  &.mobile-columns {
+    > .card,
+    > .grid-sizer {
+      @media only screen and (max-width: $screen-xs-max) {
+        @include flex(0 1 50%);
+      }
+    }
+  }
+
+  &.two-columns{
+    > .card,
+    > .grid-sizer {
+      @media only screen and (min-width: $screen-sm) {
+        @include flex(0 1 50%);
+      }
+      &.featured {
+        @media only screen and (min-width: $screen-sm) {
+          @include flex(0 1 100%);
+        }
+      }
+    }
+  }
+
+  &.three-columns{
+    > .card,
+    > .grid-sizer {
+      @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+        @include flex(0 1 50%);
+      }
+      @media only screen and (min-width: $screen-md) {
+        @include flex(0 1 33.33333333333333%);
+      }
+      &.featured {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+          @include flex(0 1 100%);
+        }
+        @media only screen and (min-width: $screen-md) {
+          @include flex(0 1 50%);
+        }
+      }
+    }
+    &.single-row {
+      > .card {
+        &:not(.slide):nth-of-type(2n+3) {
+          @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+            @include flex(0 1 100%);
+          }
+        }
+      }
+    }
+  }
+
+  &.four-columns{
+    > .card,
+    > .grid-sizer {
+      @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+        @include flex(0 1 50%);
+      }
+      @media only screen and (min-width: $screen-md) {
+        @include flex(0 1 25%);
+      }
+      &.featured {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-md-min) {
+          @include flex(0 1 100%);
+        }
+        @media only screen and (min-width: $screen-md) {
+          @include flex(0 1 50%);
+        }
+      }
+    }
+  }
+
+  &.five-columns{
+    > .card,
+    > .grid-sizer {
+      @media only screen and (min-width: $screen-sm) and (max-width: $screen-lg-min) {
+        @include flex(0 1 50%);
+      }
+      @media only screen and (min-width: $screen-lg) {
+        @include flex(0 1 20%);
+      }
+      &.featured {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-lg-min) {
+          @include flex(0 1 100%);
+        }
+        @media only screen and (min-width: $screen-lg) {
+          @include flex(0 1 50%);
+        }
+      }
+    }
+    &.single-row {
+      > .card {
+        &:last-child {
+          @media only screen and (min-width: $screen-sm) and (max-width: $screen-lg-min) {
+            @include flex(0 1 100%);
+          }
+          @media only screen and (min-width: $screen-lg) {
+            @include flex(0 1 20%);
+          }
+        }
+      }
+    }
+  }
+
+}

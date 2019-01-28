@@ -1,0 +1,19 @@
+.test{
+  border: none;
+}
+.block-views-blockwashington-reports-yearly-list-block-block-washington-reports-yearly-list{
+  @include make-md-column(3);
+  h2{
+    max-width: 170px;
+    font-size: $font-size-h3;
+  }
+  .views-row{
+    margin-bottom: $slug-height/4;
+  }
+}
+.block-views-blockwashington-report-current-year-listing-block-washington-reports-current-year-listing,
+.block-views-blockwashington-report-archive-year-listing-block-washington-reports-archive-year-listing{
+  @include make-md-column(9);
+  .washington-report{
+  }
+}

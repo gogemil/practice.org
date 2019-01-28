@@ -1,0 +1,38 @@
+.people {
+  margin-bottom: $slug-height/2;
+  &.is-promoted {}
+  @include headings() {
+    margin-bottom: $slug-height/6;
+  }
+  > .content {}
+  .field--name-field-subtitle {
+    font-weight: 600;
+    margin-bottom: $slug-height/12;
+    display: inline-block;
+    &:after {
+      content: ',';
+      margin-right: 3px;
+    }
+  }
+  .field--name-field-people-department {
+    font-style: italic;
+    margin-bottom: $slug-height/12;
+    display: inline-block;
+    &:after {
+      content: ',';
+      margin-right: 3px;
+    }
+  }
+  .field--name-field-people-email {
+    margin-bottom: $slug-height/12;
+    display: inline-block;
+    &:after {
+      content: ',';
+      margin-right: 3px;
+    }
+  }
+  .field--name-field-people-phone {
+    margin-bottom: $slug-height/12;
+    display: inline-block;
+  }
+}

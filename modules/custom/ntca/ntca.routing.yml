@@ -1,0 +1,7 @@
+ntca.userstatus_bar:
+  path: /userstatus
+  defaults:
+    _controller: '\Drupal\ntca\Controller\UserStatusController:loginStatusBar'
+    _title: 'Login Status Bar'
+  requirements:
+    _permission: 'access content'

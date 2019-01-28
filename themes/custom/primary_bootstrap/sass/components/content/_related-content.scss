@@ -1,0 +1,59 @@
+/*Found on
+Article: http://stage.ntca.beaconfire.us/node/1305
+Story: http://stage.ntca.beaconfire.us/node/1551
+Landing page with 3 Up cards grid (the blue cards): http://stage.ntca.beaconfire.us/node/3
+NTCARDSN-184
+Press Release: http://stage.ntca.beaconfire.us/node/1079 is styled differently
+*/
+.block-views-blockrelated-content-default-rel-term-block,
+.block-views-blockrelated-content-default-rel-story-block{
+  @media only screen and (min-width: $screen-md) {
+    margin-left: -$grid-gutter-width*3;
+    margin-right: -$grid-gutter-width*3;
+  }
+  .block-title{
+    text-align: center;
+  }
+  .view-related-content-default{
+    .view-content {
+      @include card-grid;
+      @extend .three-columns;
+      .paragraph--type--content-grid-item {
+        @extend .card;
+        @include card-layout-3up-blue;
+        padding: 0;
+        .card-image-wrapper {
+          @include aspect-ratio(5,4);
+        }
+      }
+      .field--name-field-image {
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important
+      }
+    }
+  }
+}
+
+.block-views-blockrelated-content-default-rel-press-release-block{
+  .block-title{
+    text-align: center;
+  }
+  .content-area{
+    overflow: hidden;
+  }
+  .view-related-content-default{
+    .view-content {
+      .paragraph--type--content-grid-item{
+        margin-bottom: $slug-height/2;
+        padding: 0 $grid-gutter-width $grid-gutter-width*2 $grid-gutter-width;
+        background: $global-color-primary;
+        color: #fff;
+      }
+      h2,
+      a{
+        color: #fff;
+      }
+    }
+  }
+}

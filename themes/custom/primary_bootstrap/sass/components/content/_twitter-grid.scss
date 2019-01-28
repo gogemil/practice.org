@@ -1,0 +1,21 @@
+.item--paragraph--type--twitter-grid-2-up- {
+  padding: $slug-height 0;
+}
+.paragraph--type--twitter-grid-2-up- {
+  padding: 0 $grid-gutter-width/2;
+  .section-title {
+    @extend .h1;
+    margin-bottom: $slug-height/2;
+    text-align: center;
+  }
+}
+.field--name-field-twitter-grid-2-up- {
+  @include card-grid;
+  @extend .three-columns;
+  .item--paragraph--type--content {
+    @extend .card;
+    &:first-child {
+      @include make-sm-column-offset(2);
+    }
+  }
+}

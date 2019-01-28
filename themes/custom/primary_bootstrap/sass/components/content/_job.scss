@@ -1,0 +1,202 @@
+.path-job-center{//on body
+  .sidebar-first{//lefty stuff
+    input,
+    select{
+      max-width: 100%;
+      text-transform: capitalize;
+      @media only screen and (min-width: $screen-md) {
+        width: 100%;
+      }
+      option{
+        text-transform: capitalize;
+      }
+    }
+    .facet-item,
+    .facet-item__value{
+      text-transform: capitalize;
+    }
+  }
+}
+
+.view-job-center{//wraps main content
+
+}
+
+//Job Search Form
+#views-exposed-form-job-center-page {
+  .control-label {
+    margin-top: 0;
+  }
+  .form-actions {
+    margin-top: 27px;
+  }
+}
+
+//Individual Job Posting
+.job {
+  .job_info {}
+  .company_info{
+    @include make-row;
+  }
+  .field--label {
+    @extend .h2;
+    //font-weight: bold;
+    //margin-bottom: $slug-height/4;
+    //margin-top: $slug-height/6
+  }
+  .field--item {
+    margin-bottom: $slug-height/2;
+  }
+  .company-info {
+    @include make-row();
+  }
+  .field--name {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    &:nth-of-type(3n + 4) {
+      @media only screen and (min-width: $screen-sm) {
+        clear: both;
+      }
+    }
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .field--name-field-job-company-name {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    &:nth-of-type(3n + 4) {
+      @media only screen and (min-width: $screen-sm) {
+        clear: both;
+      }
+    }
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .field--name-field-job-company-website-url {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    &:nth-of-type(3n + 4) {
+      @media only screen and (min-width: $screen-sm) {
+        clear: both;
+      }
+    }
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .field--name-field-job-company-phone-number {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    &:nth-of-type(3n + 4) {
+      @media only screen and (min-width: $screen-sm) {
+        clear: both;
+      }
+    }
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .field--name-field-job-company-email-address {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    &:nth-of-type(3n + 4) {
+      @media only screen and (min-width: $screen-sm) {
+        clear: both;
+      }
+    }
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .job-info {
+    @include make-row();
+  }
+  .field--name-field-job-logo-upload,
+  .field--name-field-job-logo {
+    @media only screen and (min-width: $screen-md) {
+      float: right;
+      margin-left: 30px;
+      max-width: 332px;
+    }
+    img {}
+  }
+  .field--name-field-job-category {
+    @include make-xs-column(12);
+    @media only screen and (min-width: $screen-md) {
+      float: none;
+    }
+    .field--label {}
+    .field--item {}
+  }
+  //.field--name-field-job-description,
+  .job_info .field--name-body {
+    @include make-xs-column(12);
+    @media only screen and (min-width: $screen-md) {
+      float: none;
+    }
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-location {
+    @include make-xs-column(12);
+    .field--label {
+      @extend .h3;
+    }
+    .field--item {}
+  }
+  .job-contact {
+    @include make-row();
+  }
+  .field--name-field-first-name {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-last-name {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-order-number {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    .field--label {}
+    .field--item {}
+  }
+  .job-dates {
+    @include make-row();
+  }
+  .field--name-field-job-start-date {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-end-date {
+    @include make-xs-column(12);
+    @include make-sm-column(4);
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-submit-name-company {
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-submit-phone {
+    .field--label {}
+    .field--item {}
+  }
+  .field--name-field-job-submit-email {
+    .field--label {}
+    .field--item {}
+  }
+}

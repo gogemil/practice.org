@@ -1,0 +1,403 @@
+//Site Logo - remove background-image, text-indent, width, max-width and height if using image file for logo
+@mixin site-logo-1 {
+    background-image: $site-logo-1;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    width: 100%;
+    max-width: 420px;
+    height: 39px;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 40px auto 0;
+    display: block;
+    @include gridle_state(tablet-portrait tablet-landscape desktop) {
+        height: 60px;
+    }
+}
+
+@mixin site-logo-2 {
+    background-image: $site-logo-2;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    width: 100%;
+    max-width: 325px;
+    height: 60px;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 40px auto 0;
+    display: block;
+}
+
+
+//Clearfix
+@mixin clearfix {
+  @if support-legacy-browser('ie', '6', '7') {
+    *zoom: 1;
+  }
+  &:after {
+    display: table;
+    content: "";
+  }
+  &:after {
+    clear: both;
+  }
+}
+%clearfix {
+  @include clearfix;
+}
+
+//Hide from screenreaders
+@mixin invisible {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+//Prevents elements from being selecteable (form elements, links, etc.)
+//@include user-select(none);
+@mixin user-select($select) {
+  -webkit-touch-callout: $select;
+  -webkit-user-select: $select;
+  -khtml-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+// Inline SVG background image with a PNG fallback.
+// Fallback based on: http://pauginer.tumblr.com/post/36614680636/invisible-gradient-technique
+@mixin svg-background($image-name) {
+  background-image: image-url("bg/" + $image-name + ".png", false, false);
+  background-image: -webkit-linear-gradient(transparent, transparent), inline-image("bg/" + $image-name + ".svg");
+  background-image: linear-gradient(transparent, transparent), inline-image("bg/" + $image-name + ".svg");
+}
+@mixin svgz-background($image-name) {
+  background-image: image-url("bg/" + $image-name + ".png", false, false);
+  background-image: -webkit-linear-gradient(transparent, transparent), image-url("bg/" + $image-name + ".svgz");
+  background-image: linear-gradient(transparent, transparent), image-url("bg/" + $image-name + ".svgz");
+}
+
+// Smallcaps
+@mixin smallcaps() {
+  // Some font-families don’t support small caps or don’t provide them with
+  // their web font.
+  font-variant: small-caps;
+  text-transform: lowercase;
+}
+
+//Multiline Ellipses
+@mixin multiline-ellipsis($font-size: 1, $lineHeight: 1.25, $lineCount: 1, $context: 16px, $bgColor: transparent){
+  overflow: hidden;
+  //position: relative;
+  display: block;
+  display: -webkit-box;
+  line-height: $lineHeight;
+  max-height: $font-size * $lineHeight * $lineCount * $context + 2;
+  max-width: 100%;
+  //text-align: justify;
+  //margin-right: -1em;
+  // padding-right: 1em;
+  //padding-right: $gutter-width*1.2;
+  font-size: $font-size + em;
+  -webkit-line-clamp: $lineCount;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  //&:before {
+  //  //content: '\02026';
+  //  content: '...';
+  //  position: absolute;
+  //  //right: 0;
+  //  right: $gutter-width/2;
+  //  bottom: $slug-height/20;
+  //}
+  //&:after {
+  //  content: '';
+  //  position: absolute; //right: 0;
+  //  right: $gutter-width/2;
+  //  width: 1em;
+  //  height: 1em;
+  //  margin-top: 0.2em;
+  //  background: $bgColor;
+  //}
+}
+
+//Remvoe Ellipsis
+@mixin remove-ellipsis {
+  max-height: none;
+  -webkit-line-clamp: initial;
+  text-overflow: initial;
+}
+
+//Responsive Video
+@mixin responsive-video($aspect) {
+  position: relative;
+  height: 0;
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  @if $aspect == 'wide'{
+    padding-bottom: 56.25%; /* 16:9 */
+  } @else {
+    padding-bottom: 75%; /* 4:3 */
+  }
+}
+
+//Transparent Backgrounds
+@mixin transparent($color, $alpha) {
+    $rgba: rgba($color, $alpha);
+    $ie-hex-str: ie-hex-str($rgba);
+    background-color: transparent;
+    background-color: $rgba;
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#{$ie-hex-str},endColorstr=#{$ie-hex-str});
+    zoom: 1;
+}
+
+//Form Placeholders
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+}
+
+//Prevents elements from being selecteable (form elements, links, etc.)
+//@include user-select(none);
+@mixin user-select($select) {
+  -webkit-touch-callout: $select;
+  -webkit-user-select: $select;
+  -khtml-user-select: $select;
+  -moz-user-select: $select;
+  -ms-user-select: $select;
+  user-select: $select;
+}
+
+
+//Hide Element
+@mixin hide {
+  visibility: hidden;
+}
+
+//Show Element
+@mixin show {
+    visibility: visible;
+}
+
+//Remove Element
+@mixin remove {
+  visibility: hidden;
+  display: none;
+}
+
+//Move Offscreen
+@mixin offscreen {
+    position: absolute;
+    clip: rect(1px 1px 1px 1px); /* for Internet Explorer */
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0;
+    border: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+//Absolute Positioned horizontal Centering
+@mixin horizontal-center {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+//Absolute Positioned Vertical Centering
+@mixin vertical-center {
+    position: absolute;
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+//Absolute Positioned Centering
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+//Maintain Aspect Ratio
+/*USAGE
+--HTML--
+<div class="some-element">
+    <div class="content"></div>
+</div>
+--SASS--
+.some-element { @include aspect-ratio(16, 9); }
+*/
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  overflow: hidden;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+//Remove Aspect Ratio
+@mixin remove-aspect-ratio {
+  position: relative;
+  &:before {
+    content: none;
+  }
+  > .content {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom:auto;
+  }
+}
+
+//Headings
+/*USAGE
+@include headings() {
+    color: #000;
+}
+*/
+@mixin headings($from: 1, $to: 6){
+    @for $i from $from through $to{
+      h#{$i}{
+        @content
+      }
+    }
+}
+
+//Remove Bullets
+@mixin no-bullets {
+    list-style-type: none;
+    list-style-image: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    ul{
+        list-style-image: none;
+        list-style-type: none;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    li{
+        list-style-type: none;
+        //margin-left: 0;
+        //margin-right: 0;
+        //padding-left: 0;
+        //padding-right: 0;
+        &.leaf{
+            list-style-image: none;
+            list-style-type: none;
+        }
+    }
+}
+
+//Remove List
+@mixin no-list {
+    @include no-bullets;
+    li{
+        display: inline-block;
+    }
+}
+
+//Float List Items Left
+@mixin float-list {
+    @include no-bullets;
+    li{
+        float: left;
+    }
+}
+
+//Restore List - No Bullets
+@mixin  restore-list {
+    @include no-bullets;
+    li{
+        display: list-item;
+        float: none;
+    }
+}
+
+//Make Bulleted List
+@mixin make-list {
+    ul{
+        margin: 0 0 0 1.5em;
+    }
+    li{
+        list-style: disc outside none;
+        padding-left: 0;
+    }
+}
+
+//Remove Container
+@mixin no-container {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+//Remove Row
+@mixin no-row {
+  margin: 0;
+}
+
+//Remove Column
+@mixin no-column {
+  width: auto;
+  display: block;
+  padding: 0;
+  float: none;
+}
+
+
+//Overlays
+@mixin overlay {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 0;
+  }
+}
+
+@mixin transparent-color-overlay($color, $opacity) {
+  @include overlay;
+  .content:first-child {
+    position: relative;
+    z-index: 1;
+  }
+  &:before {
+    @include transparent($color, $opacity);
+  }
+}

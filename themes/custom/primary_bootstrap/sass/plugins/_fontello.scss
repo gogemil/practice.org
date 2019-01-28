@@ -1,0 +1,178 @@
+/*
+If you need to update add an icon to those that are already here:
+
+1. Go to http://fontello.com
+2. Drag the config.json file from "themes/primary_bootstrap/fonts" and drop it anywhere in your browser window (current icons will be selected)
+3. Select additional icons via the Fontello UI
+4. Click "download webfont" button in upper right
+5. Drag the font files from the zipfile into "themes/primary_bootstrap/fonts" (overwrite existing)
+6. Drag the new config.json there as well
+7. Add the code for the new icon(s) to this file (existing codes should not have changed). Basically copy the *contents* of
+   "fontello-codes.css" from the zipfile, replacing the block down after "//The Classes" at about line #107 below.
+
+USAGE: if you want to make some class in your markup use these styles and you can't drop the actual class on them then just extend the placeholders in this file
+See "/primary_bootstrap/sass/components/_icons.scss" for lots of examples
+
+.some-drupal-class-facebook{
+    @extend @fontello-base;
+    @extend .icon-facebook;
+}
+*/
+
+@font-face {
+  font-family: 'fontello';
+  src: url('fonts/fontello.eot?66063797');
+  src: url('fonts/fontello.eot?66063797#iefix') format('embedded-opentype'),
+  url('fonts/fontello.woff?66063797') format('woff'),
+  url('fonts/fontello.ttf?66063797') format('truetype'),
+  url('fonts/fontello.svg?66063797#fontello') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+%fontello-base{
+  &:before{
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    //text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+
+}
+%fontello-base-after{
+  &:after{
+    font-family: "fontello";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    /* opacity: .8; */
+
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    margin-left: .2em;
+
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+  }
+
+}
+
+[class^="icon-"],
+[class*=" icon-"]{
+  @extend %fontello-base;
+}
+
+.icon-facebook:before { content: '\e800'; } /* '' */
+.icon-twitter:before { content: '\e801'; } /* '' */
+.icon-quote:before { content: '\e802'; } /* '' */
+.icon-linkedin:before { content: '\e803'; } /* '' */
+.icon-phone:before { content: '\e804'; } /* '' */
+.icon-down-dir:before { content: '\e805'; } /* '' */
+.icon-up-dir:before { content: '\e806'; } /* '' */
+.icon-right-dir:before { content: '\e807'; } /* '' */
+.icon-left-dir:before { content: '\e808'; } /* '' */
+.icon-down-open:before { content: '\e809'; } /* '' */
+.icon-left-open:before { content: '\e80a'; } /* '' */
+.icon-cancel-circled:before { content: '\e80b'; } /* '' */
+.icon-search:before { content: '\e80c'; } /* '' */
+.icon-right-open:before { content: '\e80d'; } /* '' */
+.icon-up-open:before { content: '\e80e'; } /* '' */
+.icon-up-circled2:before { content: '\e80f'; } /* '' */
+.icon-down-circled2:before { content: '\e810'; } /* '' */
+.icon-up-big:before { content: '\e811'; } /* '' */
+.icon-right-big:before { content: '\e812'; } /* '' */
+.icon-left-big:before { content: '\e813'; } /* '' */
+.icon-down-big:before { content: '\e814'; } /* '' */
+.icon-ok:before { content: '\e815'; } /* '' */
+.icon-play:before { content: '\e816'; } /* '' */
+.icon-membership:before { content: '\e817'; } /* '' */
+.icon-events:before { content: '\e818'; } /* '' */
+.icon-education:before { content: '\e819'; } /* '' */
+.icon-cancel:before { content: '\e81a'; } /* '' */
+.icon-advocacy:before { content: '\e81b'; } /* '' */
+.icon-insurance-benefits:before { content: '\e81c'; } /* '' */
+.icon-book:before { content: '\e81d'; } /* '' */
+.icon-resize:before { content: '\e81e'; } /* '' */
+.icon-star:before { content: '\e81f'; } /* '' */
+.icon-target:before { content: '\e820'; } /* '' */
+.icon-users:before { content: '\e821'; } /* '' */
+.icon-health:before { content: '\e822'; } /* '' */
+.icon-retirement:before { content: '\e823'; } /* '' */
+.icon-savings:before { content: '\e824'; } /* '' */
+.icon-mail-alt:before { content: '\f0e0'; } /* '' */
+.icon-quote-left:before { content: '\f10d'; } /* '' */
+.icon-quote-right:before { content: '\f10e'; } /* '' */
+.icon-youtube-squared:before { content: '\f166'; } /* '' */
+.icon-youtube:before { content: '\f167'; } /* '' */
+.icon-youtube-play:before { content: '\f16a'; } /* '' */
+.icon-right-circled2:before { content: '\f18e'; } /* '' */
+.icon-left-circled2:before { content: '\f190'; } /* '' */
+.icon-file-pdf:before { content: '\f1c1'; } /* '' */
+.icon-user-circle:before { content: '\f2bd'; } /* '' */
+.icon-twitter-squared:before { content: '\f304'; } /* '' */
+.icon-facebook-squared:before { content: '\f308'; } /* '' */
+.icon-linkedin-squared:before { content: '\f30c'; } /* '' */
+.icon-linkedin-1:before { content: '\f318'; } /* '' */
+.icon-flex:before { content: '\e827'; } /* '' */
+.icon-flex-thick:before { content: '\e828'; } /* '' */
+
+/*
+If you need to update add an icon to those that are already here:
+
+1. Go to http://fontello.com
+2. Drag the config.json file from "themes/primary_bootstrap/fonts" and drop it anywhere in your browser window (current icons will be selected)
+3. Select additional icons via the Fontello UI
+4. Click "download webfont" button in upper right
+5. Drag the font files from the zipfile into "themes/primary_bootstrap/fonts" (overwrite existing)
+6. Drag the new config.json there as well
+7. Add the code for the new icon(s) to this file (existing codes should not have changed). Basically copy the *contents* of
+   "fontello-codes.css" from the zipfile, replacing the block down after "//The Classes" at about line #107 below.
+
+USAGE: if you want to make some class in your markup use these styles and you can't drop the actual class on them then just extend the placeholders in this file
+See "/primary_bootstrap/sass/components/_icons.scss" for lots of examples
+
+.some-drupal-class-facebook{
+    @extend @fontello-base;
+    @extend .icon-facebook;
+}
+*/

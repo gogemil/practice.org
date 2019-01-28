@@ -1,0 +1,129 @@
+%button {
+  background-color: $global-color-primary;
+  //border: 3px solid transparent;
+  border: none;
+  //border-radius: 3px;
+  color: #fff;
+  font-family: $header-font;
+  font-weight: 500;
+  font-size: $font-size-base / 1.285714285714286;
+  padding: $slug-height/6 $grid-gutter-width/2;
+  line-height: 1;
+  box-shadow: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  .label {
+    color: #fff;
+  }
+  &:hover {
+    background-color: $global-color-tertiary;
+    text-decoration: none !important;
+    color: $body-text-color;
+    //border: 3px solid $global-color-secondary;
+    .label {
+      color: $body-text-color;
+    }
+  }
+}
+
+%button-yellow {
+  background-color: $global-color-tertiary;
+  color: #fff;
+  .label {
+    color: #fff;
+  }
+  &:hover {
+    background-color: $global-color-primary;
+    color: #fff;
+    .label {
+      color: #fff;
+    }
+  }
+}
+
+%button-white {
+  background-color: #fff;
+  color: $body-text-color;
+  .label {
+    color: $body-text-color;
+  }
+  &:hover {
+    background-color: $global-color-primary;
+    color: #fff;
+    .label {
+      color: #fff;
+    }
+  }
+}
+
+%button-green {
+  background-color: $global-color-secondary;
+  color: #fff;
+  .label {
+    color: #fff;
+  }
+  &:hover {
+    background-color: darken($global-color-secondary, 5%);
+    color: #fff;
+    .label {
+      color: #fff;
+    }
+  }
+}
+
+%button-big,
+.button-big {
+  font-size: $font-size-base;
+  font-weight: bold;
+  padding: $slug-height/6 $grid-gutter-width;
+}
+
+%button-bordered {
+  border: 3px solid $global-color-tertiary;
+  border-radius: 10px;
+}
+
+%button-ghost {
+  background-color: transparent;
+  &:hover {
+    background-color: $global-color-primary;
+    border-color: #fff;
+    color: #fff;
+    .label {
+      color: #fff;
+    }
+  }
+}
+
+%button-ghost-alt {
+  background-color: transparent;
+  color: $global-color-primary;
+  &:hover {
+    background-color: #fff;
+    color: $global-color-primary;
+    .label {
+      color: $global-color-primary;
+    }
+  }
+}
+
+.button {
+  @extend %button;
+  &.big {
+    @extend %button-big;
+  }
+  &.yellow {
+    @extend %button-yellow;
+  }
+  &.white {
+    @extend %button-white;
+  }
+  &.border {
+    @extend %button-bordered;
+  }
+  &.ghost {
+    @extend %button-ghost;
+  }
+}

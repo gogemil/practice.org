@@ -1,0 +1,55 @@
+/* http://www.minimit.com/articles/solutions-tutorials/bootstrap-3-responsive-columns-of-same-height */
+
+@mixin inside {
+  margin-top: $grid-gutter-width;
+  margin-bottom: $grid-gutter-width;
+  //background: #ededed;
+  // background: -webkit-gradient(linear, left top, left bottom,color-stop(0%, #f4f4f4), color-stop(100%, #ededed));
+  // background: -moz-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+  // background: -ms-linear-gradient(top, #f4f4f4 0%, #ededed 100%);
+}
+@mixin inside-full-height {
+  /*
+  // if you want to give content full height give him height: 100%;
+  // with content full height you can't apply margins to the content
+  // content full height does not work in ie http://stackoverflow.com/questions/27384433/ie-display-table-cell-child-ignores-height-100
+  */
+  height: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  > :first-child {
+    //padding-top: $gutter-width/2;
+  }
+  > :last-child {
+    //margin-bottom: $gutter-width/2;
+    > :first-child {
+      //padding-top: $gutter-width/2;
+    }
+  }
+}
+
+/* columns of same height styles */
+
+@mixin row-height {
+  display: table;
+  table-layout: fixed;
+  height: 100%;
+  width: 100%;
+}
+@mixin col-height {
+  display: table-cell;
+  float: none;
+  height: 100%;
+}
+@mixin col-top {
+  vertical-align: top;
+}
+@mixin col-middle {
+  vertical-align: middle;
+}
+@mixin col-bottom {
+  vertical-align: bottom;
+}

@@ -1,0 +1,29 @@
+.field--name-field-boilerplate-ref {
+  &:before {
+    content: '###';
+    display: block;
+    font-style: italic;
+    text-align: center;
+    margin: $slug-height/2;
+  }
+}
+.section--newsroom{
+  .panel-middle{
+    .block-region-middle{
+      @include make-row();
+      .block-views-blockpress-release-list-by-year-press-release-list-by-year-block{
+        @include make-md-column(3);
+        h2{
+          font-size: $font-size-h3;
+          margin-top: 0;
+        }
+        .views-row{
+          margin-bottom: $slug-height/4;
+        }
+      }
+      .block-views-blockpress-release-one-year-listing-as-block-press-release-one-year-listing-block{
+        @include make-md-column(9);
+      }
+    }
+  }
+}

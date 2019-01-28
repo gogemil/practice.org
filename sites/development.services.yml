@@ -1,0 +1,16 @@
+# Local development services.
+#
+# To activate this feature, follow the instructions at the top of the
+# 'example.settings.local.php' file, which sits next to this file.
+parameters:
+  http.response.debug_cacheability_headers: true
+  twig.config:
+# Enable Theme debugger output in markup
+    debug: true
+# Disable Drupal 8 caching during development
+# @see https://www.drupal.org/node/2598914
+    auto_reload: true # Recompile whenever the source code changes
+    cache: false # Don't cache to the sites/default/files/php/ folder
+services:
+  cache.backend.null:
+    class: Drupal\Core\Cache\NullBackendFactory

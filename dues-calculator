@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html  lang="en" dir="ltr" xmlns:article="http://ogp.me/ns/article#" xmlns:book="http://ogp.me/ns/book#" xmlns:product="http://ogp.me/ns/product#" xmlns:profile="http://ogp.me/ns/profile#" xmlns:video="http://ogp.me/ns/video#" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+  <head>
+
+    <meta charset="utf-8" /><script type="text/javascript">window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var o=t[n]={exports:{}};e[n][0].call(o.exports,function(t){var o=e[n][1][t];return r(o||t)},o,o.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<n.length;o++)r(n[o]);return r}({1:[function(e,t,n){function r(){}function o(e,t,n){return function(){return i(e,[f.now()].concat(u(arguments)),t?null:this,n),t?void 0:this}}var i=e("handle"),a=e(2),u=e(3),c=e("ee").get("tracer"),f=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,t){s[t]=o(d+t,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,o="function"==typeof t;return i(l+"tracer",[f.now(),e,n],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],n),o)try{return t.apply(this,arguments)}catch(e){throw c.emit("fn-err",[arguments,this,e],n),e}finally{c.emit("fn-end",[f.now()],n)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=o(l+t)}),newrelic.noticeError=function(e){"string"==typeof e&&(e=new Error(e)),i("err",[e,f.now()])}},{}],2:[function(e,t,n){function r(e,t){var n=[],r="",i=0;for(r in e)o.call(e,r)&&(n[i]=t(r,e[r]),i+=1);return n}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],3:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,o=n-t||0,i=Array(o<0?0:o);++r<o;)i[r]=e[t+r];return i}t.exports=r},{}],4:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function o(e){function t(e){return e&&e instanceof r?e:e?c(e,u,i):i()}function n(n,r,o,i){if(!d.aborted||i){e&&e(n,r,o);for(var a=t(o),u=m(n),c=u.length,f=0;f<c;f++)u[f].apply(a,r);var p=s[y[n]];return p&&p.push([b,n,r,a]),a}}function l(e,t){v[e]=m(e).concat(t)}function m(e){return v[e]||[]}function w(e){return p[e]=p[e]||o(n)}function g(e,t){f(e,function(e,n){t=t||"feature",y[n]=t,t in s||(s[t]=[])})}var v={},y={},b={on:l,emit:n,get:w,listeners:m,context:t,buffer:g,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",c=e("gos"),f=e(2),s={},p={},d=t.exports=o();d.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(o.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[t]=r,r}var o=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){o.buffer([e],r),o.emit(e,t,n)}var o=e("ee").get("handle");t.exports=r,r.ee=o},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!x++){var e=h.info=NREUM.info,t=d.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return s.abort();f(y,function(t,n){e[t]||(e[t]=n)}),c("mark",["onload",a()+h.offset],null,"api");var n=d.createElement("script");n.src="https://"+e.agent,t.parentNode.insertBefore(n,t)}}function o(){"complete"===d.readyState&&i()}function i(){c("mark",["domContent",a()+h.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-h.offset}var u=(new Date).getTime(),c=e("handle"),f=e(2),s=e("ee"),p=window,d=p.document,l="addEventListener",m="attachEvent",w=p.XMLHttpRequest,g=w&&w.prototype;NREUM.o={ST:setTimeout,SI:p.setImmediate,CT:clearTimeout,XHR:w,REQ:p.Request,EV:p.Event,PR:p.Promise,MO:p.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1071.min.js"},b=w&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),h=t.exports={offset:u,now:a,origin:v,features:{},xhrWrappable:b};e(1),d[l]?(d[l]("DOMContentLoaded",i,!1),p[l]("load",r,!1)):(d[m]("onreadystatechange",o),p[m]("onload",r)),c("mark",["firstbyte",u],null,"api");var x=0,E=e(4)},{}]},{},["loader"]);</script>
+<script>var dataLayer = [{"drupalLanguage":"en","drupalCountry":"US","siteName":"NTCA - The Rural Broadband Association","entityType":"node","entityBundle":"article","entityId":"42","entityTitle":"Dues Calculator","entityLangcode":"en","entityVid":"17008","entityUid":"2","entityCreated":"1497627068","entityStatus":"1","entityName":"beaconfire","entityTaxonomy":{"access_control":{"19":"Public"},"sections":{"40":"Member Services"},"tags":{"108":"Member Services","206":"Dues"},"topics":{"177":"Member Services"}},"userUid":0}];</script>
+<meta name="title" content="Dues Calculator | NTCA - The Rural Broadband Association" />
+<meta property="og:site_name" content="NTCA - The Rural Broadband Association" />
+<meta property="og:title" content="Dues Calculator" />
+<meta property="og:url" content="http://www.ntca.org/member-services/membership-dues/dues-calculator" />
+<meta name="twitter:title" content="Dues Calculator" />
+<meta name="twitter:url" content="http://www.ntca.org/member-services/membership-dues/dues-calculator" />
+<meta name="twitter:site" content="@NTCAconnect" />
+<meta name="twitter:site:id" content="209607522" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="description" content="If your company w" />
+<meta property="og:description" content="If your company w" />
+<meta name="twitter:description" content="If your company w" />
+<meta name="keywords" content="dues calculator" />
+<meta name="Generator" content="Drupal 8 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/themes/custom/primary_bootstrap/favicon.ico" type="image/vnd.microsoft.icon" />
+<link rel="canonical" href="/member-services/membership-dues/dues-calculator" />
+<link rel="shortlink" href="/node/42" />
+<link rel="revision" href="/member-services/membership-dues/dues-calculator" />
+
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-M8572RC');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>Dues Calculator | NTCA - The Rural Broadband Association</title>
+    <link rel="stylesheet" href="/sites/default/files/css/css_J1pO7OzyUPsAccn-DtejVAljBK-W7kdlxboUgEU8i8o.css?p8w641" media="all" />
+<link rel="stylesheet" href="/sites/default/files/css/css_i9mV0ZZtNf5eyeh0neA2uUy6zh1ghvfakSle-ruVlWo.css?p8w641" media="all" />
+
+    
+<!--[if lte IE 8]>
+<script src="/sites/default/files/js/js_VtafjXmRvoUgAzqzYTA3Wrjkx9wcWhjP0G4ZnnqRamA.js"></script>
+<![endif]-->
+
+  </head>
+  <body class="default-domain-1-ntca-org section--member-services taxonomy-term-40 path-node page-node-type-article has-glyphicons">
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M8572RC"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <a href="#main-content" class="visually-hidden focusable skip-link">
+      Skip to main content
+    </a>
+    
+              <header class="site-header" id="navbar" role="banner">
+      <div class="container-fluid">
+        <div class="row">
+
+                                <div class="header-branding" role="heading">
+                <div class="region region-header">
+          <a class="logo navbar-btn" href="/" title="Home" rel="home">
+      <img src="/themes/custom/primary_bootstrap/logo.png" alt="Home" />
+    </a>
+      
+  </div>
+
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                            </div>
+                                          <div class="main-nav collapse">
+                                            <div class="navbar-collapse site-navigation">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".main-nav">
+                        <span class="label">Close</span><span class="icon"></span>
+                    </button>
+                    <div class="region region-navigation">
+    <nav role="navigation" aria-labelledby="block-primary-bootstrap-main-menu-menu" id="block-primary-bootstrap-main-menu" data-block-plugin-id="system_menu_block:main">
+      
+
+              <ul class="menu nav navbar-nav">
+                            <li class="expanded dropdown active">
+        <a href="/member-services" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Member Services <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/member-services/why-join" data-drupal-link-system-path="node/89">Join</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ssaauthmenu.show_top_menu">Member Central</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/governance" data-drupal-link-system-path="node/90">Governance</a>
+                  </li>
+                        <li class="expanded dropdown active">
+        <a href="/member-services/membership-dues" data-drupal-link-system-path="node/92">Membership Dues</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/member-relations" data-drupal-link-system-path="node/95">Member Relations Manager</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#businesssolutions" data-drupal-link-system-path="node/32">Business Solutions</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#programs" data-drupal-link-system-path="node/32">Programs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#awards" data-drupal-link-system-path="node/32">Awards &amp; Recognition</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/advertising-sponsorships" data-drupal-link-system-path="node/101">Advertising &amp; Sponsorships</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/listservs" data-drupal-link-system-path="node/301">Listservs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/disaster-relief-clearinghouse-inactive" data-drupal-link-system-path="node/675">Disaster Relief Clearinghouse</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/member-services/awards-recognition/certified-gig-capable-provider">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-01/promo_Gig.jpg?itok=IsIqo1Ne" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Is Your Telco Gig-Capable?</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Insurance &amp; Benefits <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/contact-benefits" data-drupal-link-system-path="node/106">Contact Benefits</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/participants" data-drupal-link-system-path="node/108">Participants</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/hr-administrators" data-drupal-link-system-path="node/113">HR Administrators</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/member-relations" data-drupal-link-system-path="node/95">Member Relations Manager</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-benefits/benefits-forms" title="View and access benefits forms" data-drupal-link-system-path="node/48">Benefits Forms</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ssaauthmenu.show_top_menu">Benefits Invoice Payment</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://connect.healthaxis.com/SignIn.aspx?c=ntc&amp;n=1">GHP Claims Inquiry</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ntca.welcometouhc.com/">GHP Network Providers</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://nb.fidelity.com/public/nb/ntca/home">Savings Plan/Fidelity</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/insurance-benefits/benefits-forms">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2017-11/student-849825_edit.jpg?itok=hs-pukW6" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Access Benefit Forms</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Advocacy <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/advocacy/advocacy-action-center" data-drupal-link-system-path="node/116">Advocacy Action Center</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom/filings" data-drupal-link-system-path="ruraliscool/newsroom/filings">Federal Filings</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy/ntca-rural-broadband-pac" class="menu-item-pac-member" data-drupal-link-system-path="node/47">NTCA Rural Broadband PAC</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy/pac-info" class="menu-item-pac-non-member" data-drupal-link-system-path="node/281">NTCA Rural Broadband PAC</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy#issues" data-drupal-link-system-path="node/36">Issues</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://www.buildbroadbandwithus.com/">#BuildBroadbandWithUs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/publications/washington-report" data-drupal-link-system-path="node/791">Washington Report</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#ntcalive" data-drupal-link-system-path="node/125">Policy Talk</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/events-education/education/cyber-wise">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-02/feature_cyberwise.jpg?itok=pKlbdTtH" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>New Free! Cyber Wise Program</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education" class="dropdown-toggle" data-target="#" data-toggle="dropdown">Events &amp; Education <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/education" data-drupal-link-system-path="node/124">EDUCATION</a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning" title="View NTCA&#039;s training opportunities" data-drupal-link-system-path="node/125">Online Learning</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ntca.sclivelearningcenter.com/index.aspx?PID=8413">Live Learning Center</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education#certificate" title="View continuing education opportunities" data-drupal-link-system-path="node/124">Certificate Program</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/cyber-wise" data-drupal-link-system-path="node/2158">Cyber Wise</a>
+                  </li>
+    	           <li>
+                                                                                                      </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/events" data-drupal-link-system-path="node/41">EVENTS</a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/events/events-calendar" data-drupal-link-system-path="node/676">Events Calendar</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#webinars" data-drupal-link-system-path="node/125">Webinars</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#ntcalive" data-drupal-link-system-path="node/125">NTCA Live</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/events/industry-calendar" data-drupal-link-system-path="node/128">Industry Calendar</a>
+                  </li>
+    	           <li>
+                                                                                                      </li>
+            </ul>
+  
+            </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="https://www.ntca.org/events-education/events/2018-regional-conference">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-04/feature_2018Regionals.png?itok=7KhWJGvv" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>REGISTER TODAY</span>
+                                              </a>
+                                  </div>
+                                                                            </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool" class="dropdown-toggle" data-target="#" data-toggle="dropdown">#ruraliscool <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom" title="VIew recent news, press releases, latest federal filings" data-drupal-link-system-path="ruraliscool/newsroom">Newsroom</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ceoblog.ntca.org/">Shirley&#039;s Blog</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/stories-innovation" data-drupal-link-system-path="node/324">Stories of Innovation</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/who-we-are" data-drupal-link-system-path="node/136">Who We Are</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/about-our-members" data-drupal-link-system-path="node/137">About Our Members</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/publications" data-drupal-link-system-path="node/140">Publications</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/programs/smart-rural-community" data-drupal-link-system-path="node/612">Smart Rural Community</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/survey-reports" title="View NTCA&#039;s survey reports" data-drupal-link-system-path="node/243">Survey Reports</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/contact/contact_us" data-drupal-link-system-path="contact/contact_us">Contact Us</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/history-rural-telecommunications" data-drupal-link-system-path="node/792">History of Rural Telecommunications</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="http://ceoblog.ntca.org/">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-01/feature_shirleyblog.jpg?itok=PpdFr0hs" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Thoughts &amp; Perspectives From Shirley</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+    	     </ul>
+  
+
+
+  </nav>
+<nav role="navigation" aria-labelledby="block-utility-menu" id="block-utility" data-block-plugin-id="system_menu_block:utility">
+            
+  <h2 class="visually-hidden" id="block-utility-menu">Utility Menu</h2>
+  
+
+        
+              <ul class="menu nav">
+                            <li class="expanded dropdown">
+        <a href="/user/login" data-drupal-link-system-path="user/login" class="use-ajax" data-dialog-type="colorbox" data-dialog-options="{&quot;width&quot;:500,&quot;dialogClass&quot;:&quot;ng-lightbox-generated&quot;}">Log in</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/why-join" data-drupal-link-system-path="node/89">Join</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/job-center" data-drupal-link-system-path="job-center">Job Center</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ecssashop.shopping_page">eStore</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom" data-drupal-link-system-path="ruraliscool/newsroom">News</a>
+                  </li>
+        </ul>
+  
+
+
+  </nav>
+<section id="block-topnavsociallinks" data-block-plugin-id="block_content:21b06d39-2dc1-44c3-96d9-3540c6d7bc18" class="block block-block-content block-block-content21b06d39-2dc1-44c3-96d9-3540c6d7bc18 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item">                  <ul class="social-media-nav"><li class="nav-item">
+                          <a href="https://www.facebook.com/NTCARuralTelecom">
+                              <span class="icon facebook"></span>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="http://twitter.com/ntcaconnect">
+                              <span class="icon twitter"></span>
+                          </a>
+                      </li>
+                      <li class="nav-item">
+                          <a href="http://www.youtube.com/ruraltelecommunity">
+                              <span class="icon youtube"></span>
+                          </a>
+                      </li>
+                  </ul></div>
+      
+  </section>
+
+<section id="block-topnavsearchicon" data-block-plugin-id="block_content:8164e572-553c-4b27-9416-ed014ce50bc6" class="block block-block-content block-block-content8164e572-553c-4b27-9416-ed014ce50bc6 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item">                  <button class="search-trigger">
+                      <span class="icon search"></span>
+                  </button></div>
+      
+  </section>
+
+<section class="views-exposed-form block block-views block-views-exposed-filter-blocksearch-page-page-1 clearfix" data-drupal-selector="views-exposed-form-search-page-page-1" id="block-exposedformsearch-pagepage-1" data-block-plugin-id="views_exposed_filter_block:search_page-page_1">
+  
+    
+
+      <form action="/search" method="get" id="views-exposed-form-search-page-page-1" accept-charset="UTF-8">
+  <div class="form--inline form-inline clearfix">
+  <div class="form-item js-form-item form-type-textfield js-form-type-textfield form-item-search-api-fulltext js-form-item-search-api-fulltext form-no-label form-group">
+  
+  
+  <input data-drupal-selector="edit-search-api-fulltext" class="form-text form-control" type="text" id="edit-search-api-fulltext" name="search_api_fulltext" value="" size="30" maxlength="128" />
+
+  
+  
+  </div>
+<div data-drupal-selector="edit-actions" class="form-actions form-group js-form-wrapper form-wrapper" id="edit-actions"><button data-drupal-selector="edit-submit-search-page" class="button js-form-submit form-submit btn-primary btn icon-before" type="submit" id="edit-submit-search-page" value="Search" name=""><span class="icon glyphicon glyphicon-search" aria-hidden="true"></span><span class="label">Search</span></button></div>
+
+</div>
+
+</form>
+
+  </section>
+
+<section id="block-pac-menu-item-nonpacmembers" data-block-plugin-id="simple_block:pac_menu_link_non_member" class="block block-simple-block block-simple-blockpac-menu-link-non-member clearfix">
+  
+    
+
+      <!-- Show the PAC member's landing page link in the main menu -->
+<style type="text/css">
+<!--/*--><![CDATA[/* ><!--*/
+
+ul.menu .menu-item-pac-member { display: none; }
+ul.menu .menu-item-pac-non-member { display: block; }
+
+/*--><!]]>*/
+</style>
+  </section>
+
+
+  </div>
+
+                </div>
+                                          </div>
+          
+        </div><!--/.row-->
+      </div><!--/.container-->
+    </header>
+  
+
+
+  <div role="main" class="layout-main-second">
+          
+        <section class="highlight-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                                                                                            <div class="highlighted">  <div class="region region-highlighted">
+    
+
+  </div>
+</div>
+                                                            </div>
+            </div>
+        </section>
+
+      <section class="breadcrumb-wrapper">
+          <div class="container-fluid">
+              <div class="row">
+                                                                                      <div class="region region-breadcrumb">
+        <ol class="breadcrumb">
+          <li >
+                  <a href="/">Home</a>
+              </li>
+          <li >
+                  <a href="/member-services">Member Services</a>
+              </li>
+          <li >
+                  <a href="/member-services/membership-dues">Membership Dues</a>
+              </li>
+          <li  class="active">
+                  Dues Calculator
+              </li>
+      </ol>
+
+
+  </div>
+
+                                                      </div>
+          </div>
+      </section>
+
+      <section class="action-links-wrapper">
+          <div class="container-fluid">
+              <div class="row">
+                                                  </div>
+          </div>
+      </section>
+
+      <section class="help-wrapper">
+          <div class="container-fluid">
+              <div class="row">
+                                                  </div>
+          </div>
+      </section>
+
+                <section class="main-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="page-content-top">
+                                                                            
+                                            </div>
+
+                                        
+                    <div class="page-content">
+                                                                            <a id="main-content"></a>
+                              <div class="region region-content">
+        <h1 class="js-quickedit-page-title page-header"><span>Dues Calculator</span>
+</h1>
+
+<section id="block-socialsharetoolslinks" data-block-plugin-id="block_content:e146352a-7f10-40ba-a271-c4d035d9579a" class="block block-block-content block-block-contente146352a-7f10-40ba-a271-c4d035d9579a clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><!-- Go to www.addthis.com/dashboard to customize your tools --> <div class="addthis_inline_share_toolbox"></div></div>
+      
+  </section>
+
+  <article role="article" about="/member-services/membership-dues/dues-calculator" class="article full clearfix">
+
+  
+    
+
+  
+  <div class="content">
+    
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p>If your company would be included as part of a Commonly Owned/Controlled ILEC Member, please contact <a href="mailto:jantoshak@ntca.org">John Antoshak</a> or (703) 351-2104 for an accurate dues calculation. If you have any questions or concerns, contact Member Services at (703) 351-2118 or <a href="mailto:membership@ntca.org">membership@ntca.org</a>.</p>
+
+<hr /><p>NTCA will treat a member's Annual Revenues as confidential information not to be disclosed within or outside of NTCA except as necessary to perform the dues calculations, unless or until the member waives confidentiality.</p>
+
+<p>A member company may choose to not provide NTCA information about its Annual Revenues. If a member company chooses to not disclose its Annual Revenues for dues calculations, the member company will be assessed dues based on the cap amount set forth in NTCA's current Bylaws (ILEC members: $20,000 plus $.133 per access line). The minimal annual dues is $500 for ILEC members..</p></div>
+      
+      <div class="field--type-paragraph field field--name-field-content-section field--type-entity-reference-revisions field--label-hidden field--items">
+                              <div class="item--paragraph--type--content item--paragraph--id--171 field--item odd">  <div class="paragraph paragraph--type--content paragraph--view-mode--default">
+          
+            <div class="field field--name-field-content field--type-text-with-summary field--label-hidden field--item"><script src="/libraries/DuesCalculator.js"></script><form>
+	<br /><input type="radio" name="member_type" value="cooperative" id="cooperative" checked="checked" /><label for="cooperative">ILEC member</label>	
+	<br /><br />
+	12/31/16 Annual Revenues*:
+	<input type="text" name="annual_revenues" /><br />
+	12/31/16 Total Access Lines:
+	<input type="text" name="access_lines" /><br /><br /><input type="button" value="Calculate" class="calculate" /></form>
+<p class="results"></p></div>
+      
+      </div>
+</div>
+                              <div class="item--paragraph--type--content item--paragraph--id--306 field--item even">  <div class="paragraph paragraph--type--content paragraph--view-mode--default">
+          
+            <div class="field field--name-field-content field--type-text-with-summary field--label-hidden field--item"><p style="font-size:12px;"><em>*For the purpose of calculating dues, the term "annual revenue" is intended to capture the MEMBER company's traditional ILEC revenue. This is the amount reported as Net Operating Revenue on Part B, Line 7, of the organization's most recently filed USDA Operating Report for Telecommunications Borrowers. Should an organization not be required to file such a report, they shall report as gross regulated revenue the amount which would have been reported on such report had such filing been required.</em></p>
+
+<p style="font-size:12px;"><em>Part B, Line 7 of the USDA Operating Report for Telecommunications Borrowers is the sum of local network service revenue (FCC account #5000), network access revenue (#5081, #5082 and #5083), long distance network service revenue (#5100), carrier billing and collection revenue (#5270), miscellaneous revenue (#5200), and uncollectible revenues (#5300).</em></p>
+</div>
+      
+      </div>
+</div>
+          </div>
+  
+  </div>
+
+</article>
+
+
+  </div>
+
+                                            </div>
+
+                                                                                            <aside class="sidebar-second" role="complementary">
+                                  <div class="region region-sidebar-second">
+    <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" data-block-plugin-id="menu_block:main">
+            
+  <h2 class="visually-hidden" id="block-mainnavigation-menu">NTCA Sidebar Submenu navigation</h2>
+  
+
+        
+
+              <ul class="menu nav navbar-nav">
+                            <li class="expanded dropdown active">
+        <a href="/member-services" class="dropdown-toggle" data-target="#" data-toggle="DISABLED-dropdown">Member Services <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/member-services/why-join" data-drupal-link-system-path="node/89">Join</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ssaauthmenu.show_top_menu">Member Central</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/governance" data-drupal-link-system-path="node/90">Governance</a>
+                  </li>
+                        <li class="expanded dropdown active">
+        <a href="/member-services/membership-dues" data-drupal-link-system-path="node/92">Membership Dues</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/member-relations" data-drupal-link-system-path="node/95">Member Relations Manager</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#businesssolutions" data-drupal-link-system-path="node/32">Business Solutions</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#programs" data-drupal-link-system-path="node/32">Programs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services#awards" data-drupal-link-system-path="node/32">Awards &amp; Recognition</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/advertising-sponsorships" data-drupal-link-system-path="node/101">Advertising &amp; Sponsorships</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/listservs" data-drupal-link-system-path="node/301">Listservs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/disaster-relief-clearinghouse-inactive" data-drupal-link-system-path="node/675">Disaster Relief Clearinghouse</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/member-services/awards-recognition/certified-gig-capable-provider">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-01/promo_Gig.jpg?itok=IsIqo1Ne" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Is Your Telco Gig-Capable?</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits" class="dropdown-toggle" data-target="#" data-toggle="DISABLED-dropdown">Insurance &amp; Benefits <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/contact-benefits" data-drupal-link-system-path="node/106">Contact Benefits</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/participants" data-drupal-link-system-path="node/108">Participants</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-and-benefits/hr-administrators" data-drupal-link-system-path="node/113">HR Administrators</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/member-relations" data-drupal-link-system-path="node/95">Member Relations Manager</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/insurance-benefits/benefits-forms" title="View and access benefits forms" data-drupal-link-system-path="node/48">Benefits Forms</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ssaauthmenu.show_top_menu">Benefits Invoice Payment</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://connect.healthaxis.com/SignIn.aspx?c=ntc&amp;n=1">GHP Claims Inquiry</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ntca.welcometouhc.com/">GHP Network Providers</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://nb.fidelity.com/public/nb/ntca/home">Savings Plan/Fidelity</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/insurance-benefits/benefits-forms">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2017-11/student-849825_edit.jpg?itok=hs-pukW6" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Access Benefit Forms</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy" class="dropdown-toggle" data-target="#" data-toggle="DISABLED-dropdown">Advocacy <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/advocacy/advocacy-action-center" data-drupal-link-system-path="node/116">Advocacy Action Center</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom/filings" data-drupal-link-system-path="ruraliscool/newsroom/filings">Federal Filings</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy/ntca-rural-broadband-pac" class="menu-item-pac-member" data-drupal-link-system-path="node/47">NTCA Rural Broadband PAC</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy/pac-info" class="menu-item-pac-non-member" data-drupal-link-system-path="node/281">NTCA Rural Broadband PAC</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/advocacy#issues" data-drupal-link-system-path="node/36">Issues</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://www.buildbroadbandwithus.com/">#BuildBroadbandWithUs</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/publications/washington-report" data-drupal-link-system-path="node/791">Washington Report</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#ntcalive" data-drupal-link-system-path="node/125">Policy Talk</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="/events-education/education/cyber-wise">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-02/feature_cyberwise.jpg?itok=pKlbdTtH" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>New Free! Cyber Wise Program</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education" class="dropdown-toggle" data-target="#" data-toggle="DISABLED-dropdown">Events &amp; Education <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/education" data-drupal-link-system-path="node/124">EDUCATION</a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning" title="View NTCA&#039;s training opportunities" data-drupal-link-system-path="node/125">Online Learning</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ntca.sclivelearningcenter.com/index.aspx?PID=8413">Live Learning Center</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education#certificate" title="View continuing education opportunities" data-drupal-link-system-path="node/124">Certificate Program</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/cyber-wise" data-drupal-link-system-path="node/2158">Cyber Wise</a>
+                  </li>
+    	           <li>
+                                                                                                      </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/events" data-drupal-link-system-path="node/41">EVENTS</a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/events-education/events/events-calendar" data-drupal-link-system-path="node/676">Events Calendar</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#webinars" data-drupal-link-system-path="node/125">Webinars</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/education/online-learning#ntcalive" data-drupal-link-system-path="node/125">NTCA Live</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/events-education/events/industry-calendar" data-drupal-link-system-path="node/128">Industry Calendar</a>
+                  </li>
+    	           <li>
+                                                                                                      </li>
+            </ul>
+  
+            </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="https://www.ntca.org/events-education/events/2018-regional-conference">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-04/feature_2018Regionals.png?itok=7KhWJGvv" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>REGISTER TODAY</span>
+                                              </a>
+                                  </div>
+                                                                            </li>
+            </ul>
+  
+            </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool" class="dropdown-toggle" data-target="#" data-toggle="DISABLED-dropdown">#ruraliscool <span class="caret"></span></a>
+                                  <ul class="menu dropdown-menu">
+                            <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom" title="VIew recent news, press releases, latest federal filings" data-drupal-link-system-path="ruraliscool/newsroom">Newsroom</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="http://ceoblog.ntca.org/">Shirley&#039;s Blog</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/stories-innovation" data-drupal-link-system-path="node/324">Stories of Innovation</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/who-we-are" data-drupal-link-system-path="node/136">Who We Are</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/about-our-members" data-drupal-link-system-path="node/137">About Our Members</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/publications" data-drupal-link-system-path="node/140">Publications</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/programs/smart-rural-community" data-drupal-link-system-path="node/612">Smart Rural Community</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/survey-reports" title="View NTCA&#039;s survey reports" data-drupal-link-system-path="node/243">Survey Reports</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/contact/contact_us" data-drupal-link-system-path="contact/contact_us">Contact Us</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/history-rural-telecommunications" data-drupal-link-system-path="node/792">History of Rural Telecommunications</a>
+                  </li>
+    	           <li>
+                                                        <div class="featured-main-menu-content">
+                                                                                <a href="http://ceoblog.ntca.org/">
+                        
+            <div class="field field--name-field-image field--type-image field--label-hidden field--item">  <img src="/sites/default/files/styles/featured_menu_240x160_/public/images/2018-01/feature_shirleyblog.jpg?itok=PpdFr0hs" width="360" height="203" alt="" typeof="foaf:Image" class="img-responsive" />
+
+
+</div>
+      
+                                                  <span>Thoughts &amp; Perspectives From Shirley</span>
+                                              </a>
+                                  </div>
+                                                                      <div class="featured-main-menu-content">
+                                      
+                                  </div>
+                                    </li>
+            </ul>
+  
+            </li>
+    	     </ul>
+  
+
+
+  </nav>
+
+  </div>
+
+                            </aside>
+                                            
+                    <div class="page-content-bottom">
+                                                                            
+                                            </div>
+
+                </div>
+            </div>
+        </section>
+
+            </div><!--/.main-container-->
+
+      <footer class="site-footer" role="contentinfo">
+      <div class="container-fluid">
+        <div class="row footer-columns">
+              <div class="region region-footercol1">
+    <section id="block-footercolumn1" data-block-plugin-id="block_content:c66ccfcd-aee3-47f4-9a74-6cb5d4f25efa" class="block block-block-content block-block-contentc66ccfcd-aee3-47f4-9a74-6cb5d4f25efa clearfix">
+  
+    
+
+      
+      <div class="field field--name-field-custom-blocks-ref field--type-entity-reference field--label-hidden field--items">
+                              <div class="field--item odd">
+            <div class="field field--name-field-custom-block-ref field--type-entity-reference field--label-hidden field--item">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><a class="logo" href="/" title="Home" rel="home">
+      <img src="/themes/custom/primary_bootstrap/logo.png" alt="Home" /></a>
+</div>
+      </div>
+      </div>
+                              <div class="field--item even">
+            <div class="field field--name-field-custom-block-ref field--type-entity-reference field--label-hidden field--item">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><p>© 2018 NTCA — The Rural Broadband Association.<br />
+All rights reserved.</p>
+
+<p>Headquarters:<br />
+     4121 Wilson Boulevard, Suite 1000, Arlington, VA 22203<br />
+Asheville:<br />
+     30 Town Square Boulevard, Suite 300, Asheville, NC 28803</p></div>
+      </div>
+      </div>
+          </div>
+  
+  </section>
+
+
+  </div>
+
+              <div class="region region-footercol2">
+    <section id="block-footercolumn2" data-block-plugin-id="block_content:dfdbb5d2-cc18-44f0-93fb-d9eea24b3292" class="block block-block-content block-block-contentdfdbb5d2-cc18-44f0-93fb-d9eea24b3292 clearfix">
+  
+    
+
+      
+      <div class="field field--name-field-custom-blocks-ref field--type-entity-reference field--label-hidden field--items">
+                              <div class="field--item odd">
+            <div class="field field--name-field-block-ref field--type-entity-reference field--label-hidden field--item"><nav role="navigation" aria-labelledby="block-bartik-footer-menu" id="block-bartik-footer" data-block-plugin-id="system_menu_block:footer">
+            
+  <h2 class="visually-hidden" id="block-bartik-footer-menu">Footer menu</h2>
+  
+
+        
+              <ul class="menu nav">
+                            <li class="expanded dropdown">
+        <a href="/ruraliscool/who-we-are" data-drupal-link-system-path="node/136">About Us</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/why-join" data-drupal-link-system-path="node/89">Join</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/careers-ntca" data-drupal-link-system-path="node/1938">Careers at NTCA</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/ruraliscool/newsroom" data-drupal-link-system-path="ruraliscool/newsroom">Newsroom</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="https://online.ntca.org/ntcassa/ecssashop.shopping_page">eStore</a>
+                  </li>
+                        <li class="expanded dropdown">
+        <a href="/member-services/business-solutions/solution-providers-directory" data-drupal-link-system-path="node/99">Supplier Directory</a>
+                  </li>
+        </ul>
+  
+
+
+  </nav>
+</div>
+      </div>
+                              <div class="field--item even"></div>
+                              <div class="field--item odd">
+            <div class="field field--name-field-custom-block-ref field--type-entity-reference field--label-hidden field--item">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><a href="/ntca-website-terms-use">Terms of Use</a> | <a href="/ntca-site-privacy-policy">Privacy Policy</a> | <a href="/global/ntca-antitrust-statement-and-summary-ntca-meetings">Antitrust Statement</a> | <a href="/contact/contact_us">Contact Us</a>
+</div>
+      </div>
+      </div>
+          </div>
+  
+  </section>
+
+
+  </div>
+
+              <div class="region region-footercol3">
+    <section id="block-footercolumn3" data-block-plugin-id="block_content:16d8823b-50d0-4966-a75e-4f48a0c1df55" class="block block-block-content block-block-content16d8823b-50d0-4966-a75e-4f48a0c1df55 clearfix">
+  
+    
+
+      
+      <div class="field field--name-field-custom-blocks-ref field--type-entity-reference field--label-hidden field--items">
+                              <div class="field--item odd">
+            <div class="field field--name-field-custom-block-ref field--type-entity-reference field--label-hidden field--item">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><!--
+                        <h3>Keep In Touch</h3>
+                        <form action="" class="keep-in-touch">
+                            <input type="text" class="email" placeholder="Your Email">
+                            <button class="button yellow">Sign Up</button>
+                        </form>
+--></div>
+      </div>
+      </div>
+                              <div class="field--item even">
+            <div class="field field--name-field-custom-block-ref field--type-entity-reference field--label-hidden field--item">
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item">                        <h3>Connect With Us</h3>
+                        <ul class="social-links"><li>
+                                <a href="https://www.facebook.com/NTCARuralTelecom/">
+                                    <span class="icon facebook"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://twitter.com/ntcaconnect">
+                                    <span class="icon twitter"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://www.youtube.com/ruraltelecommunity">
+                                    <span class="icon youtube"></span>
+                                </a>
+                            </li>
+                        </ul></div>
+      </div>
+      </div>
+          </div>
+  
+  </section>
+
+
+  </div>
+
+        </div>
+        <div class="row">
+            <div class="region region-footer">
+    <section id="block-footerexploresites" data-block-plugin-id="block_content:814f1ed6-eee0-4056-a9ed-831b244b1231" class="block block-block-content block-block-content814f1ed6-eee0-4056-a9ed-831b244b1231 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><div id="block-footerexploresites">
+<p>Explore NTCA Sites</p>
+<ul class="explore-menu"><li><a href="https://www.frs.org/"><img src="/themes/custom/primary_bootstrap/img/frs.png" /></a></li>
+     <li><a href="http://www.ntca.org/pac"><img src="/themes/custom/primary_bootstrap/img/pac.png" /></a></li>
+    <li><a href="https://www.ntca.org/member-services/programs/smart-rural-community"><img src="/themes/custom/primary_bootstrap/img/src.png" /></a></li>
+</ul></div>
+</div>
+      
+  </section>
+
+<section id="block-sharelinksjavascriptdonotdelete" data-block-plugin-id="block_content:18d20c7e-5173-4947-88d3-5bdbfa026005" class="block block-block-content block-block-content18d20c7e-5173-4947-88d3-5bdbfa026005 clearfix">
+  
+    
+
+      
+            <div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"><!-- Go to www.addthis.com/dashboard to customize your tools --> <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-591debb4b6376be8"></script></div>
+      
+  </section>
+
+
+  </div>
+
+        </div>
+      </div>
+    </footer>
+  
+    
+    <script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","scriptPath":null,"pathPrefix":"","currentPath":"node\/42","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en"},"pluralDelimiter":"\u0003","ajaxPageState":{"libraries":"bfred_bootstrap\/global-styling,bootstrap\/popover,bootstrap\/tooltip,colorbox\/default,colorbox_load\/colorbox_load,core\/html5shiv,datalayer\/behaviors,ng_lightbox\/ng_lightbox,ntca_externalauth\/loginform_js,primary_bootstrap\/global-styling,system\/base","theme":"primary_bootstrap","theme_token":null},"ajaxTrustedUrl":{"\/search":true},"colorbox":{"opacity":"0.85","current":"{current} of {total}","previous":"\u00ab Prev","next":"Next \u00bb","close":"Close","maxWidth":"98%","maxHeight":"98%","fixed":true,"mobiledetect":true,"mobiledevicewidth":"480px"},"dataLayer":{"defaultLang":"en","languages":{"en":{"id":"en","name":"English","direction":"ltr","weight":0}}},"bootstrap":{"forms_has_error_value_toggle":1,"modal_animation":1,"modal_backdrop":"true","modal_keyboard":1,"modal_show":1,"modal_size":"","popover_enabled":1,"popover_animation":1,"popover_container":"body","popover_content":"","popover_delay":"0","popover_html":0,"popover_placement":"right","popover_selector":"","popover_title":"","popover_trigger":"click","popover_trigger_autoclose":1,"tooltip_enabled":1,"tooltip_animation":1,"tooltip_container":"body","tooltip_delay":"0","tooltip_html":0,"tooltip_placement":"auto bottom","tooltip_selector":"","tooltip_trigger":"hover"},"ajax":[],"user":{"uid":0,"permissionsHash":"280d250911f7dac2850c2e57ca2a5f4b24735b255245926539b9c1dcfd061d66"}}</script>
+<script src="/sites/default/files/js/js_hd-_CU8ZTPbZtDuLhffXQre5zIbjQxZznqm6TzVMuTQ.js"></script>
+<script src="/sites/default/files/js/js_H0MlSWuSEpFY1DXnksyJUxJzfnxhLy90AkiPzVFMuqk.js"></script>
+
+  <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"6ca47118c0","applicationID":"97915384","transactionName":"Nl1XYEcDXxUCAhcPDA8XdFdBC14ITCURExMAVGl3WhBUOi4EDRM\/JV1TVUAORSsGDxYqCg9TYUZQB3wHDQgTEw8ATFpGRk8PAQYPBhQCFV18WlEHSScNBTAJERU=","queueTime":0,"applicationTime":3066,"atts":"GhpUFg8ZTBs=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

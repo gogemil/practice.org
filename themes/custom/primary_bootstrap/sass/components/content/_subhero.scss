@@ -1,0 +1,292 @@
+//5-up grid sub hero
+
+.field--name-field-subhero-space-para-ref{
+  //margin-bottom: $slug-height;
+  //padding-bottom: $slug-height; //using padding to avoid margin collapse issues -- removing to fix spacing issue for ntcaon-84, uncomment if needed
+}
+.item--paragraph--type--grid-type-5-sub-hero {
+  background-color: $global-color-primary;
+  margin: 0 $grid-gutter-width/-2;
+  padding: $slug-height 0 0;
+  color: #fff;
+  @media only screen and (min-width: $screen-md) {
+    padding: $slug-height 0;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4;
+  }
+  .item--paragraph--type--grid-type-2-sub-hero + & {
+    padding-top: 0;
+  }
+  .group-section-title {
+    color: #fff;
+    margin-top: 0;
+  }
+}
+.paragraph--type--grid-type-5-sub-hero {
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    padding: 0 $grid-gutter-width*4;
+  }
+  .field--name-field-section-title {}
+}
+.field--name-field-grid-items-5 {}
+
+////2-up grid sub hero
+.field--name-field-subhero-space-para-ref {}
+.item--paragraph--type--grid-type-2-sub-hero {
+  background-color: $global-color-primary;
+  margin: 0 $grid-gutter-width/-2 $slug-height;
+  padding: $slug-height 0 0;
+  color: #fff;
+  @media only screen and (min-width: $screen-md) {
+    padding: $slug-height 0;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4;
+  }
+  .group-section-title {
+    color: #fff;
+    margin-top: 0;
+  }
+}
+.paragraph--type--grid-type-2-sub-hero {
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    padding: 0 $grid-gutter-width*4;
+  }
+  .field--name-field-grid-items-2 {}
+}
+.item--paragraph--type--sub-hero-icons-promo {
+  @include make-xs-column(12);
+  @include make-md-column(7);
+}
+.paragraph--type--sub-hero-icons-promo {
+  margin-bottom: $slug-height;
+  @media only screen and (min-width: $screen-md) {
+    margin-bottom: 0;
+  }
+  .group-section-title {
+    @extend .h1;
+    color: #fff;
+    margin-top: 0;
+  }
+  .field--name-field-title {}
+  .field--name-field-promo-icon-ref {
+    margin: 0 auto $slug-height/4;
+    max-width: 600px;
+    text-align: center;
+    @media only screen and (min-width: $screen-md) {
+      text-align: left;
+      margin: 0 0 $slug-height/4;
+      max-width: none;
+    }
+    a{
+      color: #fff;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+    .field--item {
+      color: #fff;
+      display: inline-block;
+      margin: $slug-height/4 $grid-gutter-width*2.5 $slug-height/4 -4px;
+      width: 50%;
+      max-width: 126px;
+      vertical-align: top;
+      @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+        width: 25%;
+      }
+      @media only screen and (min-width: $screen-lg) {
+        width: 25%;
+      }
+      &:first-child,
+      &:nth-child(3n+4) {
+        margin-left: 0;
+      }
+      &:nth-child(2n+2) {
+        @media only screen and(max-width: $screen-xs-max) {
+          margin-right: 0;
+        }
+        @media only screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+          margin-right: 0;
+        }
+      }
+      &:nth-child(3n+3) {
+        @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+          margin-right: 0;
+        }
+        @media only screen and (min-width: $screen-lg) {
+          //margin-right: 0;
+        }
+      }
+      > div {}
+      span {
+        display: block;
+        font-size: $font-size-base*3.666666666666667;
+        text-align: center;
+      }
+      .field--name-name {
+        display: block;
+        font-size: $font-size-base*1.111111111111111;
+        margin: $slug-height/6 0 0;
+        width: 100%;
+      }
+    }
+  }
+  .field--name-field-link {
+    margin-bottom: $slug-height/4;
+    margin-top: $slug-height;
+    text-align: center;
+    @media only screen and (min-width: $screen-md) {
+      text-align: left;
+    }
+    a {
+      @extend %button;
+      @extend %button-white;
+      @extend %button-bordered;
+      @extend %button-big;
+    }
+  }
+}
+.item--paragraph--type--sub-hero-custom-promo {
+  @include transparent-color-overlay($global-color-primary, .75);
+  @include make-xs-column(12);
+  @include make-md-column(4);
+  float: right !important;//defeat the float from the mqs
+  background-size: cover;
+  background-position: center center !important;//defeat rule added by module when adding the image
+  background-repeat: no-repeat;
+  @include aspect-ratio(100,100);
+}
+.paragraph--type--sub-hero-custom-promo {
+  position: relative;
+  padding: $slug-height/2 $grid-gutter-width*1.5 $slug-height;
+  .group-section-title {
+    color: #fff;
+    margin-top: 0;
+    font-size: $font-size-base*1.555555555555556;
+  }
+  .field--name-field-title {}
+  .field--name-field-body {}
+  p,
+  li {
+    color: #fff;
+    font-size: $font-size-base*1.222222222222222;
+  }
+  p {}
+  ul {}
+  li {}
+  .field--name-field-buttons-2 {
+    margin-top: $slug-height/2;
+    .field--item {
+      margin-bottom: $slug-height/4;
+      text-align: center;
+    }
+    a {
+      @extend %button;
+      @extend %button-white;
+      @extend %button-bordered;
+      @extend %button-big;
+    }
+  }
+}
+
+//Wide sub hero
+.block-entity-fieldnodefield-subhero-space-para-ref {}
+.field--name-field-subhero-space-para-ref {}
+.item--paragraph--type--sub-herospace-promo-wide {
+  @include clearfix;
+  background-color: $global-color-primary;
+  color: #fff;
+  margin: 0 $grid-gutter-width/-2;
+  padding: $slug-height 0 0;
+  @media only screen and (min-width: $screen-md) {
+    padding: $slug-height 0;
+  }
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4;
+  }
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+.paragraph--type--sub-herospace-promo-wide {
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    padding: 0 $grid-gutter-width*4;
+  }
+  .field--name-field-section-title {
+    @include make-xs-column(12);
+    @extend .h1;
+    color: #fff;
+    margin-top: 0;
+  }
+  a{
+    color: #fff;
+    text-decoration: underline;
+  }
+  .content-wrapper {
+    @include make-xs-column(12);
+  }
+  .group-content {
+    @include make-row();
+    .field--name-field-body {
+      @include make-xs-column(12);
+      p {
+        font-size: $font-size-base*1.222222222222222;
+      }
+    }
+    .field--name-field-body-extra {
+      @include make-xs-column(12);
+      @include make-sm-column(6);
+      ul {}
+      li,
+      p{
+        font-size: $font-size-base*1.222222222222222;
+      }
+    }
+    &.second-column-exists{
+      .field--name-field-body {
+        @include make-sm-column(6);
+        padding-right: $grid-gutter-width*2;
+      }
+      .field--name-field-body-extra {
+        padding-left: $grid-gutter-width*2;
+      }
+    }
+  }
+  .bfred-info-box {
+    //@include transparent-color-overlay($global-color-primary, .7);
+    background-image: url('/themes/custom/primary_bootstrap/img/tractor.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 360px;
+    &.right {}
+    &.left {}
+  }
+  .field--name-field-links {
+    @include make-xs-column(12);
+    margin-top: $slug-height/1.5;
+    text-align: center;
+    .field--item {
+      display: inline-block;
+      margin: 0 $grid-gutter-width/2 $slug-height/4;
+      a {
+        @extend %button;
+        @extend %button-white;
+        @extend %button-bordered;
+        @extend %button-big;
+      }
+    }
+  }
+  .field--name-field-section-footer {
+    @include make-xs-column(12);
+    margin-top: $slug-height/2;
+    text-align: center;
+    a {
+      color: #fff;
+    }
+  }
+}

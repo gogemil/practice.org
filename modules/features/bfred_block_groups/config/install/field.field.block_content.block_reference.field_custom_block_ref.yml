@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - block_content.type.block_reference
+    - field.storage.block_content.field_custom_block_ref
+id: block_content.block_reference.field_custom_block_ref
+field_name: field_custom_block_ref
+entity_type: block_content
+bundle: block_reference
+label: 'Custom Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      basic: basic
+    sort:
+      field: info
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

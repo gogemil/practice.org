@@ -1,0 +1,191 @@
+.paragraph--type--content-grid {
+  clear: both;
+  margin-bottom: $slug-height;
+  > .section-title {
+    text-align: center;
+  }
+  > .field--name-field-body {
+    margin-bottom: $slug-height/2;
+    //text-align: center;
+  }
+  > .field--type-paragraph {
+    margin-bottom: $slug-height*1.666666666666667;
+    + .field--name-field-section-footer,
+    + .field--name-field-link{
+      margin-top: -$slug-height;
+    }
+  }
+  > .field--name-field-section-footer {
+    margin-bottom: $slug-height/2;
+  }
+  > .field--name-field-link {
+    margin-bottom: $slug-height;
+    text-align: center;
+    a {
+      @extend %button;
+      @extend %button-white;
+      @extend %button-bordered;
+      @extend %button-big;
+    }
+  }
+  &.alt-color-green{
+    background-color: $global-color-secondary;
+    margin-left: -$grid-gutter-width/2;
+    margin-right: -$grid-gutter-width/2;
+    padding: $grid-gutter-width $grid-gutter-width*2;
+    color: #fff;
+    @media only screen and (min-width: $screen-sm) {
+      margin-left: -$grid-gutter-width*4;
+      margin-right: -$grid-gutter-width*4;
+      padding: $grid-gutter-width $grid-gutter-width*4;
+    }
+    .section-title{
+      color: #fff;
+    }
+    .field--name-field-body{
+      font-size: $font-size-h3;
+      color: #fff;
+      text-align: center;
+    }
+    .content-area{}
+  }
+  &.alt-color-blue{
+    background-color: $global-color-primary;
+    margin-left: -$grid-gutter-width/2;
+    margin-right: -$grid-gutter-width/2;
+    padding: $grid-gutter-width $grid-gutter-width*2;
+    color: #fff;
+    @media only screen and (min-width: $screen-sm) {
+      margin-left: -$grid-gutter-width*4;
+      margin-right: -$grid-gutter-width*4;
+      padding: $grid-gutter-width $grid-gutter-width*4;
+    }
+    .section-title{
+      color: #fff;
+    }
+    .field--name-field-body{
+      font-size: $font-size-h3;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  &.alt-4-up-grid.alt-color-blue{
+    > .field--type-paragraph{
+      + .field--name-field-section-footer{
+        color: #fff;
+        text-align: center;
+      }
+    }
+    .field--name-field-grid-items-4{
+      > .item--paragraph--type--grid-item-simple-card{
+        padding: 0;
+      }
+    }
+    .field--name-field-link {
+      a{
+        @extend %button;
+        @extend %button-white;
+        @extend %button-bordered;
+        @extend %button-big;
+      }
+    }
+
+    .paragraph--type--grid-item-simple-card {
+      .card-image-wrapper{
+        border: none;
+      }
+      .field--name-field-link{
+        display: none;
+      }
+    }
+  }
+}
+
+.paragraph--type--grid-type-promos {
+  margin: 0 $grid-gutter-width*-1;
+  padding: 0 $grid-gutter-width/2;
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4.5-1;
+    //margin: 0 $grid-gutter-width*-4;
+  }
+}
+.field--name-field-grid-items-promos {
+  @include card-grid;
+  @extend .four-columns;
+  > .item--paragraph--type--grid-item-promo-matrix-content {
+    @extend .card;
+    @include aspect-ratio(5,4);
+    padding: 0;
+    overflow: hidden;
+  }
+  .paragraph--type--grid-item-promo-matrix-content {
+    @extend .content;
+    background-color: #fff;
+    &.alt-color-yellow{
+      background-color: $global-color-tertiary;
+    }
+    &.alt-color-blue {
+      background-color: $global-color-primary;
+    }
+    &.alt-color-green {
+      background-color: $global-color-secondary;
+    }
+  }
+  .card-image-wrapper {
+    height: 100%;
+  }
+  .field--name-field-card-image {
+    height: 100%;
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    height: 100%;
+  }
+  .field--name-field-short-description {
+    @include absolute-center;
+    color: #fff;
+    font-size: $font-size-base*1.333333333333333;
+    width: 80%;
+  }
+  .field--name-field-quote {
+    @include absolute-center;
+    @extend .quote;
+    color: #fff;
+    font-size: $font-size-base*1.333333333333333;
+    margin-top: $slug-height/2;
+    width: 80%;
+    &:before {
+      @include horizontal-center;
+      bottom: 100%;
+      font-size: $font-size-base*3.333333333333333;
+      margin-bottom: 10px;
+    }
+  }
+  .field--name-field-card-image-video {
+    @extend .youtube-play;
+    height: 100%;
+    &:before {
+      @include absolute-center;
+      color: #fff;
+      font-size: $font-size-base*3.333333333333333;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  .field--name-field-link {
+    a {
+      color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      z-index: 13;
+    }
+  }
+  .field--name-field-card-style {}
+}

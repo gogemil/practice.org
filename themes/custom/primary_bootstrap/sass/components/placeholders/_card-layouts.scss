@@ -1,0 +1,287 @@
+//CARD LAYOUTS
+a.card-hover-bg-default {
+  &:hover {}
+}
+@mixin card-layout-default { //2up Card Layout
+  display: block;
+  overflow: hidden;
+  text-decoration: none;
+  position: relative;
+  .card-image-wrapper {
+    @include aspect-ratio(4,3);
+  }
+  .field--name-field-card-image {
+    @extend .content;
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    height: 189px;
+    width: 100%;
+    padding: 0 $grid-gutter-width*1.5 $slug-height/2;
+    position: absolute;
+    bottom: 0;
+    @include transparent(#fff, .7);
+    color: $body-text-color;//if default is white bg, text must be dark. Adding this could cause some other promos to go dark when it was not expected. Address them elsewhere TDA 2017-12-08
+    .content-area{//emergency, had to wrap some content-areas in another content area, so deactivate styles when inception occurs NTCARDSN-184
+      background-color: transparent;
+      height: auto;
+      padding: 0;
+      position: static;
+    }
+  }
+  .field--name-field-title,
+  .field--name-field-section-title{
+    @include multiline-ellipsis(1.333333333333333, 1, 1, 18px, transparent);
+    display: block !important;//NTCARDSN-259 this is needed so that FF will center align these titles (overrides "display: -webkit-box" in the mixin) but may screw up the elipses.
+    //font-family: $body-font;
+    font-family: $header-font;
+    font-weight: 600;
+    margin-top: $slug-height/4;
+    margin-bottom: $slug-height/4;
+  }
+  .field--name-field-short-description,
+  .field--name-field-body {
+    @include multiline-ellipsis(1.111111111111111, 1.5, 3, 18px, transparent);
+    display: inline;
+    p {
+      font-size: 20px;
+    }
+  }
+  .field--name-field-link {
+    font-size: $font-size-base*1.111111111111111;
+    display: inline;
+    a {
+      font-size: 20px;
+      font-family: $body-font;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+a.card-hover-bg-5up-white {
+  &:hover {}
+}
+@mixin card-layout-5up-white {
+  @include card-layout-default;
+  .card-image-wrapper {
+    @include aspect-ratio(1,1);
+  }
+  .field--name-field-card-image {
+    img {}
+  }
+  .content-area {
+    @include transparent(#fff, .7);
+    height: 117px;
+    .content-area {//emergency, had to wrap some content-areas in another content area, so deactivate styles when inception occurs NTCARDSN-184
+      height: auto;
+    }
+  }
+  .field--name-field-title {}
+  .field--name-field-short-description {}
+  .field--name-field-link {
+    @include multiline-ellipsis(1.333333333333333, 1, 3, 18px, transparent);
+    margin: $slug-height/4 0 $slug-height/2;
+    a {
+      color: $body-text-color;
+      &:hover {}
+    }
+  }
+}
+
+a.card-hover-bg-5up-blue {
+  &:hover {}
+}
+@mixin card-layout-5up-blue {
+  @include card-layout-5up-white;
+  //@extend .card-hover-bg-5up-blue;
+  .card-image-wrapper {}
+  .field--name-field-card-image {
+    img {}
+  }
+  .content-area {
+    @include transparent($global-color-primary, .7);
+    color: #fff;
+    .content-area {//emergency, had to wrap some content-areas in another content area, so deactivate styles when inception occurs NTCARDSN-184
+      background-color: transparent;
+      color: #fff;
+    }
+  }
+  .field--name-field-title {}
+  .field--name-field-short-description {}
+  .field--name-field-link {
+    a {
+      color: #fff;
+      &:hover {}
+    }
+  }
+}
+
+a.card-hover-bg-4up {
+  &:hover {}
+}
+@mixin card-layout-4up {
+  @include card-layout-default;
+  .card-image-wrapper {
+    @include aspect-ratio(5,4);
+    border: $gray-border-7;
+  }
+  .field--name-field-card-image {
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    height: auto;
+    padding: 0;
+    position: relative;
+    text-align: center;
+  }
+  .field--name-field-title {
+    @include remove-ellipsis;
+  }
+  .field--name-field-short-description {}
+  .field--name-field-link {
+    @include multiline-ellipsis(1.333333333333333, 1, 2, 18px, transparent);
+    font-family: $body-font;
+    font-weight: 600;
+    margin-top: $slug-height/4;
+    margin-bottom: $slug-height/2;
+    padding-bottom: 2px;
+    a {
+      color: $body-text-color;
+    }
+  }
+}
+
+a.card-hover-bg-3up-white {
+  &:hover {}
+}
+@mixin card-layout-3up-white {
+  @include card-layout-default;
+  .card-image-wrapper {
+    @include aspect-ratio(1,1);
+  }
+  .field--name-field-image,
+  .field--name-field-card-image{
+    @extend .content;
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    @include transparent(#fff, .7);
+    color: $body-text-color;
+    //height: 214px;
+    text-align: center;
+    .content-area{//emergency, had to wrap some content-areas in another content area, so deactivate styles when inception occurs NTCARDSN-184
+      height: auto;
+    }
+  }
+  .field--name-field-section-title {
+    @include multiline-ellipsis(1.333333333333333, 1, 1, 18px, transparent);
+  }
+  .field--name-field-body {
+    @include remove-ellipsis;
+    display: block;
+    p {
+      @include multiline-ellipsis(1, 1.5, 2, 20px, transparent);
+    }
+  }
+  .field--name-field-link {
+    display: block;
+    a {
+      @extend %button;
+      @extend %button-bordered;
+      @extend %button-ghost-alt;
+      &:hover {}
+    }
+  }
+}
+
+a.card-hover-bg-3up-blue {
+  &:hover {}
+}
+@mixin card-layout-3up-blue {
+  @include card-layout-3up-white;
+  .card-image-wrapper {
+    @include aspect-ratio(1,1);
+  }
+  .field--name-field-image,
+  .field--name-field-card-image{
+    @extend .content;
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    @include transparent($global-color-primary, .7);
+    color: #fff;
+    .content-area{//emergency, had to wrap some content-areas in another content area, so deactivate styles when inception occurs NTCARDSN-184
+      background-color: transparent;
+    }
+    h3{
+      color: #fff;
+    }
+  }
+  .field--name-field-title {}
+  .field--name-field-short-description {}
+  .field--name-field-link {
+    a {
+      @extend %button-ghost;
+      color: #fff;
+      &:hover {}
+    }
+  }
+}
+
+a.card-hover-bg-3up-video {
+  &:hover {}
+}
+@mixin card-layout-3up-video {
+  @include card-layout-default;
+  .card-image-wrapper {
+    @include aspect-ratio(5,4);
+  }
+  .field--name-field-image {
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {
+    padding: 0;
+    position: relative;
+  }
+  .field--name-field-title {
+    @include remove-ellipsis;
+    font-size: $font-size-base*1.111111111111111;
+  }
+  .field--name-field-short-description {
+    @include remove-ellipsis;
+  }
+  .field--name-field-link {}
+}
+
+a.card-hover-bg-promo {
+  &:hover {}
+}
+@mixin card-layout-promo {
+  @include card-layout-default;
+  .card-image-wrapper {}
+  .field--name-field-card-image {
+    img {
+      width: 100%;
+    }
+  }
+  .content-area {}
+  .field--name-field-title {
+    @include remove-ellipsis;
+  }
+  .field--name-field-short-description {}
+  .field--name-field-quote {}
+  .field--name-field-link {}
+  .field--name-field-card-style {}
+}

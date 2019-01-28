@@ -1,0 +1,16 @@
+//CARD COLORS
+a.linked-card-light {
+  &:hover {}
+}
+@mixin card-color-light {
+  @extend .linked-card-light;
+  > .content {}
+}
+
+a.linked-card-dark {
+  &:hover {}
+}
+@mixin card-color-dark {
+  @extend .linked-card-dark;
+  > .content {}
+}

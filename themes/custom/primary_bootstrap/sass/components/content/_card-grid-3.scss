@@ -1,0 +1,46 @@
+.paragraph--type--grid-type-3 {
+  padding: 0 $grid-gutter-width/2;
+  margin: 0 $grid-gutter-width*-1;
+  @media only screen and (min-width: $screen-lg) {
+    margin: 0 $grid-gutter-width*-4;
+    padding: 0;
+  }
+}
+.field--name-field-grid-items-3 {
+  @include card-grid;
+  @extend .three-columns;
+  .section--frs &{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  > .item--paragraph--type--content-grid-item {
+    @extend .card;
+    padding: 0;
+    &.item--paragraph--id--1989 {
+      .paragraph--type--content-grid {
+        margin-bottom: 0;
+        > .field--type-paragraph{
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+  .paragraph--type--content-grid-item {
+    @include card-layout-3up-blue;
+    .section--frs &,
+    .default-domain--frs-org & {
+      @include card-layout-3up-white;
+      .field--name-field-link a{
+        font-weight: 600;
+        &:hover{
+          border-color: $global-color-primary;
+        }
+      }
+    }
+  }
+  .field--name-field-card-image {}
+  .content-area {}
+  .field--name-field-title {}
+  .field--name-field-short-description {}
+  .field--name-field-link {}
+}

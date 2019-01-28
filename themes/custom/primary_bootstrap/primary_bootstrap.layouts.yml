@@ -1,0 +1,38 @@
+landingpage:
+  label: Landing Page (Default)
+  category: 'BF RED'
+  path: layouts/landingpage
+  icon: landingpage.png
+  css: landingpage.css
+  template: panels-landingpage
+  regions:
+    herospace_image:
+      label: Herospace Image
+    herospace_image_tall:
+      label: Herospace Image (Tall)
+    herospace_info:
+      label: Herospace Info
+    top:
+      label: Top
+    middle:
+      label: Middle
+    bottom:
+      label: Bottom
+homepage:
+  label: Home Page
+  category: 'BF RED'
+  path: layouts/homepage
+  icon: homepage.png
+  css: homepage.css
+  template: panels-homepage
+  regions:
+    herospace_image:
+      label: Herospace Image
+    herospace_info:
+      label: Herospace Info
+    top:
+      label: Top
+    middle:
+      label: Middle
+    bottom:
+      label: Bottom
