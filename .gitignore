@@ -59,6 +59,7 @@ styles/.sass-cache
 styles/.sass-cache/*
 sites/*/themes/*/.sass-cache/
 
+.htaccess
 
 # docker files
 docker-compose.yml
