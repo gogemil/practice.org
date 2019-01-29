@@ -69,3 +69,4 @@ docker-compose.yml
 sites/sites.php
 sites/*.dd
 
+.htaccess
