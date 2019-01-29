@@ -4,7 +4,7 @@
 # #############################################################################
 
 # CUSTOM: NTCA/FRS redirect
-# Tested at http://htaccess.mwl.be/ blblablablablabalbalab
+# Tested at http://htaccess.mwl.be/
 <IfModule mod_rewrite.c>
   RewriteEngine on
 
